@@ -1,0 +1,6 @@
+framework module Pods_falagron_falagronUITests {
+  umbrella header "Pods-falagron-falagronUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
