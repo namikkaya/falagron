@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="AddTextCell" customModule="falagron" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="350" height="70"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nvw-iU-gtl">
+                        <rect key="frame" x="20" y="8" width="310" height="54"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="-" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VeU-QM-FFA">
+                                <rect key="frame" x="52" y="10" width="250" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nig-rn-rCg">
+                                <rect key="frame" x="8" y="10" width="34" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="34" id="AHo-fP-Ynt"/>
+                                    <constraint firstAttribute="height" constant="34" id="iE0-OE-Nha"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Nig-rn-rCg" firstAttribute="centerY" secondItem="nvw-iU-gtl" secondAttribute="centerY" id="18p-dF-yjK"/>
+                            <constraint firstItem="Nig-rn-rCg" firstAttribute="leading" secondItem="nvw-iU-gtl" secondAttribute="leading" constant="8" id="vde-A5-spu"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="nvw-iU-gtl" secondAttribute="trailing" constant="20" id="9xZ-wk-Vbd"/>
+                <constraint firstItem="nvw-iU-gtl" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="T32-uJ-w57"/>
+                <constraint firstAttribute="bottom" secondItem="nvw-iU-gtl" secondAttribute="bottom" constant="8" id="iCx-Gk-UsG"/>
+                <constraint firstItem="nvw-iU-gtl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="vSJ-0C-96c"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="350" height="70"/>
+            <connections>
+                <outlet property="contentContainer" destination="nvw-iU-gtl" id="a3i-Bs-Mm4"/>
+                <outlet property="icon" destination="Nig-rn-rCg" id="a8S-RD-2gV"/>
+                <outlet property="titleLabel" destination="VeU-QM-FFA" id="ERD-r9-8vX"/>
+            </connections>
+            <point key="canvasLocation" x="352.17391304347831" y="166.74107142857142"/>
+        </collectionViewCell>
+    </objects>
+</document>

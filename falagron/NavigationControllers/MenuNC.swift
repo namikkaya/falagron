@@ -1,20 +1,20 @@
 //
-//  ViewController.swift
+//  MenuNC.swift
 //  falagron
 //
-//  Created by namik kaya on 15.09.2020.
+//  Created by namik kaya on 19.09.2020.
 //  Copyright © 2020 namik kaya. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class MenuNC: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
-
+    
 
 }
-

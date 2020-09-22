@@ -3,18 +3,55 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C2CBC46CAE67972FC827591 /* Pods_falagron_falagronUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA0E885784946C5B5F7A91F4 /* Pods_falagron_falagronUITests.framework */; };
+		4D5DEFB02516823900E0C25E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFAF2516823900E0C25E /* LoginViewController.swift */; };
+		4D5DEFB22516824600E0C25E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFB12516824600E0C25E /* RegisterViewController.swift */; };
+		4D5DEFB42516894A00E0C25E /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFB32516894A00E0C25E /* OTPViewController.swift */; };
+		4D5DEFB72516896A00E0C25E /* ResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFB62516896A00E0C25E /* ResetViewController.swift */; };
+		4D5DEFB925168DEC00E0C25E /* NSObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFB825168DEC00E0C25E /* NSObjectExtensions.swift */; };
+		4D5DEFBC251694DE00E0C25E /* MainBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFBA251694DE00E0C25E /* MainBannerCell.swift */; };
+		4D5DEFBD251694DE00E0C25E /* MainBannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D5DEFBB251694DE00E0C25E /* MainBannerCell.xib */; };
+		4D5DEFC0251695FB00E0C25E /* MainButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFBE251695FB00E0C25E /* MainButtonCell.swift */; };
+		4D5DEFC1251695FB00E0C25E /* MainButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D5DEFBF251695FB00E0C25E /* MainButtonCell.xib */; };
+		4D5DEFC825169CFB00E0C25E /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFC725169CFB00E0C25E /* UIViewExtensions.swift */; };
+		4D5DEFCB25169F2700E0C25E /* loadingColCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D5DEFC4251698A800E0C25E /* loadingColCell.xib */; };
+		4D5DEFCC25169F3900E0C25E /* loadingColCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFC3251698A800E0C25E /* loadingColCell.swift */; };
+		4D5DEFD02516A03400E0C25E /* MainModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFCF2516A03400E0C25E /* MainModels.swift */; };
+		4D5DEFD3251750B200E0C25E /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFD2251750B200E0C25E /* PurchaseViewController.swift */; };
+		4D5DEFD5251750CE00E0C25E /* Purchase.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D5DEFD4251750CE00E0C25E /* Purchase.storyboard */; };
+		4D5DEFD72517516500E0C25E /* PurchaseNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFD62517516500E0C25E /* PurchaseNC.swift */; };
+		4D5DEFDC2517610700E0C25E /* LoginLogoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFDA2517610700E0C25E /* LoginLogoCell.swift */; };
+		4D5DEFDD2517610700E0C25E /* LoginLogoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D5DEFDB2517610700E0C25E /* LoginLogoCell.xib */; };
+		4D5DEFE22517660300E0C25E /* AddTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFE02517660300E0C25E /* AddTextCell.swift */; };
+		4D5DEFE32517660300E0C25E /* AddTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D5DEFE12517660300E0C25E /* AddTextCell.xib */; };
 		4DDA64AF2511459C00EE2BE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA64AE2511459C00EE2BE7 /* AppDelegate.swift */; };
 		4DDA64B12511459C00EE2BE7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA64B02511459C00EE2BE7 /* SceneDelegate.swift */; };
-		4DDA64B32511459C00EE2BE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA64B22511459C00EE2BE7 /* ViewController.swift */; };
 		4DDA64B62511459C00EE2BE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DDA64B42511459C00EE2BE7 /* Main.storyboard */; };
 		4DDA64B82511459F00EE2BE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DDA64B72511459F00EE2BE7 /* Assets.xcassets */; };
 		4DDA64BB2511459F00EE2BE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DDA64B92511459F00EE2BE7 /* LaunchScreen.storyboard */; };
 		4DDA64C62511459F00EE2BE7 /* falagronTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA64C52511459F00EE2BE7 /* falagronTests.swift */; };
 		4DDA64D12511459F00EE2BE7 /* falagronUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA64D02511459F00EE2BE7 /* falagronUITests.swift */; };
+		4DDA64E62511467300EE2BE7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA64E52511467300EE2BE7 /* BaseViewController.swift */; };
+		4DDA64F225114AA800EE2BE7 /* SplashScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA64F125114AA800EE2BE7 /* SplashScreenVC.swift */; };
+		4DDA64F425114BAE00EE2BE7 /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA64F325114BAE00EE2BE7 /* UINavigationControllerExtensions.swift */; };
+		4DDA64F625114D8800EE2BE7 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA64F525114D8800EE2BE7 /* UIViewControllerExtensions.swift */; };
+		4DDA64F92513DAAD00EE2BE7 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA64F82513DAAD00EE2BE7 /* FirebaseManager.swift */; };
+		4DDA64FB2513DCDC00EE2BE7 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DDA64FA2513DCDC00EE2BE7 /* Authentication.storyboard */; };
+		4DDA64FD2513DD6700EE2BE7 /* AuthenticationNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA64FC2513DD6700EE2BE7 /* AuthenticationNC.swift */; };
+		4DDA65002513DE6F00EE2BE7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA64FF2513DE6F00EE2BE7 /* Coordinator.swift */; };
+		4DDA650225151BE900EE2BE7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DDA650125151BE900EE2BE7 /* GoogleService-Info.plist */; };
+		4DDA65042515381600EE2BE7 /* MainNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA65032515381600EE2BE7 /* MainNC.swift */; };
+		4DDA65072515385800EE2BE7 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA65062515385800EE2BE7 /* MainVC.swift */; };
+		4DDA650A2515F8B200EE2BE7 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA65082515F8B100EE2BE7 /* SWRevealViewController.m */; };
+		4DDA650C2515FF7800EE2BE7 /* MenuNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA650B2515FF7800EE2BE7 /* MenuNC.swift */; };
+		4DDA650E2516094000EE2BE7 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA650D2516094000EE2BE7 /* NotificationExtensions.swift */; };
+		4DDA65102516127200EE2BE7 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA650F2516127200EE2BE7 /* CollectionExtensions.swift */; };
+		656C93A2FCD20F13EEA99F20 /* Pods_falagronTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BE5701535F5B6BFBE56844C /* Pods_falagronTests.framework */; };
+		E24A21220C52C10EE88CE331 /* Pods_falagron.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC849A41D65D78AA8DB1B2BF /* Pods_falagron.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +72,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0FB73384C1EADCD745586BE8 /* Pods-falagronTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-falagronTests.release.xcconfig"; path = "Target Support Files/Pods-falagronTests/Pods-falagronTests.release.xcconfig"; sourceTree = "<group>"; };
+		2BE5701535F5B6BFBE56844C /* Pods_falagronTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_falagronTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BF498F9FE0860A25FA55A2C /* Pods-falagron.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-falagron.release.xcconfig"; path = "Target Support Files/Pods-falagron/Pods-falagron.release.xcconfig"; sourceTree = "<group>"; };
+		4D5DEFAF2516823900E0C25E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4D5DEFB12516824600E0C25E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		4D5DEFB32516894A00E0C25E /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
+		4D5DEFB62516896A00E0C25E /* ResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetViewController.swift; sourceTree = "<group>"; };
+		4D5DEFB825168DEC00E0C25E /* NSObjectExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtensions.swift; sourceTree = "<group>"; };
+		4D5DEFBA251694DE00E0C25E /* MainBannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBannerCell.swift; sourceTree = "<group>"; };
+		4D5DEFBB251694DE00E0C25E /* MainBannerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainBannerCell.xib; sourceTree = "<group>"; };
+		4D5DEFBE251695FB00E0C25E /* MainButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonCell.swift; sourceTree = "<group>"; };
+		4D5DEFBF251695FB00E0C25E /* MainButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainButtonCell.xib; sourceTree = "<group>"; };
+		4D5DEFC3251698A800E0C25E /* loadingColCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadingColCell.swift; sourceTree = "<group>"; };
+		4D5DEFC4251698A800E0C25E /* loadingColCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = loadingColCell.xib; sourceTree = "<group>"; };
+		4D5DEFC725169CFB00E0C25E /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		4D5DEFCF2516A03400E0C25E /* MainModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModels.swift; sourceTree = "<group>"; };
+		4D5DEFD2251750B200E0C25E /* PurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewController.swift; sourceTree = "<group>"; };
+		4D5DEFD4251750CE00E0C25E /* Purchase.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Purchase.storyboard; sourceTree = "<group>"; };
+		4D5DEFD62517516500E0C25E /* PurchaseNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseNC.swift; sourceTree = "<group>"; };
+		4D5DEFDA2517610700E0C25E /* LoginLogoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginLogoCell.swift; sourceTree = "<group>"; };
+		4D5DEFDB2517610700E0C25E /* LoginLogoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginLogoCell.xib; sourceTree = "<group>"; };
+		4D5DEFE02517660300E0C25E /* AddTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTextCell.swift; sourceTree = "<group>"; };
+		4D5DEFE12517660300E0C25E /* AddTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTextCell.xib; sourceTree = "<group>"; };
 		4DDA64AB2511459C00EE2BE7 /* falagron.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = falagron.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDA64AE2511459C00EE2BE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DDA64B02511459C00EE2BE7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4DDA64B22511459C00EE2BE7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4DDA64B52511459C00EE2BE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4DDA64B72511459F00EE2BE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DDA64BA2511459F00EE2BE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +108,29 @@
 		4DDA64CC2511459F00EE2BE7 /* falagronUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = falagronUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDA64D02511459F00EE2BE7 /* falagronUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = falagronUITests.swift; sourceTree = "<group>"; };
 		4DDA64D22511459F00EE2BE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DDA64E52511467300EE2BE7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		4DDA64EC2511489400EE2BE7 /* falagron-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "falagron-Bridging-Header.h"; sourceTree = "<group>"; };
+		4DDA64F125114AA800EE2BE7 /* SplashScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenVC.swift; sourceTree = "<group>"; };
+		4DDA64F325114BAE00EE2BE7 /* UINavigationControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensions.swift; sourceTree = "<group>"; };
+		4DDA64F525114D8800EE2BE7 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		4DDA64F82513DAAD00EE2BE7 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		4DDA64FA2513DCDC00EE2BE7 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
+		4DDA64FC2513DD6700EE2BE7 /* AuthenticationNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationNC.swift; sourceTree = "<group>"; };
+		4DDA64FF2513DE6F00EE2BE7 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		4DDA650125151BE900EE2BE7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4DDA65032515381600EE2BE7 /* MainNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNC.swift; sourceTree = "<group>"; };
+		4DDA65062515385800EE2BE7 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		4DDA65082515F8B100EE2BE7 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		4DDA65092515F8B100EE2BE7 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		4DDA650B2515FF7800EE2BE7 /* MenuNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNC.swift; sourceTree = "<group>"; };
+		4DDA650D2516094000EE2BE7 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
+		4DDA650F2516127200EE2BE7 /* CollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
+		5B10964B1F48FF6AB32D3AD3 /* Pods-falagronTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-falagronTests.debug.xcconfig"; path = "Target Support Files/Pods-falagronTests/Pods-falagronTests.debug.xcconfig"; sourceTree = "<group>"; };
+		673DC52E8FE5195A1BF70A51 /* Pods-falagron-falagronUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-falagron-falagronUITests.release.xcconfig"; path = "Target Support Files/Pods-falagron-falagronUITests/Pods-falagron-falagronUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B837C47EC4867F2BCE5B2004 /* Pods-falagron.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-falagron.debug.xcconfig"; path = "Target Support Files/Pods-falagron/Pods-falagron.debug.xcconfig"; sourceTree = "<group>"; };
+		DC849A41D65D78AA8DB1B2BF /* Pods_falagron.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_falagron.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA0E885784946C5B5F7A91F4 /* Pods_falagron_falagronUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_falagron_falagronUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB3128D20E499D7A3071050E /* Pods-falagron-falagronUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-falagron-falagronUITests.debug.xcconfig"; path = "Target Support Files/Pods-falagron-falagronUITests/Pods-falagron-falagronUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E24A21220C52C10EE88CE331 /* Pods_falagron.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				656C93A2FCD20F13EEA99F20 /* Pods_falagronTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +154,73 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C2CBC46CAE67972FC827591 /* Pods_falagron_falagronUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D5DEFB52516895600E0C25E /* ResetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				4D5DEFB62516896A00E0C25E /* ResetViewController.swift */,
+			);
+			path = ResetPassword;
+			sourceTree = "<group>";
+		};
+		4D5DEFC22516988500E0C25E /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				4D5DEFC3251698A800E0C25E /* loadingColCell.swift */,
+				4D5DEFC4251698A800E0C25E /* loadingColCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		4D5DEFCD2516A01C00E0C25E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4D5DEFCE2516A02200E0C25E /* MainModels */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4D5DEFCE2516A02200E0C25E /* MainModels */ = {
+			isa = PBXGroup;
+			children = (
+				4D5DEFCF2516A03400E0C25E /* MainModels.swift */,
+			);
+			path = MainModels;
+			sourceTree = "<group>";
+		};
+		4D5DEFD125174DB200E0C25E /* Purchase */ = {
+			isa = PBXGroup;
+			children = (
+				4D5DEFD2251750B200E0C25E /* PurchaseViewController.swift */,
+			);
+			path = Purchase;
+			sourceTree = "<group>";
+		};
+		4D5DEFD82517609600E0C25E /* AuthenticationCells */ = {
+			isa = PBXGroup;
+			children = (
+				4D5DEFD9251760A700E0C25E /* LoginCells */,
+			);
+			path = AuthenticationCells;
+			sourceTree = "<group>";
+		};
+		4D5DEFD9251760A700E0C25E /* LoginCells */ = {
+			isa = PBXGroup;
+			children = (
+				4D5DEFDA2517610700E0C25E /* LoginLogoCell.swift */,
+				4D5DEFDB2517610700E0C25E /* LoginLogoCell.xib */,
+				4D5DEFE02517660300E0C25E /* AddTextCell.swift */,
+				4D5DEFE12517660300E0C25E /* AddTextCell.xib */,
+			);
+			path = LoginCells;
+			sourceTree = "<group>";
+		};
 		4DDA64A22511459C00EE2BE7 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +228,8 @@
 				4DDA64C42511459F00EE2BE7 /* falagronTests */,
 				4DDA64CF2511459F00EE2BE7 /* falagronUITests */,
 				4DDA64AC2511459C00EE2BE7 /* Products */,
+				B95FEDBD40134ED4C0AA21F9 /* Pods */,
+				D1D48F2C6182B3EA0BA96107 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +246,21 @@
 		4DDA64AD2511459C00EE2BE7 /* falagron */ = {
 			isa = PBXGroup;
 			children = (
+				4D5DEFCD2516A01C00E0C25E /* Models */,
+				4DDA64FE2513DE4900EE2BE7 /* Coordinators */,
+				4DDA64F72513DA8C00EE2BE7 /* Managers */,
+				4DDA64EA251146BE00EE2BE7 /* StoryBoards */,
+				4DDA64E22511463300EE2BE7 /* NavigationControllers */,
+				4DDA64DF251145FF00EE2BE7 /* ViewControllers */,
+				4DDA64E12511461400EE2BE7 /* Cells */,
+				4DDA64E02511460E00EE2BE7 /* Views */,
+				4DDA64DE251145C700EE2BE7 /* Helper */,
 				4DDA64AE2511459C00EE2BE7 /* AppDelegate.swift */,
 				4DDA64B02511459C00EE2BE7 /* SceneDelegate.swift */,
-				4DDA64B22511459C00EE2BE7 /* ViewController.swift */,
-				4DDA64B42511459C00EE2BE7 /* Main.storyboard */,
 				4DDA64B72511459F00EE2BE7 /* Assets.xcassets */,
 				4DDA64B92511459F00EE2BE7 /* LaunchScreen.storyboard */,
 				4DDA64BC2511459F00EE2BE7 /* Info.plist */,
+				4DDA650125151BE900EE2BE7 /* GoogleService-Info.plist */,
 			);
 			path = falagron;
 			sourceTree = "<group>";
@@ -128,6 +283,189 @@
 			path = falagronUITests;
 			sourceTree = "<group>";
 		};
+		4DDA64DE251145C700EE2BE7 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				4D5DEFC22516988500E0C25E /* cell */,
+				4DDA64EB2511487E00EE2BE7 /* Menu */,
+				4DDA64E42511465400EE2BE7 /* Extensions */,
+				4DDA64E32511464C00EE2BE7 /* ViewController */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		4DDA64DF251145FF00EE2BE7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4D5DEFD125174DB200E0C25E /* Purchase */,
+				4D5DEFB52516895600E0C25E /* ResetPassword */,
+				4DDA65052515382D00EE2BE7 /* Main */,
+				4DDA64F025114A7600EE2BE7 /* SplashScreenVC */,
+				4DDA64E9251146AE00EE2BE7 /* OTPVC */,
+				4DDA64E8251146A500EE2BE7 /* RegisterVC */,
+				4DDA64E72511469100EE2BE7 /* LoginVC */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4DDA64E02511460E00EE2BE7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4DDA64E12511461400EE2BE7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4D5DEFD82517609600E0C25E /* AuthenticationCells */,
+				4DDA65112516143F00EE2BE7 /* MainCells */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		4DDA64E22511463300EE2BE7 /* NavigationControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4DDA64FC2513DD6700EE2BE7 /* AuthenticationNC.swift */,
+				4DDA65032515381600EE2BE7 /* MainNC.swift */,
+				4DDA650B2515FF7800EE2BE7 /* MenuNC.swift */,
+				4D5DEFD62517516500E0C25E /* PurchaseNC.swift */,
+			);
+			path = NavigationControllers;
+			sourceTree = "<group>";
+		};
+		4DDA64E32511464C00EE2BE7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4DDA64E52511467300EE2BE7 /* BaseViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4DDA64E42511465400EE2BE7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4DDA64F325114BAE00EE2BE7 /* UINavigationControllerExtensions.swift */,
+				4DDA64F525114D8800EE2BE7 /* UIViewControllerExtensions.swift */,
+				4DDA650D2516094000EE2BE7 /* NotificationExtensions.swift */,
+				4DDA650F2516127200EE2BE7 /* CollectionExtensions.swift */,
+				4D5DEFB825168DEC00E0C25E /* NSObjectExtensions.swift */,
+				4D5DEFC725169CFB00E0C25E /* UIViewExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4DDA64E72511469100EE2BE7 /* LoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				4D5DEFAF2516823900E0C25E /* LoginViewController.swift */,
+			);
+			path = LoginVC;
+			sourceTree = "<group>";
+		};
+		4DDA64E8251146A500EE2BE7 /* RegisterVC */ = {
+			isa = PBXGroup;
+			children = (
+				4D5DEFB12516824600E0C25E /* RegisterViewController.swift */,
+			);
+			path = RegisterVC;
+			sourceTree = "<group>";
+		};
+		4DDA64E9251146AE00EE2BE7 /* OTPVC */ = {
+			isa = PBXGroup;
+			children = (
+				4D5DEFB32516894A00E0C25E /* OTPViewController.swift */,
+			);
+			path = OTPVC;
+			sourceTree = "<group>";
+		};
+		4DDA64EA251146BE00EE2BE7 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				4DDA64B42511459C00EE2BE7 /* Main.storyboard */,
+				4DDA64FA2513DCDC00EE2BE7 /* Authentication.storyboard */,
+				4D5DEFD4251750CE00E0C25E /* Purchase.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		4DDA64EB2511487E00EE2BE7 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				4DDA65092515F8B100EE2BE7 /* SWRevealViewController.h */,
+				4DDA65082515F8B100EE2BE7 /* SWRevealViewController.m */,
+				4DDA64EC2511489400EE2BE7 /* falagron-Bridging-Header.h */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		4DDA64F025114A7600EE2BE7 /* SplashScreenVC */ = {
+			isa = PBXGroup;
+			children = (
+				4DDA64F125114AA800EE2BE7 /* SplashScreenVC.swift */,
+			);
+			path = SplashScreenVC;
+			sourceTree = "<group>";
+		};
+		4DDA64F72513DA8C00EE2BE7 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				4DDA64F82513DAAD00EE2BE7 /* FirebaseManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		4DDA64FE2513DE4900EE2BE7 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				4DDA64FF2513DE6F00EE2BE7 /* Coordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		4DDA65052515382D00EE2BE7 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				4DDA65062515385800EE2BE7 /* MainVC.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		4DDA65112516143F00EE2BE7 /* MainCells */ = {
+			isa = PBXGroup;
+			children = (
+				4D5DEFBA251694DE00E0C25E /* MainBannerCell.swift */,
+				4D5DEFBB251694DE00E0C25E /* MainBannerCell.xib */,
+				4D5DEFBE251695FB00E0C25E /* MainButtonCell.swift */,
+				4D5DEFBF251695FB00E0C25E /* MainButtonCell.xib */,
+			);
+			path = MainCells;
+			sourceTree = "<group>";
+		};
+		B95FEDBD40134ED4C0AA21F9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B837C47EC4867F2BCE5B2004 /* Pods-falagron.debug.xcconfig */,
+				3BF498F9FE0860A25FA55A2C /* Pods-falagron.release.xcconfig */,
+				FB3128D20E499D7A3071050E /* Pods-falagron-falagronUITests.debug.xcconfig */,
+				673DC52E8FE5195A1BF70A51 /* Pods-falagron-falagronUITests.release.xcconfig */,
+				5B10964B1F48FF6AB32D3AD3 /* Pods-falagronTests.debug.xcconfig */,
+				0FB73384C1EADCD745586BE8 /* Pods-falagronTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D1D48F2C6182B3EA0BA96107 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC849A41D65D78AA8DB1B2BF /* Pods_falagron.framework */,
+				FA0E885784946C5B5F7A91F4 /* Pods_falagron_falagronUITests.framework */,
+				2BE5701535F5B6BFBE56844C /* Pods_falagronTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +473,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4DDA64D52511459F00EE2BE7 /* Build configuration list for PBXNativeTarget "falagron" */;
 			buildPhases = (
+				7BA24D1CE1B67F2752F824CC /* [CP] Check Pods Manifest.lock */,
 				4DDA64A72511459C00EE2BE7 /* Sources */,
 				4DDA64A82511459C00EE2BE7 /* Frameworks */,
 				4DDA64A92511459C00EE2BE7 /* Resources */,
+				375388D10C342EE0C4CFB0F4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +492,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4DDA64D82511459F00EE2BE7 /* Build configuration list for PBXNativeTarget "falagronTests" */;
 			buildPhases = (
+				204C01F2CE9E64A5E281FFA8 /* [CP] Check Pods Manifest.lock */,
 				4DDA64BD2511459F00EE2BE7 /* Sources */,
 				4DDA64BE2511459F00EE2BE7 /* Frameworks */,
 				4DDA64BF2511459F00EE2BE7 /* Resources */,
@@ -170,9 +511,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4DDA64DB2511459F00EE2BE7 /* Build configuration list for PBXNativeTarget "falagronUITests" */;
 			buildPhases = (
+				94D05FA777E703E61DB915BF /* [CP] Check Pods Manifest.lock */,
 				4DDA64C82511459F00EE2BE7 /* Sources */,
 				4DDA64C92511459F00EE2BE7 /* Frameworks */,
 				4DDA64CA2511459F00EE2BE7 /* Resources */,
+				60C7961268C07EDCD8C0382D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,6 +539,7 @@
 				TargetAttributes = {
 					4DDA64AA2511459C00EE2BE7 = {
 						CreatedOnToolsVersion = 11.4.1;
+						LastSwiftMigration = 1140;
 					};
 					4DDA64C02511459F00EE2BE7 = {
 						CreatedOnToolsVersion = 11.4.1;
@@ -232,8 +576,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D5DEFE32517660300E0C25E /* AddTextCell.xib in Resources */,
+				4D5DEFDD2517610700E0C25E /* LoginLogoCell.xib in Resources */,
+				4D5DEFD5251750CE00E0C25E /* Purchase.storyboard in Resources */,
+				4D5DEFCB25169F2700E0C25E /* loadingColCell.xib in Resources */,
+				4D5DEFC1251695FB00E0C25E /* MainButtonCell.xib in Resources */,
+				4DDA64FB2513DCDC00EE2BE7 /* Authentication.storyboard in Resources */,
 				4DDA64BB2511459F00EE2BE7 /* LaunchScreen.storyboard in Resources */,
+				4DDA650225151BE900EE2BE7 /* GoogleService-Info.plist in Resources */,
 				4DDA64B82511459F00EE2BE7 /* Assets.xcassets in Resources */,
+				4D5DEFBD251694DE00E0C25E /* MainBannerCell.xib in Resources */,
 				4DDA64B62511459C00EE2BE7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,14 +606,143 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		204C01F2CE9E64A5E281FFA8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-falagronTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		375388D10C342EE0C4CFB0F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-falagron/Pods-falagron-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-falagron/Pods-falagron-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-falagron/Pods-falagron-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60C7961268C07EDCD8C0382D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-falagron-falagronUITests/Pods-falagron-falagronUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-falagron-falagronUITests/Pods-falagron-falagronUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-falagron-falagronUITests/Pods-falagron-falagronUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7BA24D1CE1B67F2752F824CC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-falagron-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94D05FA777E703E61DB915BF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-falagron-falagronUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4DDA64A72511459C00EE2BE7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DDA64B32511459C00EE2BE7 /* ViewController.swift in Sources */,
+				4D5DEFCC25169F3900E0C25E /* loadingColCell.swift in Sources */,
+				4DDA65042515381600EE2BE7 /* MainNC.swift in Sources */,
+				4DDA65072515385800EE2BE7 /* MainVC.swift in Sources */,
+				4DDA64F625114D8800EE2BE7 /* UIViewControllerExtensions.swift in Sources */,
+				4DDA64F425114BAE00EE2BE7 /* UINavigationControllerExtensions.swift in Sources */,
+				4DDA650E2516094000EE2BE7 /* NotificationExtensions.swift in Sources */,
+				4DDA64F92513DAAD00EE2BE7 /* FirebaseManager.swift in Sources */,
+				4DDA64E62511467300EE2BE7 /* BaseViewController.swift in Sources */,
+				4D5DEFDC2517610700E0C25E /* LoginLogoCell.swift in Sources */,
+				4DDA65002513DE6F00EE2BE7 /* Coordinator.swift in Sources */,
+				4D5DEFD3251750B200E0C25E /* PurchaseViewController.swift in Sources */,
+				4D5DEFC0251695FB00E0C25E /* MainButtonCell.swift in Sources */,
+				4DDA650C2515FF7800EE2BE7 /* MenuNC.swift in Sources */,
+				4D5DEFC825169CFB00E0C25E /* UIViewExtensions.swift in Sources */,
+				4DDA64F225114AA800EE2BE7 /* SplashScreenVC.swift in Sources */,
+				4D5DEFBC251694DE00E0C25E /* MainBannerCell.swift in Sources */,
+				4D5DEFB72516896A00E0C25E /* ResetViewController.swift in Sources */,
+				4D5DEFB925168DEC00E0C25E /* NSObjectExtensions.swift in Sources */,
+				4DDA65102516127200EE2BE7 /* CollectionExtensions.swift in Sources */,
+				4D5DEFD72517516500E0C25E /* PurchaseNC.swift in Sources */,
 				4DDA64AF2511459C00EE2BE7 /* AppDelegate.swift in Sources */,
+				4D5DEFB42516894A00E0C25E /* OTPViewController.swift in Sources */,
+				4D5DEFB02516823900E0C25E /* LoginViewController.swift in Sources */,
+				4D5DEFB22516824600E0C25E /* RegisterViewController.swift in Sources */,
+				4DDA64FD2513DD6700EE2BE7 /* AuthenticationNC.swift in Sources */,
+				4D5DEFD02516A03400E0C25E /* MainModels.swift in Sources */,
+				4D5DEFE22517660300E0C25E /* AddTextCell.swift in Sources */,
 				4DDA64B12511459C00EE2BE7 /* SceneDelegate.swift in Sources */,
+				4DDA650A2515F8B200EE2BE7 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,16 +913,21 @@
 		};
 		4DDA64D62511459F00EE2BE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B837C47EC4867F2BCE5B2004 /* Pods-falagron.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = falagron/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaya.falagron;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "falagron/Helper/Menu/falagron-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -449,16 +935,20 @@
 		};
 		4DDA64D72511459F00EE2BE7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BF498F9FE0860A25FA55A2C /* Pods-falagron.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = falagron/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaya.falagron;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "falagron/Helper/Menu/falagron-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -466,6 +956,7 @@
 		};
 		4DDA64D92511459F00EE2BE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B10964B1F48FF6AB32D3AD3 /* Pods-falagronTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -487,6 +978,7 @@
 		};
 		4DDA64DA2511459F00EE2BE7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FB73384C1EADCD745586BE8 /* Pods-falagronTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +1000,7 @@
 		};
 		4DDA64DC2511459F00EE2BE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB3128D20E499D7A3071050E /* Pods-falagron-falagronUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -527,6 +1020,7 @@
 		};
 		4DDA64DD2511459F00EE2BE7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 673DC52E8FE5195A1BF70A51 /* Pods-falagron-falagronUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
