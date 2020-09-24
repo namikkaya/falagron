@@ -26,8 +26,6 @@
 		4D5DEFD72517516500E0C25E /* PurchaseNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFD62517516500E0C25E /* PurchaseNC.swift */; };
 		4D5DEFDC2517610700E0C25E /* LoginLogoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFDA2517610700E0C25E /* LoginLogoCell.swift */; };
 		4D5DEFDD2517610700E0C25E /* LoginLogoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D5DEFDB2517610700E0C25E /* LoginLogoCell.xib */; };
-		4D5DEFE22517660300E0C25E /* AddTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFE02517660300E0C25E /* AddTextCell.swift */; };
-		4D5DEFE32517660300E0C25E /* AddTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D5DEFE12517660300E0C25E /* AddTextCell.xib */; };
 		4DDA64AF2511459C00EE2BE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA64AE2511459C00EE2BE7 /* AppDelegate.swift */; };
 		4DDA64B12511459C00EE2BE7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA64B02511459C00EE2BE7 /* SceneDelegate.swift */; };
 		4DDA64B62511459C00EE2BE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DDA64B42511459C00EE2BE7 /* Main.storyboard */; };
@@ -50,6 +48,8 @@
 		4DDA650C2515FF7800EE2BE7 /* MenuNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA650B2515FF7800EE2BE7 /* MenuNC.swift */; };
 		4DDA650E2516094000EE2BE7 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA650D2516094000EE2BE7 /* NotificationExtensions.swift */; };
 		4DDA65102516127200EE2BE7 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA650F2516127200EE2BE7 /* CollectionExtensions.swift */; };
+		4DF40ACC251D051000D9B3E6 /* LoginWriteEmailPasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF40ACA251D051000D9B3E6 /* LoginWriteEmailPasswordCell.swift */; };
+		4DF40ACD251D051000D9B3E6 /* LoginWriteEmailPasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DF40ACB251D051000D9B3E6 /* LoginWriteEmailPasswordCell.xib */; };
 		656C93A2FCD20F13EEA99F20 /* Pods_falagronTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BE5701535F5B6BFBE56844C /* Pods_falagronTests.framework */; };
 		E24A21220C52C10EE88CE331 /* Pods_falagron.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC849A41D65D78AA8DB1B2BF /* Pods_falagron.framework */; };
 /* End PBXBuildFile section */
@@ -93,8 +93,6 @@
 		4D5DEFD62517516500E0C25E /* PurchaseNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseNC.swift; sourceTree = "<group>"; };
 		4D5DEFDA2517610700E0C25E /* LoginLogoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginLogoCell.swift; sourceTree = "<group>"; };
 		4D5DEFDB2517610700E0C25E /* LoginLogoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginLogoCell.xib; sourceTree = "<group>"; };
-		4D5DEFE02517660300E0C25E /* AddTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTextCell.swift; sourceTree = "<group>"; };
-		4D5DEFE12517660300E0C25E /* AddTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTextCell.xib; sourceTree = "<group>"; };
 		4DDA64AB2511459C00EE2BE7 /* falagron.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = falagron.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDA64AE2511459C00EE2BE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DDA64B02511459C00EE2BE7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +123,8 @@
 		4DDA650B2515FF7800EE2BE7 /* MenuNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNC.swift; sourceTree = "<group>"; };
 		4DDA650D2516094000EE2BE7 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		4DDA650F2516127200EE2BE7 /* CollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
+		4DF40ACA251D051000D9B3E6 /* LoginWriteEmailPasswordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWriteEmailPasswordCell.swift; sourceTree = "<group>"; };
+		4DF40ACB251D051000D9B3E6 /* LoginWriteEmailPasswordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginWriteEmailPasswordCell.xib; sourceTree = "<group>"; };
 		5B10964B1F48FF6AB32D3AD3 /* Pods-falagronTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-falagronTests.debug.xcconfig"; path = "Target Support Files/Pods-falagronTests/Pods-falagronTests.debug.xcconfig"; sourceTree = "<group>"; };
 		673DC52E8FE5195A1BF70A51 /* Pods-falagron-falagronUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-falagron-falagronUITests.release.xcconfig"; path = "Target Support Files/Pods-falagron-falagronUITests/Pods-falagron-falagronUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B837C47EC4867F2BCE5B2004 /* Pods-falagron.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-falagron.debug.xcconfig"; path = "Target Support Files/Pods-falagron/Pods-falagron.debug.xcconfig"; sourceTree = "<group>"; };
@@ -213,10 +213,9 @@
 		4D5DEFD9251760A700E0C25E /* LoginCells */ = {
 			isa = PBXGroup;
 			children = (
+				4DF40AC9251D04B200D9B3E6 /* LoginWriteEmailPassword */,
 				4D5DEFDA2517610700E0C25E /* LoginLogoCell.swift */,
 				4D5DEFDB2517610700E0C25E /* LoginLogoCell.xib */,
-				4D5DEFE02517660300E0C25E /* AddTextCell.swift */,
-				4D5DEFE12517660300E0C25E /* AddTextCell.xib */,
 			);
 			path = LoginCells;
 			sourceTree = "<group>";
@@ -443,6 +442,15 @@
 			path = MainCells;
 			sourceTree = "<group>";
 		};
+		4DF40AC9251D04B200D9B3E6 /* LoginWriteEmailPassword */ = {
+			isa = PBXGroup;
+			children = (
+				4DF40ACA251D051000D9B3E6 /* LoginWriteEmailPasswordCell.swift */,
+				4DF40ACB251D051000D9B3E6 /* LoginWriteEmailPasswordCell.xib */,
+			);
+			path = LoginWriteEmailPassword;
+			sourceTree = "<group>";
+		};
 		B95FEDBD40134ED4C0AA21F9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -576,8 +584,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D5DEFE32517660300E0C25E /* AddTextCell.xib in Resources */,
 				4D5DEFDD2517610700E0C25E /* LoginLogoCell.xib in Resources */,
+				4DF40ACD251D051000D9B3E6 /* LoginWriteEmailPasswordCell.xib in Resources */,
 				4D5DEFD5251750CE00E0C25E /* Purchase.storyboard in Resources */,
 				4D5DEFCB25169F2700E0C25E /* loadingColCell.xib in Resources */,
 				4D5DEFC1251695FB00E0C25E /* MainButtonCell.xib in Resources */,
@@ -740,9 +748,9 @@
 				4D5DEFB22516824600E0C25E /* RegisterViewController.swift in Sources */,
 				4DDA64FD2513DD6700EE2BE7 /* AuthenticationNC.swift in Sources */,
 				4D5DEFD02516A03400E0C25E /* MainModels.swift in Sources */,
-				4D5DEFE22517660300E0C25E /* AddTextCell.swift in Sources */,
 				4DDA64B12511459C00EE2BE7 /* SceneDelegate.swift in Sources */,
 				4DDA650A2515F8B200EE2BE7 /* SWRevealViewController.m in Sources */,
+				4DF40ACC251D051000D9B3E6 /* LoginWriteEmailPasswordCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
