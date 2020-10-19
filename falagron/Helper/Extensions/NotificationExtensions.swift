@@ -11,6 +11,10 @@ import Foundation
 extension Notification.Name {
     public struct FALAGRON {
         public static let AuthChangeStatus = Notification.Name(rawValue: "auth_change_status")
+        ///
+        public static let MenuTakeOn = Notification.Name(rawValue: "menu_take_on")
+        public static let MenuTakeOff = Notification.Name(rawValue: "menu_take_off")
         
+        public static let ChangeCurrentPage = Notification.Name(rawValue: "change_current_page")
     }
 }

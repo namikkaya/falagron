@@ -30,6 +30,11 @@ class MainVC: BaseViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        updateUI()
+    }
+    
     // user login and logout
     override func userAuthStatusChange(status: FirebaseManager.FBAuthStatus) {
         super.userAuthStatusChange(status: status)
@@ -43,9 +48,16 @@ class MainVC: BaseViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        updateUI()
+    override func menuDisplayChange(status: MenuDisplayStatus) {
+        super.menuDisplayChange(status: status)
+        switch status {
+        case .ON:
+            self.collectionView.isUserInteractionEnabled = false
+            break
+        case .OFF:
+            self.collectionView.isUserInteractionEnabled = true
+            break
+        }
     }
     
 }

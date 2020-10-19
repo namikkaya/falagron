@@ -58,14 +58,14 @@ extension FirebaseManager {
     
     func newUser(email:String, password:String) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-          
+            
         }
     }
     
     func singIn(email:String, password:String) {
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
             guard let strongSelf = self else { return }
-            
+            print(authResult?.user.isAnonymous)
         }
     }
 }

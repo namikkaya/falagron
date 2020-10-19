@@ -8,6 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		2C2CBC46CAE67972FC827591 /* Pods_falagron_falagronUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA0E885784946C5B5F7A91F4 /* Pods_falagron_falagronUITests.framework */; };
+		4D1F8FE32520ADDE0070ED74 /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1F8FE22520ADDE0070ED74 /* TabbarVC.swift */; };
+		4D4AD3962533713C0026CD65 /* menuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4AD3942533713C0026CD65 /* menuCell.swift */; };
+		4D4AD3972533713C0026CD65 /* menuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D4AD3952533713C0026CD65 /* menuCell.xib */; };
+		4D4AD399253375360026CD65 /* MenuModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4AD398253375360026CD65 /* MenuModels.swift */; };
+		4D4AD39C25337EC30026CD65 /* MenuHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D4AD39B25337EC30026CD65 /* MenuHeaderView.xib */; };
+		4D4AD39E25337EE70026CD65 /* MenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4AD39D25337EE70026CD65 /* MenuHeaderView.swift */; };
+		4D4AD3A0253384D20026CD65 /* MenuHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4AD39F253384D20026CD65 /* MenuHeader.swift */; };
+		4D4AD3A425338C3F0026CD65 /* MenuFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4AD3A225338C3F0026CD65 /* MenuFooterView.swift */; };
+		4D4AD3A525338C3F0026CD65 /* MenuFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D4AD3A325338C3F0026CD65 /* MenuFooterView.xib */; };
+		4D4AD3A7253DDF140026CD65 /* StretchyHeaderStickyFooterLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4AD3A6253DDF140026CD65 /* StretchyHeaderStickyFooterLayout.swift */; };
+		4D4AD3B7253DE3480026CD65 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4AD3AA253DE3480026CD65 /* Roboto-Medium.ttf */; };
+		4D4AD3B8253DE3480026CD65 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4AD3AB253DE3480026CD65 /* Roboto-Light.ttf */; };
+		4D4AD3B9253DE3480026CD65 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4AD3AC253DE3480026CD65 /* Roboto-Regular.ttf */; };
+		4D4AD3BA253DE3480026CD65 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4AD3AD253DE3480026CD65 /* Roboto-MediumItalic.ttf */; };
+		4D4AD3BB253DE3480026CD65 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4AD3AE253DE3480026CD65 /* Roboto-ThinItalic.ttf */; };
+		4D4AD3BC253DE3480026CD65 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4AD3AF253DE3480026CD65 /* Roboto-BoldItalic.ttf */; };
+		4D4AD3BD253DE3480026CD65 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4AD3B0253DE3480026CD65 /* Roboto-LightItalic.ttf */; };
+		4D4AD3BE253DE3480026CD65 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4AD3B1253DE3480026CD65 /* Roboto-Italic.ttf */; };
+		4D4AD3BF253DE3480026CD65 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4D4AD3B2253DE3480026CD65 /* LICENSE.txt */; };
+		4D4AD3C0253DE3480026CD65 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4AD3B3253DE3480026CD65 /* Roboto-BlackItalic.ttf */; };
+		4D4AD3C1253DE3480026CD65 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4AD3B4253DE3480026CD65 /* Roboto-Bold.ttf */; };
+		4D4AD3C2253DE3480026CD65 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4AD3B5253DE3480026CD65 /* Roboto-Thin.ttf */; };
+		4D4AD3C3253DE3480026CD65 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4AD3B6253DE3480026CD65 /* Roboto-Black.ttf */; };
+		4D4AD3C6253DF0EF0026CD65 /* DataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4AD3C5253DF0EF0026CD65 /* DataHolder.swift */; };
 		4D5DEFB02516823900E0C25E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFAF2516823900E0C25E /* LoginViewController.swift */; };
 		4D5DEFB22516824600E0C25E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFB12516824600E0C25E /* RegisterViewController.swift */; };
 		4D5DEFB42516894A00E0C25E /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFB32516894A00E0C25E /* OTPViewController.swift */; };
@@ -50,6 +74,7 @@
 		4DDA65102516127200EE2BE7 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA650F2516127200EE2BE7 /* CollectionExtensions.swift */; };
 		4DF40ACC251D051000D9B3E6 /* LoginWriteEmailPasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF40ACA251D051000D9B3E6 /* LoginWriteEmailPasswordCell.swift */; };
 		4DF40ACD251D051000D9B3E6 /* LoginWriteEmailPasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DF40ACB251D051000D9B3E6 /* LoginWriteEmailPasswordCell.xib */; };
+		4DFDF85425331955004D30A0 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFDF85325331955004D30A0 /* MenuVC.swift */; };
 		656C93A2FCD20F13EEA99F20 /* Pods_falagronTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BE5701535F5B6BFBE56844C /* Pods_falagronTests.framework */; };
 		E24A21220C52C10EE88CE331 /* Pods_falagron.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC849A41D65D78AA8DB1B2BF /* Pods_falagron.framework */; };
 /* End PBXBuildFile section */
@@ -75,6 +100,30 @@
 		0FB73384C1EADCD745586BE8 /* Pods-falagronTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-falagronTests.release.xcconfig"; path = "Target Support Files/Pods-falagronTests/Pods-falagronTests.release.xcconfig"; sourceTree = "<group>"; };
 		2BE5701535F5B6BFBE56844C /* Pods_falagronTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_falagronTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BF498F9FE0860A25FA55A2C /* Pods-falagron.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-falagron.release.xcconfig"; path = "Target Support Files/Pods-falagron/Pods-falagron.release.xcconfig"; sourceTree = "<group>"; };
+		4D1F8FE22520ADDE0070ED74 /* TabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarVC.swift; sourceTree = "<group>"; };
+		4D4AD3942533713C0026CD65 /* menuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuCell.swift; sourceTree = "<group>"; };
+		4D4AD3952533713C0026CD65 /* menuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = menuCell.xib; sourceTree = "<group>"; };
+		4D4AD398253375360026CD65 /* MenuModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModels.swift; sourceTree = "<group>"; };
+		4D4AD39B25337EC30026CD65 /* MenuHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuHeaderView.xib; sourceTree = "<group>"; };
+		4D4AD39D25337EE70026CD65 /* MenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeaderView.swift; sourceTree = "<group>"; };
+		4D4AD39F253384D20026CD65 /* MenuHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeader.swift; sourceTree = "<group>"; };
+		4D4AD3A225338C3F0026CD65 /* MenuFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFooterView.swift; sourceTree = "<group>"; };
+		4D4AD3A325338C3F0026CD65 /* MenuFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuFooterView.xib; sourceTree = "<group>"; };
+		4D4AD3A6253DDF140026CD65 /* StretchyHeaderStickyFooterLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyHeaderStickyFooterLayout.swift; sourceTree = "<group>"; };
+		4D4AD3AA253DE3480026CD65 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		4D4AD3AB253DE3480026CD65 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		4D4AD3AC253DE3480026CD65 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		4D4AD3AD253DE3480026CD65 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		4D4AD3AE253DE3480026CD65 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		4D4AD3AF253DE3480026CD65 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		4D4AD3B0253DE3480026CD65 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		4D4AD3B1253DE3480026CD65 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		4D4AD3B2253DE3480026CD65 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		4D4AD3B3253DE3480026CD65 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		4D4AD3B4253DE3480026CD65 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		4D4AD3B5253DE3480026CD65 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		4D4AD3B6253DE3480026CD65 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		4D4AD3C5253DF0EF0026CD65 /* DataHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHolder.swift; sourceTree = "<group>"; };
 		4D5DEFAF2516823900E0C25E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4D5DEFB12516824600E0C25E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		4D5DEFB32516894A00E0C25E /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +174,7 @@
 		4DDA650F2516127200EE2BE7 /* CollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
 		4DF40ACA251D051000D9B3E6 /* LoginWriteEmailPasswordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWriteEmailPasswordCell.swift; sourceTree = "<group>"; };
 		4DF40ACB251D051000D9B3E6 /* LoginWriteEmailPasswordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginWriteEmailPasswordCell.xib; sourceTree = "<group>"; };
+		4DFDF85325331955004D30A0 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		5B10964B1F48FF6AB32D3AD3 /* Pods-falagronTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-falagronTests.debug.xcconfig"; path = "Target Support Files/Pods-falagronTests/Pods-falagronTests.debug.xcconfig"; sourceTree = "<group>"; };
 		673DC52E8FE5195A1BF70A51 /* Pods-falagron-falagronUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-falagron-falagronUITests.release.xcconfig"; path = "Target Support Files/Pods-falagron-falagronUITests/Pods-falagron-falagronUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B837C47EC4867F2BCE5B2004 /* Pods-falagron.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-falagron.debug.xcconfig"; path = "Target Support Files/Pods-falagron/Pods-falagron.debug.xcconfig"; sourceTree = "<group>"; };
@@ -161,6 +211,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D1F8FE12520ADCA0070ED74 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				4D1F8FE22520ADDE0070ED74 /* TabbarVC.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		4D4AD39A25337B930026CD65 /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				4D4AD39B25337EC30026CD65 /* MenuHeaderView.xib */,
+				4D4AD39D25337EE70026CD65 /* MenuHeaderView.swift */,
+				4D4AD39F253384D20026CD65 /* MenuHeader.swift */,
+			);
+			path = HeaderView;
+			sourceTree = "<group>";
+		};
+		4D4AD3A125338BEC0026CD65 /* FooterView */ = {
+			isa = PBXGroup;
+			children = (
+				4D4AD3A225338C3F0026CD65 /* MenuFooterView.swift */,
+				4D4AD3A325338C3F0026CD65 /* MenuFooterView.xib */,
+			);
+			path = FooterView;
+			sourceTree = "<group>";
+		};
+		4D4AD3A8253DE3480026CD65 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				4D4AD3A9253DE3480026CD65 /* Roboto */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		4D4AD3A9253DE3480026CD65 /* Roboto */ = {
+			isa = PBXGroup;
+			children = (
+				4D4AD3AA253DE3480026CD65 /* Roboto-Medium.ttf */,
+				4D4AD3AB253DE3480026CD65 /* Roboto-Light.ttf */,
+				4D4AD3AC253DE3480026CD65 /* Roboto-Regular.ttf */,
+				4D4AD3AD253DE3480026CD65 /* Roboto-MediumItalic.ttf */,
+				4D4AD3AE253DE3480026CD65 /* Roboto-ThinItalic.ttf */,
+				4D4AD3AF253DE3480026CD65 /* Roboto-BoldItalic.ttf */,
+				4D4AD3B0253DE3480026CD65 /* Roboto-LightItalic.ttf */,
+				4D4AD3B1253DE3480026CD65 /* Roboto-Italic.ttf */,
+				4D4AD3B2253DE3480026CD65 /* LICENSE.txt */,
+				4D4AD3B3253DE3480026CD65 /* Roboto-BlackItalic.ttf */,
+				4D4AD3B4253DE3480026CD65 /* Roboto-Bold.ttf */,
+				4D4AD3B5253DE3480026CD65 /* Roboto-Thin.ttf */,
+				4D4AD3B6253DE3480026CD65 /* Roboto-Black.ttf */,
+			);
+			path = Roboto;
+			sourceTree = "<group>";
+		};
 		4D5DEFB52516895600E0C25E /* ResetPassword */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				4D5DEFCF2516A03400E0C25E /* MainModels.swift */,
+				4D4AD398253375360026CD65 /* MenuModels.swift */,
 			);
 			path = MainModels;
 			sourceTree = "<group>";
@@ -245,6 +351,8 @@
 		4DDA64AD2511459C00EE2BE7 /* falagron */ = {
 			isa = PBXGroup;
 			children = (
+				4D4AD3A8253DE3480026CD65 /* assets */,
+				4D1F8FE12520ADCA0070ED74 /* Tabbar */,
 				4D5DEFCD2516A01C00E0C25E /* Models */,
 				4DDA64FE2513DE4900EE2BE7 /* Coordinators */,
 				4DDA64F72513DA8C00EE2BE7 /* Managers */,
@@ -296,6 +404,7 @@
 		4DDA64DF251145FF00EE2BE7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4DFDF85125331903004D30A0 /* Menu */,
 				4D5DEFD125174DB200E0C25E /* Purchase */,
 				4D5DEFB52516895600E0C25E /* ResetPassword */,
 				4DDA65052515382D00EE2BE7 /* Main */,
@@ -317,6 +426,7 @@
 		4DDA64E12511461400EE2BE7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				4DFDF85225331911004D30A0 /* MenuCells */,
 				4D5DEFD82517609600E0C25E /* AuthenticationCells */,
 				4DDA65112516143F00EE2BE7 /* MainCells */,
 			);
@@ -338,6 +448,7 @@
 			isa = PBXGroup;
 			children = (
 				4DDA64E52511467300EE2BE7 /* BaseViewController.swift */,
+				4D4AD3A6253DDF140026CD65 /* StretchyHeaderStickyFooterLayout.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -411,6 +522,7 @@
 			isa = PBXGroup;
 			children = (
 				4DDA64F82513DAAD00EE2BE7 /* FirebaseManager.swift */,
+				4D4AD3C5253DF0EF0026CD65 /* DataHolder.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -449,6 +561,25 @@
 				4DF40ACB251D051000D9B3E6 /* LoginWriteEmailPasswordCell.xib */,
 			);
 			path = LoginWriteEmailPassword;
+			sourceTree = "<group>";
+		};
+		4DFDF85125331903004D30A0 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				4DFDF85325331955004D30A0 /* MenuVC.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		4DFDF85225331911004D30A0 /* MenuCells */ = {
+			isa = PBXGroup;
+			children = (
+				4D4AD3A125338BEC0026CD65 /* FooterView */,
+				4D4AD39A25337B930026CD65 /* HeaderView */,
+				4D4AD3942533713C0026CD65 /* menuCell.swift */,
+				4D4AD3952533713C0026CD65 /* menuCell.xib */,
+			);
+			path = MenuCells;
 			sourceTree = "<group>";
 		};
 		B95FEDBD40134ED4C0AA21F9 /* Pods */ = {
@@ -585,15 +716,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D5DEFDD2517610700E0C25E /* LoginLogoCell.xib in Resources */,
+				4D4AD39C25337EC30026CD65 /* MenuHeaderView.xib in Resources */,
+				4D4AD3BD253DE3480026CD65 /* Roboto-LightItalic.ttf in Resources */,
 				4DF40ACD251D051000D9B3E6 /* LoginWriteEmailPasswordCell.xib in Resources */,
 				4D5DEFD5251750CE00E0C25E /* Purchase.storyboard in Resources */,
+				4D4AD3C3253DE3480026CD65 /* Roboto-Black.ttf in Resources */,
 				4D5DEFCB25169F2700E0C25E /* loadingColCell.xib in Resources */,
+				4D4AD3B7253DE3480026CD65 /* Roboto-Medium.ttf in Resources */,
+				4D4AD3C0253DE3480026CD65 /* Roboto-BlackItalic.ttf in Resources */,
+				4D4AD3B8253DE3480026CD65 /* Roboto-Light.ttf in Resources */,
 				4D5DEFC1251695FB00E0C25E /* MainButtonCell.xib in Resources */,
+				4D4AD3BE253DE3480026CD65 /* Roboto-Italic.ttf in Resources */,
 				4DDA64FB2513DCDC00EE2BE7 /* Authentication.storyboard in Resources */,
 				4DDA64BB2511459F00EE2BE7 /* LaunchScreen.storyboard in Resources */,
+				4D4AD3A525338C3F0026CD65 /* MenuFooterView.xib in Resources */,
 				4DDA650225151BE900EE2BE7 /* GoogleService-Info.plist in Resources */,
 				4DDA64B82511459F00EE2BE7 /* Assets.xcassets in Resources */,
 				4D5DEFBD251694DE00E0C25E /* MainBannerCell.xib in Resources */,
+				4D4AD3C1253DE3480026CD65 /* Roboto-Bold.ttf in Resources */,
+				4D4AD3BF253DE3480026CD65 /* LICENSE.txt in Resources */,
+				4D4AD3B9253DE3480026CD65 /* Roboto-Regular.ttf in Resources */,
+				4D4AD3972533713C0026CD65 /* menuCell.xib in Resources */,
+				4D4AD3BB253DE3480026CD65 /* Roboto-ThinItalic.ttf in Resources */,
+				4D4AD3BA253DE3480026CD65 /* Roboto-MediumItalic.ttf in Resources */,
+				4D4AD3BC253DE3480026CD65 /* Roboto-BoldItalic.ttf in Resources */,
+				4D4AD3C2253DE3480026CD65 /* Roboto-Thin.ttf in Resources */,
 				4DDA64B62511459C00EE2BE7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -725,19 +872,25 @@
 				4D5DEFCC25169F3900E0C25E /* loadingColCell.swift in Sources */,
 				4DDA65042515381600EE2BE7 /* MainNC.swift in Sources */,
 				4DDA65072515385800EE2BE7 /* MainVC.swift in Sources */,
+				4D4AD3A7253DDF140026CD65 /* StretchyHeaderStickyFooterLayout.swift in Sources */,
+				4D4AD3A0253384D20026CD65 /* MenuHeader.swift in Sources */,
 				4DDA64F625114D8800EE2BE7 /* UIViewControllerExtensions.swift in Sources */,
 				4DDA64F425114BAE00EE2BE7 /* UINavigationControllerExtensions.swift in Sources */,
+				4D4AD3C6253DF0EF0026CD65 /* DataHolder.swift in Sources */,
 				4DDA650E2516094000EE2BE7 /* NotificationExtensions.swift in Sources */,
 				4DDA64F92513DAAD00EE2BE7 /* FirebaseManager.swift in Sources */,
 				4DDA64E62511467300EE2BE7 /* BaseViewController.swift in Sources */,
+				4D4AD399253375360026CD65 /* MenuModels.swift in Sources */,
 				4D5DEFDC2517610700E0C25E /* LoginLogoCell.swift in Sources */,
 				4DDA65002513DE6F00EE2BE7 /* Coordinator.swift in Sources */,
 				4D5DEFD3251750B200E0C25E /* PurchaseViewController.swift in Sources */,
 				4D5DEFC0251695FB00E0C25E /* MainButtonCell.swift in Sources */,
 				4DDA650C2515FF7800EE2BE7 /* MenuNC.swift in Sources */,
 				4D5DEFC825169CFB00E0C25E /* UIViewExtensions.swift in Sources */,
+				4D1F8FE32520ADDE0070ED74 /* TabbarVC.swift in Sources */,
 				4DDA64F225114AA800EE2BE7 /* SplashScreenVC.swift in Sources */,
 				4D5DEFBC251694DE00E0C25E /* MainBannerCell.swift in Sources */,
+				4D4AD39E25337EE70026CD65 /* MenuHeaderView.swift in Sources */,
 				4D5DEFB72516896A00E0C25E /* ResetViewController.swift in Sources */,
 				4D5DEFB925168DEC00E0C25E /* NSObjectExtensions.swift in Sources */,
 				4DDA65102516127200EE2BE7 /* CollectionExtensions.swift in Sources */,
@@ -745,11 +898,14 @@
 				4DDA64AF2511459C00EE2BE7 /* AppDelegate.swift in Sources */,
 				4D5DEFB42516894A00E0C25E /* OTPViewController.swift in Sources */,
 				4D5DEFB02516823900E0C25E /* LoginViewController.swift in Sources */,
+				4DFDF85425331955004D30A0 /* MenuVC.swift in Sources */,
 				4D5DEFB22516824600E0C25E /* RegisterViewController.swift in Sources */,
 				4DDA64FD2513DD6700EE2BE7 /* AuthenticationNC.swift in Sources */,
+				4D4AD3A425338C3F0026CD65 /* MenuFooterView.swift in Sources */,
 				4D5DEFD02516A03400E0C25E /* MainModels.swift in Sources */,
 				4DDA64B12511459C00EE2BE7 /* SceneDelegate.swift in Sources */,
 				4DDA650A2515F8B200EE2BE7 /* SWRevealViewController.m in Sources */,
+				4D4AD3962533713C0026CD65 /* menuCell.swift in Sources */,
 				4DF40ACC251D051000D9B3E6 /* LoginWriteEmailPasswordCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

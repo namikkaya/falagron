@@ -8,47 +8,59 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
+class BaseViewController: UIViewController, SWRevealViewControllerDelegate {
     var authStatus: FirebaseManager.FBAuthStatus = .singOut
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        authStatus = FirebaseManager.shared.authStatus
         self.revealViewController()?.delegate = self
         if let reconizer = self.revealViewController()?.panGestureRecognizer() {
             self.view.addGestureRecognizer(reconizer)
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        authStatus = FirebaseManager.shared.authStatus
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        addListener()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeListener()
+    }
     
     func userAuthStatusChange(status:FirebaseManager.FBAuthStatus) {
         self.authStatus = status
     }
-}
-extension BaseViewController: SWRevealViewControllerDelegate {
-    func revealController(_ revealController: SWRevealViewController!, didMoveTo position: FrontViewPosition) {
-        switch position {
-        case .left:
-            
-            break
-        case .right:
-            break
-        default: break
-        }
+    
+    func menuDisplayChange(status:MenuDisplayStatus) { }
+    
+    @objc private func menuIsOpen(notification: Notification) {
+        menuDisplayChange(status: .ON)
     }
+    
+    @objc private func menuIsClose(notification: Notification) {
+        menuDisplayChange(status: .OFF)
+    }
+    
 }
 
 //MARK: - Listener
 extension BaseViewController {
     func addListener() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.authStatusChange(_:)) , name: NSNotification.Name.FALAGRON.AuthChangeStatus, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.menuIsOpen) , name: NSNotification.Name.FALAGRON.MenuTakeOn, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.menuIsClose) , name: NSNotification.Name.FALAGRON.MenuTakeOff, object: nil)
     }
     
     func removeListener() {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.FALAGRON.AuthChangeStatus, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.FALAGRON.MenuTakeOn, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.FALAGRON.MenuTakeOff, object: nil)
     }
 }
 
