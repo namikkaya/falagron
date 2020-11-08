@@ -20,12 +20,14 @@ extension MenuVC {
     }
 }
 
-class MenuVC: UIViewController, SWRevealViewControllerDelegate {
+class MenuVC: UIViewController {
     private var menuData:[MenuModel] = []
     
     private var rows: [RowType] = []
     private var selfNC: MenuNC?
     @IBOutlet private weak var collectionView: UICollectionView!
+    
+    var timer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,31 +56,7 @@ class MenuVC: UIViewController, SWRevealViewControllerDelegate {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-    }
-    
-}
-
-extension MenuVC {
-    func revealController(_ revealController: SWRevealViewController!, didMoveTo position: FrontViewPosition) {
-        switch position {
-        case .left:
-            NotificationCenter.default.post(name: NSNotification.Name.FALAGRON.MenuTakeOff, object: self, userInfo: nil)
-            break
-        case .right:
-            NotificationCenter.default.post(name: NSNotification.Name.FALAGRON.MenuTakeOn, object: self, userInfo: nil)
-            break
-        default: break
-        }
-    }
-}
-
-extension MenuVC {
-    func startListener() {
-        
-    }
-    
-    func stopListener() {
-        
+        clearTimer()
     }
 }
 
@@ -95,8 +73,8 @@ extension MenuVC: UICollectionViewDelegate, UICollectionViewDataSource {
         
         collectionView.register(MenuHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerId")
         
-        let menuFooterNib:UINib = UINib(nibName: "MenuFooterView", bundle: nil)
-        collectionView.register(menuFooterNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "footerId")
+        //let menuFooterNib:UINib = UINib(nibName: "MenuFooterView", bundle: nil)
+        collectionView.register(MenuFooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "footerId")
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         collectionView.alwaysBounceVertical = true
@@ -131,8 +109,22 @@ extension MenuVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let currentPage = menuData[indexPath.row]
+        clearTimer()
+        timer = Timer.scheduledTimer(timeInterval: 1.2, target: self, selector: #selector(timerTrigger(e:)), userInfo: ["row" : indexPath.row], repeats: false)
+    }
+    
+    @objc func timerTrigger(e:Timer) {
+        guard let row = e.userInfo as? [String: Int] else { return }
+        let currentPage = menuData[row["row", default:0]]
         DataHolder.shared.currentPageType = currentPage.id
+        self.revealViewController()?.revealToggle(animated: true)
+        clearTimer()
+    }
+    
+    private func clearTimer() {
+        guard timer != nil else { return }
+        timer?.invalidate()
+        timer = nil
     }
 }
 
@@ -166,6 +158,9 @@ extension MenuVC: UICollectionViewDelegateFlowLayout {
 
         case UICollectionView.elementKindSectionFooter:
             let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "footerId", for: indexPath)
+            footerView.tag = indexPath.section
+            footerView.clipsToBounds = true
+            footerView.isUserInteractionEnabled = true
             return footerView
         default:
             assert(false, "Unexpected element kind")
@@ -175,12 +170,12 @@ extension MenuVC: UICollectionViewDelegateFlowLayout {
 
 extension MenuVC {
     private func createMenuData() {
-        let falShow:MenuModel = .init(id: PageState.home, title: "Falına baktır", icon: UIImage(named: "coffee") ?? UIImage())
-        let fallarim:MenuModel = .init(id: PageState.fallarim, title: "Fallarım", icon: UIImage(named: "coffee") ?? UIImage())
-        let store:MenuModel = .init(id: PageState.purchase, title: "Kredilerim", icon: UIImage(named: "coffee") ?? UIImage())
-        let notification:MenuModel = .init(id: PageState.notification, title: "Bildirimler", icon: UIImage(named: "coffee") ?? UIImage())
-        let profile:MenuModel = .init(id: PageState.profile, title: "Profilim", icon: UIImage(named: "coffee") ?? UIImage())
-        let setting:MenuModel = .init(id: PageState.setting, title: "Ayarlar", icon: UIImage(named: "coffee") ?? UIImage())
+        let falShow:MenuModel = .init(id: PageState.home, title: "Falına baktır", icon: UIImage(named: "coffeeIcon") ?? UIImage())
+        let fallarim:MenuModel = .init(id: PageState.fallarim, title: "Fallarım", icon: UIImage(named: "history") ?? UIImage())
+        let store:MenuModel = .init(id: PageState.purchase, title: "Kredilerim", icon: UIImage(named: "coffee-pot") ?? UIImage())
+        let notification:MenuModel = .init(id: PageState.notification, title: "Bildirimler", icon: UIImage(named: "bell") ?? UIImage())
+        let profile:MenuModel = .init(id: PageState.profile, title: "Profilim", icon: UIImage(named: "coffee-beans") ?? UIImage())
+        let setting:MenuModel = .init(id: PageState.setting, title: "Ayarlar", icon: UIImage(named: "grinder") ?? UIImage())
         menuData = [falShow, fallarim, store, notification, profile, setting]
     }
     func updateUI() {

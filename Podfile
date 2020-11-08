@@ -8,6 +8,9 @@ target 'falagron' do
   # Pods for falagron
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
+  pod 'Smile'
 
   target 'falagronTests' do
     inherit! :search_paths

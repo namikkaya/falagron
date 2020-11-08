@@ -24,4 +24,5 @@ class DataHolder: NSObject {
             TabbarVC.shared.setState = currentPageType
         }
     }
+    
 }

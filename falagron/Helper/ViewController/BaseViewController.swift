@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseViewController: UIViewController, SWRevealViewControllerDelegate {
+class BaseViewController: UIViewController {
     var authStatus: FirebaseManager.FBAuthStatus = .singOut
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +21,7 @@ class BaseViewController: UIViewController, SWRevealViewControllerDelegate {
         if let reconizer = self.revealViewController()?.panGestureRecognizer() {
             self.view.addGestureRecognizer(reconizer)
         }
+        self.revealViewController()?.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -31,6 +32,11 @@ class BaseViewController: UIViewController, SWRevealViewControllerDelegate {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         removeListener()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.revealViewController()?.delegate = nil
     }
     
     func userAuthStatusChange(status:FirebaseManager.FBAuthStatus) {
@@ -47,6 +53,15 @@ class BaseViewController: UIViewController, SWRevealViewControllerDelegate {
         menuDisplayChange(status: .OFF)
     }
     
+    func infoMessage(message:String = "", buttonTitle:String = "Tamam", completion: @escaping  () -> () = {}) {
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: { (acion) in
+            completion()
+        }))
+        DispatchQueue.main.async {
+            self.present(alert, animated: true)
+        }
+    }
 }
 
 //MARK: - Listener
@@ -70,5 +85,62 @@ extension BaseViewController {
         if let userInfo = notification.userInfo, let authStatus = userInfo["status"] as? FirebaseManager.FBAuthStatus {
             userAuthStatusChange(status: authStatus)
         }
+    }
+}
+
+extension BaseViewController: SWRevealViewControllerDelegate {
+    func revealController(_ revealController: SWRevealViewController!, didMoveTo position: FrontViewPosition) {
+        switch position {
+        case .left:
+            NotificationCenter.default.post(name: NSNotification.Name.FALAGRON.MenuTakeOff, object: self, userInfo: nil)
+            break
+        case .right:
+            NotificationCenter.default.post(name: NSNotification.Name.FALAGRON.MenuTakeOn, object: self, userInfo: nil)
+            break
+        default: break
+        }
+    }
+}
+
+extension BaseViewController {
+    func showUniversalLoadingView(_ show: Bool, loadingText : String = "") {
+        let existingView = UIApplication.shared.windows[0].viewWithTag(1200)
+        if show {
+            if existingView != nil {
+                return
+            }
+            let loadingView = self.makeLoadingView(withFrame: UIScreen.main.bounds, loadingText: loadingText)
+            loadingView?.tag = 1200
+            UIApplication.shared.windows[0].addSubview(loadingView!)
+        } else {
+            existingView?.removeFromSuperview()
+        }
+        
+    }
+    
+    func makeLoadingView(withFrame frame: CGRect, loadingText text: String?) -> UIView? {
+        let loadingView = UIView(frame: frame)
+        loadingView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        let activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        //activityIndicator.backgroundColor = UIColor(red:0.16, green:0.17, blue:0.21, alpha:1)
+        activityIndicator.layer.cornerRadius = 6
+        activityIndicator.center = loadingView.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.style = .white
+        activityIndicator.startAnimating()
+        activityIndicator.tag = 100 // 100 for example
+        
+        loadingView.addSubview(activityIndicator)
+        if !text!.isEmpty {
+            let lbl = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
+            let cpoint = CGPoint(x: activityIndicator.frame.origin.x + activityIndicator.frame.size.width / 2, y: activityIndicator.frame.origin.y + 80)
+            lbl.center = cpoint
+            lbl.textColor = UIColor.white
+            lbl.textAlignment = .center
+            lbl.text = text
+            lbl.tag = 1234
+            loadingView.addSubview(lbl)
+        }
+        return loadingView
     }
 }

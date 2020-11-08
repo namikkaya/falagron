@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol LoginWriteEmailPasswordCellDelegate: class {
+    func loginInfoData(email:String, password:String, rePassword:String)
+}
+
 class LoginWriteEmailPasswordCell: UICollectionViewCell {
 
     @IBOutlet private weak var mailLabel: UITextField!

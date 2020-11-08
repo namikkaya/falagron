@@ -32,6 +32,13 @@
 		4D4AD3C2253DE3480026CD65 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4AD3B5253DE3480026CD65 /* Roboto-Thin.ttf */; };
 		4D4AD3C3253DE3480026CD65 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D4AD3B6253DE3480026CD65 /* Roboto-Black.ttf */; };
 		4D4AD3C6253DF0EF0026CD65 /* DataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4AD3C5253DF0EF0026CD65 /* DataHolder.swift */; };
+		4D4AD3CA253F12060026CD65 /* HolderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4AD3C9253F12060026CD65 /* HolderTextField.swift */; };
+		4D4AD3CC2540326D0026CD65 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4AD3CB2540326D0026CD65 /* UITextFieldExtensions.swift */; };
+		4D4AD3CE2540BFF60026CD65 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4AD3CD2540BFF60026CD65 /* StringExtensions.swift */; };
+		4D4AD3D0254172EA0026CD65 /* AuthModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4AD3CF254172EA0026CD65 /* AuthModels.swift */; };
+		4D4AD3D225418A550026CD65 /* AuthenticationBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4AD3D125418A550026CD65 /* AuthenticationBaseViewController.swift */; };
+		4D5A4C992545D03600DCB84C /* RegisterHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D5A4C982545D03600DCB84C /* RegisterHeaderView.xib */; };
+		4D5A4C9B2545D05400DCB84C /* RegisterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5A4C9A2545D05400DCB84C /* RegisterHeaderView.swift */; };
 		4D5DEFB02516823900E0C25E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFAF2516823900E0C25E /* LoginViewController.swift */; };
 		4D5DEFB22516824600E0C25E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFB12516824600E0C25E /* RegisterViewController.swift */; };
 		4D5DEFB42516894A00E0C25E /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFB32516894A00E0C25E /* OTPViewController.swift */; };
@@ -50,6 +57,9 @@
 		4D5DEFD72517516500E0C25E /* PurchaseNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFD62517516500E0C25E /* PurchaseNC.swift */; };
 		4D5DEFDC2517610700E0C25E /* LoginLogoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFDA2517610700E0C25E /* LoginLogoCell.swift */; };
 		4D5DEFDD2517610700E0C25E /* LoginLogoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D5DEFDB2517610700E0C25E /* LoginLogoCell.xib */; };
+		4DCABE752544A793006FA6E6 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCABE742544A793006FA6E6 /* UIColorExtensions.swift */; };
+		4DCABE792544BF23006FA6E6 /* RegisterTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCABE772544BF23006FA6E6 /* RegisterTextFieldCell.swift */; };
+		4DCABE7A2544BF23006FA6E6 /* RegisterTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DCABE782544BF23006FA6E6 /* RegisterTextFieldCell.xib */; };
 		4DDA64AF2511459C00EE2BE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA64AE2511459C00EE2BE7 /* AppDelegate.swift */; };
 		4DDA64B12511459C00EE2BE7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA64B02511459C00EE2BE7 /* SceneDelegate.swift */; };
 		4DDA64B62511459C00EE2BE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DDA64B42511459C00EE2BE7 /* Main.storyboard */; };
@@ -72,6 +82,7 @@
 		4DDA650C2515FF7800EE2BE7 /* MenuNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA650B2515FF7800EE2BE7 /* MenuNC.swift */; };
 		4DDA650E2516094000EE2BE7 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA650D2516094000EE2BE7 /* NotificationExtensions.swift */; };
 		4DDA65102516127200EE2BE7 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA650F2516127200EE2BE7 /* CollectionExtensions.swift */; };
+		4DE6E73F254596A4006AA05F /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6E73E254596A4006AA05F /* UITableViewExtensions.swift */; };
 		4DF40ACC251D051000D9B3E6 /* LoginWriteEmailPasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF40ACA251D051000D9B3E6 /* LoginWriteEmailPasswordCell.swift */; };
 		4DF40ACD251D051000D9B3E6 /* LoginWriteEmailPasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DF40ACB251D051000D9B3E6 /* LoginWriteEmailPasswordCell.xib */; };
 		4DFDF85425331955004D30A0 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFDF85325331955004D30A0 /* MenuVC.swift */; };
@@ -124,6 +135,13 @@
 		4D4AD3B5253DE3480026CD65 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		4D4AD3B6253DE3480026CD65 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		4D4AD3C5253DF0EF0026CD65 /* DataHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHolder.swift; sourceTree = "<group>"; };
+		4D4AD3C9253F12060026CD65 /* HolderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolderTextField.swift; sourceTree = "<group>"; };
+		4D4AD3CB2540326D0026CD65 /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensions.swift; sourceTree = "<group>"; };
+		4D4AD3CD2540BFF60026CD65 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		4D4AD3CF254172EA0026CD65 /* AuthModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModels.swift; sourceTree = "<group>"; };
+		4D4AD3D125418A550026CD65 /* AuthenticationBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationBaseViewController.swift; sourceTree = "<group>"; };
+		4D5A4C982545D03600DCB84C /* RegisterHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterHeaderView.xib; sourceTree = "<group>"; };
+		4D5A4C9A2545D05400DCB84C /* RegisterHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterHeaderView.swift; sourceTree = "<group>"; };
 		4D5DEFAF2516823900E0C25E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4D5DEFB12516824600E0C25E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		4D5DEFB32516894A00E0C25E /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +160,9 @@
 		4D5DEFD62517516500E0C25E /* PurchaseNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseNC.swift; sourceTree = "<group>"; };
 		4D5DEFDA2517610700E0C25E /* LoginLogoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginLogoCell.swift; sourceTree = "<group>"; };
 		4D5DEFDB2517610700E0C25E /* LoginLogoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginLogoCell.xib; sourceTree = "<group>"; };
+		4DCABE742544A793006FA6E6 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		4DCABE772544BF23006FA6E6 /* RegisterTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTextFieldCell.swift; sourceTree = "<group>"; };
+		4DCABE782544BF23006FA6E6 /* RegisterTextFieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterTextFieldCell.xib; sourceTree = "<group>"; };
 		4DDA64AB2511459C00EE2BE7 /* falagron.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = falagron.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDA64AE2511459C00EE2BE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DDA64B02511459C00EE2BE7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +193,7 @@
 		4DDA650B2515FF7800EE2BE7 /* MenuNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNC.swift; sourceTree = "<group>"; };
 		4DDA650D2516094000EE2BE7 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		4DDA650F2516127200EE2BE7 /* CollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
+		4DE6E73E254596A4006AA05F /* UITableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
 		4DF40ACA251D051000D9B3E6 /* LoginWriteEmailPasswordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWriteEmailPasswordCell.swift; sourceTree = "<group>"; };
 		4DF40ACB251D051000D9B3E6 /* LoginWriteEmailPasswordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginWriteEmailPasswordCell.xib; sourceTree = "<group>"; };
 		4DFDF85325331955004D30A0 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
@@ -266,6 +288,15 @@
 			path = Roboto;
 			sourceTree = "<group>";
 		};
+		4D5A4C972545CFFD00DCB84C /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				4D5A4C982545D03600DCB84C /* RegisterHeaderView.xib */,
+				4D5A4C9A2545D05400DCB84C /* RegisterHeaderView.swift */,
+			);
+			path = HeaderView;
+			sourceTree = "<group>";
+		};
 		4D5DEFB52516895600E0C25E /* ResetPassword */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +327,7 @@
 			children = (
 				4D5DEFCF2516A03400E0C25E /* MainModels.swift */,
 				4D4AD398253375360026CD65 /* MenuModels.swift */,
+				4D4AD3CF254172EA0026CD65 /* AuthModels.swift */,
 			);
 			path = MainModels;
 			sourceTree = "<group>";
@@ -311,6 +343,7 @@
 		4D5DEFD82517609600E0C25E /* AuthenticationCells */ = {
 			isa = PBXGroup;
 			children = (
+				4DCABE762544BEFB006FA6E6 /* RegisterCells */,
 				4D5DEFD9251760A700E0C25E /* LoginCells */,
 			);
 			path = AuthenticationCells;
@@ -324,6 +357,16 @@
 				4D5DEFDB2517610700E0C25E /* LoginLogoCell.xib */,
 			);
 			path = LoginCells;
+			sourceTree = "<group>";
+		};
+		4DCABE762544BEFB006FA6E6 /* RegisterCells */ = {
+			isa = PBXGroup;
+			children = (
+				4D5A4C972545CFFD00DCB84C /* HeaderView */,
+				4DCABE772544BF23006FA6E6 /* RegisterTextFieldCell.swift */,
+				4DCABE782544BF23006FA6E6 /* RegisterTextFieldCell.xib */,
+			);
+			path = RegisterCells;
 			sourceTree = "<group>";
 		};
 		4DDA64A22511459C00EE2BE7 = {
@@ -449,6 +492,7 @@
 			children = (
 				4DDA64E52511467300EE2BE7 /* BaseViewController.swift */,
 				4D4AD3A6253DDF140026CD65 /* StretchyHeaderStickyFooterLayout.swift */,
+				4D4AD3D125418A550026CD65 /* AuthenticationBaseViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -462,6 +506,10 @@
 				4DDA650F2516127200EE2BE7 /* CollectionExtensions.swift */,
 				4D5DEFB825168DEC00E0C25E /* NSObjectExtensions.swift */,
 				4D5DEFC725169CFB00E0C25E /* UIViewExtensions.swift */,
+				4D4AD3CB2540326D0026CD65 /* UITextFieldExtensions.swift */,
+				4D4AD3CD2540BFF60026CD65 /* StringExtensions.swift */,
+				4DCABE742544A793006FA6E6 /* UIColorExtensions.swift */,
+				4DE6E73E254596A4006AA05F /* UITableViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -523,6 +571,7 @@
 			children = (
 				4DDA64F82513DAAD00EE2BE7 /* FirebaseManager.swift */,
 				4D4AD3C5253DF0EF0026CD65 /* DataHolder.swift */,
+				4D4AD3C9253F12060026CD65 /* HolderTextField.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -718,6 +767,7 @@
 				4D5DEFDD2517610700E0C25E /* LoginLogoCell.xib in Resources */,
 				4D4AD39C25337EC30026CD65 /* MenuHeaderView.xib in Resources */,
 				4D4AD3BD253DE3480026CD65 /* Roboto-LightItalic.ttf in Resources */,
+				4D5A4C992545D03600DCB84C /* RegisterHeaderView.xib in Resources */,
 				4DF40ACD251D051000D9B3E6 /* LoginWriteEmailPasswordCell.xib in Resources */,
 				4D5DEFD5251750CE00E0C25E /* Purchase.storyboard in Resources */,
 				4D4AD3C3253DE3480026CD65 /* Roboto-Black.ttf in Resources */,
@@ -735,6 +785,7 @@
 				4D5DEFBD251694DE00E0C25E /* MainBannerCell.xib in Resources */,
 				4D4AD3C1253DE3480026CD65 /* Roboto-Bold.ttf in Resources */,
 				4D4AD3BF253DE3480026CD65 /* LICENSE.txt in Resources */,
+				4DCABE7A2544BF23006FA6E6 /* RegisterTextFieldCell.xib in Resources */,
 				4D4AD3B9253DE3480026CD65 /* Roboto-Regular.ttf in Resources */,
 				4D4AD3972533713C0026CD65 /* menuCell.xib in Resources */,
 				4D4AD3BB253DE3480026CD65 /* Roboto-ThinItalic.ttf in Resources */,
@@ -869,6 +920,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D5A4C9B2545D05400DCB84C /* RegisterHeaderView.swift in Sources */,
 				4D5DEFCC25169F3900E0C25E /* loadingColCell.swift in Sources */,
 				4DDA65042515381600EE2BE7 /* MainNC.swift in Sources */,
 				4DDA65072515385800EE2BE7 /* MainVC.swift in Sources */,
@@ -876,11 +928,14 @@
 				4D4AD3A0253384D20026CD65 /* MenuHeader.swift in Sources */,
 				4DDA64F625114D8800EE2BE7 /* UIViewControllerExtensions.swift in Sources */,
 				4DDA64F425114BAE00EE2BE7 /* UINavigationControllerExtensions.swift in Sources */,
+				4DE6E73F254596A4006AA05F /* UITableViewExtensions.swift in Sources */,
+				4D4AD3CE2540BFF60026CD65 /* StringExtensions.swift in Sources */,
 				4D4AD3C6253DF0EF0026CD65 /* DataHolder.swift in Sources */,
 				4DDA650E2516094000EE2BE7 /* NotificationExtensions.swift in Sources */,
 				4DDA64F92513DAAD00EE2BE7 /* FirebaseManager.swift in Sources */,
 				4DDA64E62511467300EE2BE7 /* BaseViewController.swift in Sources */,
 				4D4AD399253375360026CD65 /* MenuModels.swift in Sources */,
+				4D4AD3D225418A550026CD65 /* AuthenticationBaseViewController.swift in Sources */,
 				4D5DEFDC2517610700E0C25E /* LoginLogoCell.swift in Sources */,
 				4DDA65002513DE6F00EE2BE7 /* Coordinator.swift in Sources */,
 				4D5DEFD3251750B200E0C25E /* PurchaseViewController.swift in Sources */,
@@ -890,21 +945,26 @@
 				4D1F8FE32520ADDE0070ED74 /* TabbarVC.swift in Sources */,
 				4DDA64F225114AA800EE2BE7 /* SplashScreenVC.swift in Sources */,
 				4D5DEFBC251694DE00E0C25E /* MainBannerCell.swift in Sources */,
+				4DCABE792544BF23006FA6E6 /* RegisterTextFieldCell.swift in Sources */,
 				4D4AD39E25337EE70026CD65 /* MenuHeaderView.swift in Sources */,
 				4D5DEFB72516896A00E0C25E /* ResetViewController.swift in Sources */,
 				4D5DEFB925168DEC00E0C25E /* NSObjectExtensions.swift in Sources */,
+				4D4AD3D0254172EA0026CD65 /* AuthModels.swift in Sources */,
 				4DDA65102516127200EE2BE7 /* CollectionExtensions.swift in Sources */,
 				4D5DEFD72517516500E0C25E /* PurchaseNC.swift in Sources */,
 				4DDA64AF2511459C00EE2BE7 /* AppDelegate.swift in Sources */,
 				4D5DEFB42516894A00E0C25E /* OTPViewController.swift in Sources */,
 				4D5DEFB02516823900E0C25E /* LoginViewController.swift in Sources */,
+				4D4AD3CA253F12060026CD65 /* HolderTextField.swift in Sources */,
 				4DFDF85425331955004D30A0 /* MenuVC.swift in Sources */,
 				4D5DEFB22516824600E0C25E /* RegisterViewController.swift in Sources */,
 				4DDA64FD2513DD6700EE2BE7 /* AuthenticationNC.swift in Sources */,
 				4D4AD3A425338C3F0026CD65 /* MenuFooterView.swift in Sources */,
 				4D5DEFD02516A03400E0C25E /* MainModels.swift in Sources */,
 				4DDA64B12511459C00EE2BE7 /* SceneDelegate.swift in Sources */,
+				4DCABE752544A793006FA6E6 /* UIColorExtensions.swift in Sources */,
 				4DDA650A2515F8B200EE2BE7 /* SWRevealViewController.m in Sources */,
+				4D4AD3CC2540326D0026CD65 /* UITextFieldExtensions.swift in Sources */,
 				4D4AD3962533713C0026CD65 /* menuCell.swift in Sources */,
 				4DF40ACC251D051000D9B3E6 /* LoginWriteEmailPasswordCell.swift in Sources */,
 			);
@@ -1011,7 +1071,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1065,7 +1125,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

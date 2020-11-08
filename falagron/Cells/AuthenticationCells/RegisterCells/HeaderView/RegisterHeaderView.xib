@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterHeaderView" customModule="falagron" customModuleProvider="target">
+            <connections>
+                <outlet property="titleText" destination="XFp-bn-VfG" id="OXi-ha-rlp"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFp-bn-VfG">
+                    <rect key="frame" x="20" y="14" width="342" height="16.5"/>
+                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="iR4-bi-Hga">
+                    <rect key="frame" x="376" y="17" width="10" height="10"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="10" id="3Gf-kD-rXa"/>
+                        <constraint firstAttribute="width" constant="10" id="ifN-zC-r4Q"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" name="darkPurple"/>
+            <constraints>
+                <constraint firstItem="XFp-bn-VfG" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Ebr-99-yAq"/>
+                <constraint firstItem="iR4-bi-Hga" firstAttribute="leading" secondItem="XFp-bn-VfG" secondAttribute="trailing" constant="14" id="Gmm-4R-KRc"/>
+                <constraint firstItem="XFp-bn-VfG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="KzN-Y3-UIq"/>
+                <constraint firstItem="iR4-bi-Hga" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Ohf-Xv-aQh"/>
+                <constraint firstAttribute="trailing" secondItem="iR4-bi-Hga" secondAttribute="trailing" constant="28" id="e4r-UI-ene"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="131.8840579710145" y="-107.8125"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="down-arrow" width="42" height="42"/>
+        <namedColor name="darkPurple">
+            <color red="0.16899999976158142" green="0.10199999809265137" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

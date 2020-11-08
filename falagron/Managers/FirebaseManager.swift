@@ -8,12 +8,19 @@
 
 import Foundation
 import FirebaseAuth
+import Firebase
+import FirebaseFirestore
 
 class FirebaseManager: NSObject{
     static let shared = FirebaseManager()
     
     private var handle: AuthStateDidChangeListenerHandle?
     var authStatus: FBAuthStatus = .singOut
+    
+    
+    var fbUserInformation:String = "usersInfo"
+    
+    let db = Firestore.firestore()
     
     override init() {
         super.init()
@@ -56,8 +63,15 @@ extension FirebaseManager {
         Auth.auth().removeStateDidChangeListener(handle!)
     }
     
-    func newUser(email:String, password:String) {
+    func newUser(email:String, password:String, data:[String:Any], completion: @escaping  (_ status:Bool, _ message:String?) -> () = {_, _ in} ) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            guard error == nil else {
+                completion(false, error?.localizedDescription)
+                return
+            }
+            if let authResult = authResult {
+                self.userWriteData(userId: authResult.user.uid, data: data, completion: completion)
+            }
             
         }
     }
@@ -66,6 +80,29 @@ extension FirebaseManager {
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
             guard let strongSelf = self else { return }
             print(authResult?.user.isAnonymous)
+        }
+    }
+    
+    func checkUser() {
+        if Auth.auth().currentUser != nil {
+          // User is signed in.
+          // ...
+        } else {
+          // No user is signed in.
+          // ...
+        }
+    }
+    
+    
+    func userWriteData(userId:String,data:[String : Any], completion: @escaping  (_ status:Bool, _ message:String?) -> () = {_, _ in}) {
+        var newData = data
+        newData["userId"] = userId
+        db.collection(usersInfo).addDocument(data: newData) { error in
+            if let err = error {
+                completion(false, "Kullanıcı oluşturuldu ancak bilgileri eklenemedi. \n Hata: \(err.localizedDescription)")
+            }else {
+                completion(true, "Kullanıcı başarılı ile oluşturuldu.")
+            }
         }
     }
 }

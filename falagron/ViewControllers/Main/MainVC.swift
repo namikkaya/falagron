@@ -13,6 +13,8 @@ class MainVC: BaseViewController {
     private var selfNC: MainNC?
     private var pageData:[MainPageModel] = []
     
+    var menuButton:UIButton?
+    
     @IBOutlet private weak var collectionView: UICollectionView!
 
     override func viewDidLoad() {
@@ -22,12 +24,18 @@ class MainVC: BaseViewController {
         loadingUI()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let selfNC = self.navigationController as? MainNC {
             self.selfNC = selfNC
         }
+        setNeedsStatusBarAppearanceUpdate()
+        menuButton = addGetMenuButton()
+        menuButton?.addTarget(self, action: #selector(menuButtonEvent(_:)), for: .touchUpInside)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -60,14 +68,21 @@ class MainVC: BaseViewController {
         }
     }
     
+    @objc private func menuButtonEvent(_ sender:UIButton) {
+        self.revealViewController()?.revealToggle(animated: true)
+    }
+    
+    
 }
 
+//MARK: - Type
 extension MainVC {
     enum RowType {
         case loading, banner(image:UIImage), button(type:PurchaseType, title:String, icon:UIImage)
     }
 }
 
+//MARK: - CollectionView
 extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
     private func setupCollectionView() {
         collectionView.delegate = self
@@ -119,7 +134,6 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
         }
     }
 }
-
 extension MainVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let type = rows[indexPath.row]
@@ -137,6 +151,7 @@ extension MainVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat { return 1.0 }
 }
 
+//MARK: - UpdateUI
 extension MainVC {
     func updateUI() {
         rows.removeAll()
@@ -168,5 +183,19 @@ extension MainVC {
         pageData.append(sharingFriend)
         let buyyer = MainPageModel(type: .button(type: .buyyer, title: "Kredi Al", icon: UIImage(named: "coffee") ?? UIImage()))
         pageData.append(buyyer)
+    }
+}
+
+extension MainVC {
+    private func addGetMenuButton() -> UIButton  {
+        let leftMenuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 18, height: 18))
+        leftMenuButton.setImage(UIImage(named: "menuIcon"), for: .normal)
+        let barButton = UIBarButtonItem(customView: leftMenuButton)
+        let width = barButton.customView?.widthAnchor.constraint(equalToConstant: 18)
+        width?.isActive = true
+        let height = barButton.customView?.heightAnchor.constraint(equalToConstant: 18)
+        height?.isActive = true
+        self.navigationItem.setLeftBarButton(barButton, animated: true)
+        return leftMenuButton
     }
 }

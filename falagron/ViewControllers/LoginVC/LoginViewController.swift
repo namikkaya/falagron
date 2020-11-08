@@ -8,19 +8,36 @@
 
 import UIKit
 
-class LoginViewController: BaseViewController {
-    @IBOutlet private weak var collectionView: UICollectionView!
-    private var selfNC: AuthenticationNC?
+class LoginViewController: AuthenticationBaseViewController {
+    @IBOutlet private weak var contentContainer: UIView!
+    @IBOutlet private weak var contentCenterConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var loginButton: UIButton! {
+        didSet{
+            loginButton.addDropShadow(cornerRadius: 8,
+                                      shadowRadius: 0,
+                                      shadowOpacity: 0,
+                                      shadowColor: .clear,
+                                      shadowOffset: .zero)
+        }
+    }
     
-    var rows:[SectionType] = []
+    var isTakeKeyboard:Bool = false
+    @IBOutlet private weak var emailText: UITextField! {
+        didSet{
+            emailText.delegate = self
+            emailText.tag = 0
+        }
+    }
+    @IBOutlet private weak var passwordText: UITextField! {
+        didSet{
+            passwordText.delegate = self
+            passwordText.tag = 1
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let selfNC = self.navigationController as? AuthenticationNC {
-            self.selfNC = selfNC
-        }
-        setupCollectionView()
-        updateUI()
+        self.setNavigationBarTitle(titleText: "Giriş")
     }
     
     // user login and logout
@@ -36,102 +53,90 @@ class LoginViewController: BaseViewController {
         }
     }
     
-}
-
-extension LoginViewController {
-    enum RowType{
-        case loading,
-        logoCell(image:UIImage),
-        loginWriteCell(emailPlaceHolder:String, passwordPlaceHolder:String)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if #available(iOS 13.0, *) {
+            self.isModalInPresentation = true
+        }
+        let closeButton = closeButtonSetup()
+        closeButton.addTarget(self, action: #selector(closeButtonEvent(_:)), for: UIControl.Event.touchUpInside)
     }
     
-    enum SectionType {
-        case cellType(type:RowType)
-    }
-}
-
-extension LoginViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return rows.count
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        addKeyboardListener()
+        emailText.becomeFirstResponder()
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let sectionType = rows[section]
-        switch sectionType {
-        case .cellType(let type):
-            switch type {
-            case .logoCell, .loginWriteCell:
-                return 1
-            default: return 0
-            }
-        }
+    @objc private func closeButtonEvent(_ sender:UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let type = rows[indexPath.section]
-        switch type {
-        case .cellType(let type):
-            switch type {
-            case .logoCell(let image):
-                let cell = collectionView.dequeueReusableCell(with: LoginLogoCell.self, for: indexPath)
-                return cell
-            case .loginWriteCell(let emailPlaceHolder, let passwordPlaceHolder):
-                let cell = collectionView.dequeueReusableCell(with: LoginWriteEmailPasswordCell.self, for: indexPath)
-                cell.setup(mailPlaceHolder: emailPlaceHolder, passwordPlaceHolder: passwordPlaceHolder, rePasswordPlaceHolder: passwordPlaceHolder)
-                return cell
-            default: return UICollectionViewCell()
-            }
-        }
-    }
-}
-
-extension LoginViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let sectionType = rows[indexPath.section]
-        switch sectionType {
-        case .cellType(let type):
-            switch type {
-            case .logoCell:
-                return CGSize(width: collectionView.frame.size.width, height: 120)
-            case .loginWriteCell:
-                return CGSize(width: collectionView.frame.size.width, height: 170)
-            default: return .zero
-            }
-        }
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat { return 1.0 }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat { return 1.0 }
-}
-
-extension LoginViewController {
-    private func setupCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        let cells = [UICollectionViewCell.self, LoginLogoCell.self, LoginWriteEmailPasswordCell.self]
-        collectionView.register(cellTypes: cells)
-        if #available(iOS 11, *) {
-            self.collectionView.contentInsetAdjustmentBehavior = .never
-        }
-        collectionView.keyboardDismissMode = .onDrag
-        layoutCells()
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeKeyboardListener()
+        self.view.endEditing(true)
     }
     
-    private func layoutCells() {
-        let layout = LeftAlignedFlowLayout()
-        layout.minimumInteritemSpacing = 1
-        layout.minimumLineSpacing = 1
-        layout.scrollDirection = .vertical
-        //layout.estimatedItemSize = CGSize(width: 160, height: 150)
-        self.collectionView!.collectionViewLayout = layout
-        if #available(iOS 11.0, *){ layout.sectionInsetReference = .fromSafeArea }
+    @IBAction func registerButtonEvent(_ sender: Any) {
+        guard let nc = self.selfNC else { return }
+        nc.goToController(gotoVC: .register)
+    }
+    
+    @IBAction func resetPasswordButtonEvent(_ sender: Any) {
+        guard let nc = self.selfNC else { return }
+        nc.goToController(gotoVC: .reset)
+    }
+    
+}
+
+extension LoginViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let txtTag:Int = textField.tag
+        if let textFieldNxt = self.view.viewWithTag(txtTag+1) as? UITextField {
+            textFieldNxt.becomeFirstResponder()
+        }else{
+            textField.resignFirstResponder()
+        }
+        return true
     }
 }
 
 extension LoginViewController {
-    private func updateUI() {
-        rows.removeAll()
-        rows.append(.cellType(type: .logoCell(image: UIImage(named: "coffee") ?? UIImage())))
-        rows.append(.cellType(type: .loginWriteCell(emailPlaceHolder: "E-posta", passwordPlaceHolder: "Şifre")))
-        self.collectionView.reloadData()
+    private func addKeyboardListener () {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    private func removeKeyboardListener() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func keyboardWillShow(notification:Notification) {
+        if isTakeKeyboard { return }
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue,
+            let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double {
+            let center = self.view.frame.size.height / 2
+            let newCenter = (self.view.frame.size.height - keyboardSize.height) / 2
+            let newPosition = center - newCenter
+            UIView.animate(withDuration: duration) {
+                self.contentCenterConstraint.constant = -(newPosition-(newCenter/2) + 44)
+                self.view.layoutIfNeeded()
+                self.isTakeKeyboard = true
+            }
+        }
+    }
+    @objc private func keyboardWillHide(notification:Notification) {
+        if !isTakeKeyboard { return }
+        if let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double {
+            UIView.animate(withDuration: duration) {
+                self.contentCenterConstraint.constant = 0
+                self.view.layoutIfNeeded()
+                 self.isTakeKeyboard = false
+            }
+        }
     }
 }

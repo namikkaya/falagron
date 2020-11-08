@@ -12,7 +12,7 @@ class OTPViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.setNavigationBarTitle(titleText: "Profil Bilgileri")
         // Do any additional setup after loading the view.
     }
     

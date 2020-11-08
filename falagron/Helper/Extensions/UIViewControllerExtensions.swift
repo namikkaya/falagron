@@ -69,3 +69,39 @@ extension UIViewController {
         }
     }
 }
+
+extension UIViewController{
+    func showToast(message : String, seconds: Double){
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alert.view.backgroundColor = .black
+        alert.view.alpha = 0.5
+        alert.view.layer.cornerRadius = 15
+        self.present(alert, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + seconds) {
+            alert.dismiss(animated: true)
+        }
+    }
+}
+
+extension UIViewController {
+    internal func setNavigationBarTitle(titleText:String){
+        //self.navigationItem.hidesBackButton = true
+        let attributes = [NSAttributedString.Key.font: UIFont(name: "Roboto-Bold", size: 16)]
+        self.navigationItem.backBarButtonItem?.setTitleTextAttributes(attributes as [NSAttributedString.Key : Any], for: .normal)
+        
+        let textShadow = NSShadow()
+        textShadow.shadowBlurRadius = 1
+        textShadow.shadowOffset = CGSize(width: 0.2, height: 0.2)
+        textShadow.shadowColor = UIColor.white
+        
+        let attrs = [
+            NSAttributedString.Key.shadow: textShadow,
+            NSAttributedString.Key.foregroundColor: UIColor.white, // UIColor.white
+            NSAttributedString.Key.font: UIFont(name: "Roboto-Bold", size: 16)/*UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.bold)*/
+            //UIFont.systemFont(ofSize: 17)//UIFont(name: "Roboto-Bold", size: 17)!
+        ]
+        
+        self.navigationController?.navigationBar.titleTextAttributes = attrs as [NSAttributedString.Key : Any]
+        self.navigationItem.title = titleText
+    }
+}

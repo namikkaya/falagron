@@ -8,23 +8,22 @@
 
 import UIKit
 
-class ResetViewController: UIViewController {
+class ResetViewController: AuthenticationBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.setNavigationBarTitle(titleText: "Şifre Sıfırla")
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let closeButton = closeButtonSetup()
+        closeButton.addTarget(self, action: #selector(closeButtonEvent(_:)), for: UIControl.Event.touchUpInside)
     }
-    */
+    
+    @objc private func closeButtonEvent(_ sender:UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
 
+    
 }
