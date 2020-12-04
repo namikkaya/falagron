@@ -45,10 +45,10 @@ class LoginViewController: AuthenticationBaseViewController {
         super.userAuthStatusChange(status: status)
         switch status {
         case .singIn:
-            
+            print("\(self.className) - Login")
             break
         case .singOut:
-            
+            print("\(self.className) - LogOut")
             break
         }
     }
@@ -70,6 +70,8 @@ class LoginViewController: AuthenticationBaseViewController {
     
     @objc private func closeButtonEvent(_ sender:UIButton) {
         self.dismiss(animated: true, completion: nil)
+        // yönlendirme yapılmayacak. nil ataması yapılıyor.
+        TabbarVC.shared.notLoginHolderSelectedIndex = nil
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -86,6 +88,30 @@ class LoginViewController: AuthenticationBaseViewController {
     @IBAction func resetPasswordButtonEvent(_ sender: Any) {
         guard let nc = self.selfNC else { return }
         nc.goToController(gotoVC: .reset)
+    }
+    
+    @IBAction func loginButtonEvent(_ sender: Any) {
+        guard let email = emailText.text?.trimmingCharacters(in: .whitespacesAndNewlines), email.isEmail() else {
+            print("email hatası")
+            self.infoMessage(message: "E-posta hatası! Lütfen kontrol edip tekrar deneyin.", buttonTitle: "Tamam") { }
+            return
+        }
+        
+        guard let password = passwordText.text?.trimmingCharacters(in: .whitespacesAndNewlines), password.isValidPassword() else {
+            self.infoMessage(message: "Şifre hatası! Lütfen kontrol edip tekrar deneyin.", buttonTitle: "Tamam") { }
+            return
+        }
+        
+        FirebaseManager.shared.singIn(email: email, password: password) { [weak self] (status, message) in
+            guard status else {
+                print("Hata döndü...")
+                self?.infoMessage(message: message ?? "Bir hata oluştu", buttonTitle: "Tamam") { }
+                return
+            }
+            self?.dismiss(animated: true, completion: {
+                TabbarVC.shared.toastMessage(message: "Hoşgeldin, \(FirebaseManager.shared.user?.displayName)")
+            })
+        }
     }
     
 }

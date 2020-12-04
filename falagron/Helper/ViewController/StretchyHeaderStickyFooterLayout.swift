@@ -47,10 +47,10 @@ class StretchyHeaderStickyFooterLayout: UICollectionViewFlowLayout {
             let yOffset = currentBounds!.origin.y + currentBounds!.size.height - attributes.size.height/2.0
             attributes.center = CGPoint(x: currentBounds!.midX, y: yOffset)
         }
-        
+        /*
         if (!self.footerIsFound) {
             _ = self.layoutAttributesForSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, at : NSIndexPath(index: self.UICollectionAttributes!.count) as IndexPath)
-        }
+        }*/
         
         return layoutAttributes
     }

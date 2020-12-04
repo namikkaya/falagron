@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,6 +43,7 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-posta" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Rbj-LH-IBd">
                                         <rect key="frame" x="8" y="16" width="358" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="PIz-kG-cs9"/>
                                         </constraints>
@@ -57,6 +58,7 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Şifre" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="M15-BM-BNE">
                                         <rect key="frame" x="8" y="76" width="358" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="8HL-UP-KgW"/>
                                         </constraints>
@@ -69,7 +71,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ix-Gl-CXf">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ix-Gl-CXf">
                                         <rect key="frame" x="158.5" y="198" width="57" height="31"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                         <state key="normal" title="Kayıt Ol">
@@ -79,7 +81,7 @@
                                             <action selector="registerButtonEvent:" destination="2WY-kf-0Ic" eventType="touchUpInside" id="aYf-b0-Bly"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2JQ-0N-d8X">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2JQ-0N-d8X">
                                         <rect key="frame" x="8" y="136" width="358" height="54"/>
                                         <color key="backgroundColor" name="defaultYellow"/>
                                         <constraints>
@@ -89,8 +91,11 @@
                                         <state key="normal" title="Giriş Yap">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginButtonEvent:" destination="2WY-kf-0Ic" eventType="touchUpInside" id="vTY-7y-v2F"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UbS-EA-W95">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UbS-EA-W95">
                                         <rect key="frame" x="131.5" y="237" width="111" height="29"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <state key="normal" title="Şifremi unuttum :(">
@@ -120,6 +125,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="pLp-7H-JjY"/>
                         <color key="backgroundColor" name="darkPurple"/>
                         <constraints>
                             <constraint firstItem="6dV-Zn-73h" firstAttribute="centerX" secondItem="gJk-fC-iXw" secondAttribute="centerX" id="88t-E6-yEv"/>
@@ -127,7 +133,6 @@
                             <constraint firstItem="6dV-Zn-73h" firstAttribute="leading" secondItem="pLp-7H-JjY" secondAttribute="leading" constant="20" id="syE-eC-cXL"/>
                             <constraint firstItem="6dV-Zn-73h" firstAttribute="centerY" secondItem="gJk-fC-iXw" secondAttribute="centerY" id="xac-wa-Oso"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="pLp-7H-JjY"/>
                     </view>
                     <navigationItem key="navigationItem" id="SNg-J4-gfr"/>
                     <connections>
@@ -157,12 +162,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="ooq-5Z-YXu"/>
                         <color key="backgroundColor" name="darkPurple"/>
                         <constraints>
                             <constraint firstItem="Vf5-UU-MTS" firstAttribute="centerY" secondItem="Nzo-2D-xqv" secondAttribute="centerY" id="ARc-12-KGb"/>
                             <constraint firstItem="Vf5-UU-MTS" firstAttribute="centerX" secondItem="Nzo-2D-xqv" secondAttribute="centerX" id="Fax-2a-cb0"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ooq-5Z-YXu"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F2I-xI-Kph" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -178,18 +183,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset VC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOI-jC-Caq">
-                                <rect key="frame" x="171.5" y="437.5" width="71" height="21"/>
+                                <rect key="frame" x="172" y="437.5" width="70" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="cW0-tu-3b6"/>
                         <color key="backgroundColor" name="darkPurple"/>
                         <constraints>
                             <constraint firstItem="JOI-jC-Caq" firstAttribute="centerX" secondItem="NqU-uD-rCZ" secondAttribute="centerX" id="51n-qu-jnw"/>
                             <constraint firstItem="JOI-jC-Caq" firstAttribute="centerY" secondItem="NqU-uD-rCZ" secondAttribute="centerY" id="zq4-Dr-0pc"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="cW0-tu-3b6"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zCc-Sg-GRr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -211,7 +216,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSf-eq-9xV">
                                 <rect key="frame" x="0.0" y="796" width="414" height="66"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B83-D3-7Be">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B83-D3-7Be">
                                         <rect key="frame" x="28" y="6" width="358" height="54"/>
                                         <color key="backgroundColor" name="defaultYellow"/>
                                         <constraints>
@@ -245,17 +250,17 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="613-Bu-Pvd"/>
                         <color key="backgroundColor" name="darkPurple"/>
                         <constraints>
                             <constraint firstItem="613-Bu-Pvd" firstAttribute="bottom" secondItem="kSf-eq-9xV" secondAttribute="bottom" id="ICo-To-f1b"/>
-                            <constraint firstItem="TMT-rX-Rix" firstAttribute="bottom" secondItem="613-Bu-Pvd" secondAttribute="bottom" id="Lp3-qs-uPR"/>
                             <constraint firstItem="kSf-eq-9xV" firstAttribute="leading" secondItem="613-Bu-Pvd" secondAttribute="leading" id="Npe-LD-Fn7"/>
                             <constraint firstItem="kSf-eq-9xV" firstAttribute="trailing" secondItem="613-Bu-Pvd" secondAttribute="trailing" id="PaT-w5-TJw"/>
-                            <constraint firstItem="TMT-rX-Rix" firstAttribute="leading" secondItem="613-Bu-Pvd" secondAttribute="leading" id="iKL-xu-tvs"/>
-                            <constraint firstItem="TMT-rX-Rix" firstAttribute="top" secondItem="613-Bu-Pvd" secondAttribute="top" id="jCQ-NH-fnr"/>
-                            <constraint firstItem="TMT-rX-Rix" firstAttribute="trailing" secondItem="613-Bu-Pvd" secondAttribute="trailing" id="kPe-IJ-c5h"/>
+                            <constraint firstItem="TMT-rX-Rix" firstAttribute="bottom" secondItem="613-Bu-Pvd" secondAttribute="bottom" id="as9-2V-2qj"/>
+                            <constraint firstItem="TMT-rX-Rix" firstAttribute="leading" secondItem="613-Bu-Pvd" secondAttribute="leading" id="bze-XP-67o"/>
+                            <constraint firstItem="TMT-rX-Rix" firstAttribute="top" secondItem="613-Bu-Pvd" secondAttribute="top" id="phX-GZ-bQh"/>
+                            <constraint firstItem="TMT-rX-Rix" firstAttribute="trailing" secondItem="613-Bu-Pvd" secondAttribute="trailing" id="x4P-jJ-C3N"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="613-Bu-Pvd"/>
                     </view>
                     <navigationItem key="navigationItem" id="QzV-fm-12l"/>
                     <connections>
@@ -263,6 +268,7 @@
                         <outlet property="buttonStage" destination="kSf-eq-9xV" id="5dw-C0-1bO"/>
                         <outlet property="registerButton" destination="B83-D3-7Be" id="AJ8-w2-wxi"/>
                         <outlet property="tableView" destination="TMT-rX-Rix" id="MvS-4j-Xa9"/>
+                        <outlet property="tableViewBottomConstraint" destination="as9-2V-2qj" id="BDN-zd-d6r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="afb-Z0-QYD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

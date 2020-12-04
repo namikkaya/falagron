@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double SmileVersionNumber;
-FOUNDATION_EXPORT const unsigned char SmileVersionString[];
+FOUNDATION_EXPORT double AwaitToastVersionNumber;
+FOUNDATION_EXPORT const unsigned char AwaitToastVersionString[];
 

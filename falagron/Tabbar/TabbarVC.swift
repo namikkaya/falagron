@@ -7,12 +7,14 @@
 //
 
 import UIKit
-
-enum PageState {
-    case home, fallarim, purchase, notification, setting, profile
+import AwaitToast
+enum PageState:Int {
+    case home = 0, fallarim, purchase, notification, setting, profile
 }
 
 class TabbarVC: UITabBarController {
+    // kullanıcı henüz giriş yapmamış ise giriş yapana kadar bu id tutulur.
+    var notLoginHolderSelectedIndex:Int?
     
     static let shared: TabbarVC = {
         let instance = TabbarVC()
@@ -22,24 +24,28 @@ class TabbarVC: UITabBarController {
     var setState:PageState? {
         didSet {
             guard let setState = setState else { return }
+            if !loginCheck(state: setState) {
+                DataHolder.shared.currentPageType = nil
+                return
+            }
             switch setState {
             case .home:
-                self.selectedIndex = 0
+                self.selectedIndex = setState.rawValue
                 break
             case .fallarim:
-                self.selectedIndex = 1
+                self.selectedIndex = setState.rawValue
                 break
             case .purchase:
-                self.selectedIndex = 2
+                self.selectedIndex = setState.rawValue
                 break
             case .notification:
-                self.selectedIndex = 3
+                self.selectedIndex = setState.rawValue
                 break
             case .setting:
-                self.selectedIndex = 4
+                self.selectedIndex = setState.rawValue
                 break
             case .profile:
-                self.selectedIndex = 5
+                self.selectedIndex = setState.rawValue
                 break
             }
         }
@@ -57,6 +63,17 @@ class TabbarVC: UITabBarController {
     }
 }
 
+extension TabbarVC {
+    private func loginCheck(state: PageState)->Bool {
+        guard notLoginHolderSelectedIndex == nil && FirebaseManager.shared.authStatus == .singIn else {
+            notLoginHolderSelectedIndex = state.rawValue
+            self.selectedIndex = PageState.home.rawValue
+            return false
+        }
+        return true
+    }
+}
+
 
 extension TabbarVC {
     private func setupTabbar() {
@@ -64,10 +81,28 @@ extension TabbarVC {
             self.viewControllers = [vc]
         }
     }
+    
 }
 
 extension TabbarVC {
     private func deeplinkPerform() {
         
+    }
+}
+
+extension TabbarVC {
+    func infoMessage(message:String = "", buttonTitle:String = "Tamam", completion: @escaping  () -> () = {}) {
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: { (acion) in
+            completion()
+        }))
+        DispatchQueue.main.async {
+            self.present(alert, animated: true)
+        }
+    }
+    
+    func toastMessage(message:String = "Bir hata oluştu.") {
+        let toast: Toast = Toast.default(text: message)
+        toast.show()
     }
 }

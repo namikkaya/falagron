@@ -10,7 +10,7 @@ target 'falagron' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
-  pod 'Smile'
+  pod 'AwaitToast'
 
   target 'falagronTests' do
     inherit! :search_paths

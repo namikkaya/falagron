@@ -12,11 +12,17 @@ class SplashScreenVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // bu alan da login ise yönlendir login değil ise kullanıcı girişi yaptır.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    // user bilgisi geldikten sonra yönlendirme yaptırılıyor.
+    override func userAuthStatusChange(status: FirebaseManager.FBAuthStatus) {
         DispatchQueue.main.asyncAfter(wallDeadline: DispatchWallTime.now() + 2) {
             self.goto(screenID: "SWRevealVC",
                       animated: true,

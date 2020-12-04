@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E504DDD9BF25DED11BB952B228543F69"
-               BuildableName = "Smile.framework"
-               BlueprintName = "Smile"
+               BlueprintIdentifier = "45F6BD8172FA843778F1C1975B0EDE4D"
+               BuildableName = "AwaitToast.framework"
+               BlueprintName = "AwaitToast"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

@@ -27,6 +27,34 @@ extension RegisterViewController {
         case loveStatus
         case sex
         case work
+        
+        var getTagIndex:Int {
+            switch self {
+            case .name:
+                return 2
+            case .lastName:
+                return 3
+            case .email:
+                return 0
+            case .password:
+                return 1
+            case .birthDay:
+                return 4
+            case .loveStatus:
+                return 5
+            case .sex:
+                return 6
+            case .work:
+                return 7
+            }
+        }
+        var getTagSection:Int {
+            switch self {
+            case .name,.lastName:
+                return 0
+            default: return 1
+            }
+        }
     }
 }
 
@@ -52,6 +80,8 @@ class RegisterViewController: AuthenticationBaseViewController {
     var rows:[SectionType] = []
     var activeField: UITextField?
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
+    
     
     var birthDayTextField:UITextField?
     var loveTextField:UITextField?
@@ -124,6 +154,10 @@ class RegisterViewController: AuthenticationBaseViewController {
     }
     
     @IBAction func registerButtonEvent(_ sender: Any) {
+        sendData()
+    }
+    
+    private func sendData() {
         let tupple = checkStringData()
         if tupple.status {
             var sendingUserData = registerDataParse(name: nameHolder ?? "", email: emailHolder ?? "", lastName: lastNameHolder ?? "", password: passwordHolder ?? "", birthDay: birthDayHolder ?? Date(), loveAllData: loveData, sexAllData: sexData, workAllData: workData)
@@ -158,11 +192,11 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource {
     private func setupTableView() {
         let cells = [RegisterTextFieldCell.self, UITableViewCell.self]
         self.tableView.register(cellTypes: cells)
+        self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.estimatedRowHeight = 60
         self.tableView.rowHeight = 60
-        self.tableView.keyboardDismissMode = .onDrag
         self.tableView.reloadData()
     }
     
@@ -185,49 +219,47 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource {
             switch cellType {
             case .textCell(let type, let placeHolder):
                 let cell = tableView.dequeueReusableCell(with: RegisterTextFieldCell.self, for: indexPath)
-                cell.setup(type: type, placeHolder: placeHolder, tag: indexPath.row)
+                cell.setup(type: type, placeHolder: placeHolder)
                 cell.textField.delegate = self
                 switch type {
                 case .email:
                     cell.textField.keyboardType = .emailAddress
-                    cell.textField.tag = 0
                     cell.textField.returnKeyType = .next
+                    if #available(iOS 12.0, *) {
+                        cell.textField.textContentType = UITextContentType.oneTimeCode
+                    }
                     break
                 case .name:
                     cell.textField.keyboardType = .namePhonePad
-                    cell.textField.tag = 2
                     cell.textField.returnKeyType = .next
                     break
                 case .lastName:
                     cell.textField.keyboardType = .namePhonePad
-                    cell.textField.tag = 3
                     cell.textField.returnKeyType = .next
                     break
                 case .password:
                     cell.textField.keyboardType = .asciiCapable
                     cell.textField.isSecureTextEntry = true
-                    cell.textField.tag = 1
                     cell.textField.returnKeyType = .next
+                    if #available(iOS 12.0, *) {
+                        cell.textField.textContentType = UITextContentType.oneTimeCode
+                    }
                     break
                 case .birthDay:
                     cell.textField.keyboardType = .default
-                    cell.textField.tag = 4
                     cell.textField.returnKeyType = .next
                     break
                 case .loveStatus:
                     cell.textField.keyboardType = .default
-                    cell.textField.tag = 5
                     cell.textField.returnKeyType = .next
                     break
                 case .sex:
                     cell.textField.keyboardType = .default
-                    cell.textField.tag = 6
                     cell.textField.returnKeyType = .next
                     break
                 case .work:
                     cell.textField.keyboardType = .default
                     cell.textField.returnKeyType = .done
-                    cell.textField.tag = 7
                     break
                 }
                 return cell
@@ -238,54 +270,51 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource {
             switch cellType {
             case .textCell(let type, let placeHolder):
                 let cell = tableView.dequeueReusableCell(with: RegisterTextFieldCell.self, for: indexPath)
-                cell.setup(type: type, placeHolder: placeHolder, tag: indexPath.row)
+                cell.setup(type: type, placeHolder: placeHolder)
                 cell.textField.delegate = self
-                cell.textField.tag = indexPath.row
                 switch type {
                 case .email:
                     cell.textField.keyboardType = .emailAddress
                     cell.textField.becomeFirstResponder()
-                    cell.textField.tag = 0
                     cell.textField.returnKeyType = .next
+                    if #available(iOS 12.0, *) {
+                        cell.textField.textContentType = UITextContentType.oneTimeCode
+                    }
                     break
                 case .name:
                     cell.textField.keyboardType = .namePhonePad
-                    cell.textField.tag = 2
                     cell.textField.returnKeyType = .next
                     break
                 case .lastName:
                     cell.textField.keyboardType = .namePhonePad
-                    cell.textField.tag = 3
                     cell.textField.returnKeyType = .next
                     break
                 case .password:
                     cell.textField.keyboardType = .asciiCapable
                     cell.textField.isSecureTextEntry = true
-                    cell.textField.tag = 1
                     cell.textField.returnKeyType = .next
+                    if #available(iOS 12.0, *) {
+                        cell.textField.textContentType = UITextContentType.oneTimeCode
+                    }
                     break
                 case .birthDay:
                     cell.textField.keyboardType = .default
-                    cell.textField.tag = 4
                     cell.textField.returnKeyType = .next
                     cell.textField.setInputViewDatePicker(target: self, selector: #selector(tapDone(sender:datePicker1:)))
                     birthDayTextField = cell.textField
                     break
                 case .loveStatus:
                     cell.textField.keyboardType = .default
-                    cell.textField.tag = 5
                     cell.textField.returnKeyType = .next
                     loveTextField = cell.textField
                     break
                 case .sex:
                     cell.textField.keyboardType = .default
-                    cell.textField.tag = 6
                     cell.textField.returnKeyType = .next
                     sexTextField = cell.textField
                     break
                 case .work:
                     cell.textField.keyboardType = .default
-                    cell.textField.tag = 7
                     cell.textField.returnKeyType = .done
                     workTextField = cell.textField
                     break
@@ -328,8 +357,23 @@ extension RegisterViewController:UITextFieldDelegate {
             activeField = textFieldNxt
         }else{
             textField.resignFirstResponder()
+            sendData()
         }
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let txtTag:Int = textField.tag
+        if let textFieldNxt = self.view.viewWithTag(txtTag+1) as? UITextField {
+            activeField = textFieldNxt
+            if let textFieldNxt = self.view.viewWithTag(txtTag+1) as? UITextField {
+                if let parentCell = textFieldNxt.superview?.superview as? RegisterTextFieldCell {
+                    if let cellIndexPath = tableView.indexPath(for: parentCell) {
+                        self.tableView.scrollToRow(at: cellIndexPath, at: .bottom, animated: true)
+                    }
+                }
+            }
+        }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -354,8 +398,6 @@ extension RegisterViewController:UITextFieldDelegate {
         }
         return false
     }
-    
-    
 }
 
 extension RegisterViewController {
@@ -372,42 +414,23 @@ extension RegisterViewController {
     }
     
     @objc private func keyboardWillShow(with notification: Notification) {
-        let info = notification.userInfo as! [String: AnyObject],
-        kbSize = (info[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue.size,
-        contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: kbSize.height + 20 + 64, right: 0)
-        
-        self.tableView.contentInset = contentInsets
-        self.tableView.scrollIndicatorInsets = contentInsets
-        
-        var aRect = self.view.frame
-        aRect.size.height -= kbSize.height + 20 + 64
-        
-        if activeField?.bounds.contains(aRect) == false {
-            self.tableView.scrollRectToVisible(activeField!.frame, animated: true)
-        }
-        
-        
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
             let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double {
-            
-            let keyboardFrameInView = view.convert(keyboardSize, from: nil)
-            let safeAreaFrame = view.safeAreaLayoutGuide.layoutFrame.insetBy(dx: 0, dy: -additionalSafeAreaInsets.bottom)
-            let intersection = safeAreaFrame.intersection(keyboardFrameInView)
-            
+            self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height + 66 + 4, right: 0)
             UIView.animate(withDuration: duration) {
-                self.bottomConstraint.constant = intersection.height
+                self.bottomConstraint.constant = keyboardSize.height
+                //self.tableViewBottomConstraint.constant = -(keyboardSize.height+66)
                 self.view.layoutIfNeeded()
             }
         }
     }
     
     @objc private func keyboardWillHide(with notification: Notification) {
-        let contentInsets = UIEdgeInsets.zero
-        self.tableView.contentInset = contentInsets
-        self.tableView.scrollIndicatorInsets = contentInsets
         if let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double {
             UIView.animate(withDuration: duration) {
+                self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
                 self.bottomConstraint.constant = 0
+                //self.tableViewBottomConstraint.constant = 0
                 self.view.layoutIfNeeded()
             }
         }

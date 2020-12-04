@@ -29,34 +29,41 @@ class MenuVC: UIViewController {
     
     var timer: Timer?
     
+    var authStatus: FirebaseManager.FBAuthStatus?
+    
+//    UI
+    private var isLoginUI:Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
         createMenuData()
-        updateUI()
-        
-        for (index,element) in rows.enumerated() {
-            switch element {
-            case .menuItem(let data):
-                if data.id == DataHolder.shared.currentPageType {
-                    let indexPath = IndexPath(row: index, section: 0)
-                    collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
-                }
-            default: break
-            }
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let selfNC = self.navigationController as? MenuNC {
-            self.selfNC = selfNC
-        }
+        if let selfNC = self.navigationController as? MenuNC { self.selfNC = selfNC }
+        userAuthStatusChange(status: FirebaseManager.shared.authStatus)
+        addListener()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         clearTimer()
+        removeListener()
+    }
+    
+    func userAuthStatusChange(status:FirebaseManager.FBAuthStatus) {
+        switch status {
+        case .singIn:
+            isLoginUI = true
+            break
+        case .singOut:
+            isLoginUI = false
+            break
+        }
+        updateUI()
+        selectedMenuItem() // eğer seçili menu item gelecek ise çalıştırılır.
     }
 }
 
@@ -70,10 +77,7 @@ extension MenuVC: UICollectionViewDelegate, UICollectionViewDataSource {
             self.collectionView.contentInsetAdjustmentBehavior = .never
         }
         collectionView.keyboardDismissMode = .onDrag
-        
         collectionView.register(MenuHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerId")
-        
-        //let menuFooterNib:UINib = UINib(nibName: "MenuFooterView", bundle: nil)
         collectionView.register(MenuFooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "footerId")
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -86,7 +90,6 @@ extension MenuVC: UICollectionViewDelegate, UICollectionViewDataSource {
         layout.minimumInteritemSpacing = 1
         layout.minimumLineSpacing = 1
         layout.scrollDirection = .vertical
-        //layout.estimatedItemSize = CGSize(width: 160, height: 150)
         self.collectionView!.collectionViewLayout = layout
         if #available(iOS 11.0, *){ layout.sectionInsetReference = .fromSafeArea }
     }
@@ -110,7 +113,7 @@ extension MenuVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         clearTimer()
-        timer = Timer.scheduledTimer(timeInterval: 1.2, target: self, selector: #selector(timerTrigger(e:)), userInfo: ["row" : indexPath.row], repeats: false)
+        timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(timerTrigger(e:)), userInfo: ["row" : indexPath.row], repeats: false)
     }
     
     @objc func timerTrigger(e:Timer) {
@@ -132,7 +135,9 @@ extension MenuVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.size.width, height: 44)
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat { return 0.0 }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat { return 0.0 }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -140,14 +145,11 @@ extension MenuVC: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: self.collectionView!.frame.width, height: 44)
+        return isLoginUI ? CGSize(width: self.collectionView!.frame.width, height: 44) : .zero
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        print("Kind nedir: \(kind)")
-        
         switch kind {
-
         case UICollectionView.elementKindSectionHeader:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier:"headerId", for: indexPath)
             
@@ -157,11 +159,14 @@ extension MenuVC: UICollectionViewDelegateFlowLayout {
             return header
 
         case UICollectionView.elementKindSectionFooter:
-            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "footerId", for: indexPath)
-            footerView.tag = indexPath.section
-            footerView.clipsToBounds = true
-            footerView.isUserInteractionEnabled = true
-            return footerView
+            if let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "footerId", for: indexPath) as? MenuFooterView {
+                footerView.tag = indexPath.section
+                footerView.clipsToBounds = true
+                footerView.isUserInteractionEnabled = true
+                footerView.delegate = self
+                return footerView
+            }
+            return UICollectionReusableView()
         default:
             assert(false, "Unexpected element kind")
         }
@@ -184,5 +189,57 @@ extension MenuVC {
             rows.append(.menuItem(data: item))
         }
         collectionView.reloadData()
+    }
+}
+
+extension MenuVC: MenuFooterViewDelegate {
+    func logoutButtonEvent() {
+        FirebaseManager.shared.singOut { (status:Bool, errorMessage:String?) in
+            guard !status else {
+                print("Başarılı bir şekilde logout oldu.")
+                return
+            }
+            if !status {
+                print("Bir hata oluştu.")
+            }
+        }
+    }
+}
+
+extension MenuVC {
+    // Seçili gelmesi gereken item seçili getirilir.
+    private func selectedMenuItem() {
+        for (index,element) in rows.enumerated() {
+            switch element {
+            case .menuItem(let data):
+                if data.id == DataHolder.shared.currentPageType {
+                    let indexPath = IndexPath(row: index, section: 0)
+                    collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
+                }else {
+                    let indexPath = IndexPath(row: 0, section: 0)
+                    collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
+                }
+                break
+            default: break
+            }
+        }
+    }
+}
+
+extension MenuVC {
+    func addListener() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.authStatusChange(_:)) , name: NSNotification.Name.FALAGRON.AuthChangeStatus, object: nil)
+    }
+    
+    func removeListener() {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.FALAGRON.AuthChangeStatus, object: nil)
+    }
+}
+
+extension MenuVC {
+    @objc private func authStatusChange(_ notification: Notification) {
+        if let userInfo = notification.userInfo, let authStatus = userInfo["status"] as? FirebaseManager.FBAuthStatus {
+            userAuthStatusChange(status: authStatus)
+        }
     }
 }

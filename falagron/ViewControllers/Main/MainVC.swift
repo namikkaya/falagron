@@ -22,6 +22,8 @@ class MainVC: BaseViewController {
         createMainPageData()
         setupCollectionView()
         loadingUI()
+        //setViewedFalIds(setIds: ["falId_1", "falId_2", "falId_3"])
+        TabbarVC.shared.toastMessage(message: "deneme")
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -197,5 +199,37 @@ extension MainVC {
         height?.isActive = true
         self.navigationItem.setLeftBarButton(barButton, animated: true)
         return leftMenuButton
+    }
+}
+
+extension MainVC {
+    func getViewedFalIDs(){
+        FirebaseManager.shared.getUserViewedFal { [weak self] (status: Bool, viewedFal: [String]?, errorMessage:String?) in
+            guard status else {
+                self?.infoMessage(message: errorMessage ?? "Bir hata oluştu.", buttonTitle: "TAMAM")
+                return
+            }
+            
+            if let viewedFal = viewedFal, viewedFal.count > 0 {
+                print("Görüntülenen fallar: \(viewedFal.count)")
+            }else {
+                print("Görüntülenen falı yok.")
+            }
+        }
+    }
+    
+    func setViewedFalIds(setIds:[String]){
+        FirebaseManager.shared.setUserViewedFal(falDocumentId: setIds) { [weak self] (status:Bool, viewedFals:[String]?, errorMessage:String?) in
+            guard errorMessage == nil else {
+                self?.infoMessage(message: errorMessage ?? "Bir hata oluştu.", buttonTitle: "TAMAM")
+                return
+            }
+            
+            if let viewedFals = viewedFals, viewedFals.count > 0 {
+                print("Görüntülenen fallar: \(viewedFals.count)")
+            }else {
+                print("Görüntülenen falı yok.")
+            }
+        }
     }
 }

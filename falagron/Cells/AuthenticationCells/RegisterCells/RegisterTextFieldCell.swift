@@ -20,10 +20,10 @@ class RegisterTextFieldCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setup(type: RegisterViewController.InputType, placeHolder:String, tag:Int) {
+    func setup(type: RegisterViewController.InputType, placeHolder:String) {
         self.type = type
         textField.placeholder = placeHolder
-        textField.tag = tag
+        textField.tag = type.getTagIndex
     }
     
     

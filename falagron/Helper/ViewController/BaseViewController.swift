@@ -16,6 +16,7 @@ class BaseViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        addListener()
         authStatus = FirebaseManager.shared.authStatus
         self.revealViewController()?.delegate = self
         if let reconizer = self.revealViewController()?.panGestureRecognizer() {
@@ -26,7 +27,6 @@ class BaseViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        addListener()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
