@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class LoginViewController: AuthenticationBaseViewController {
     @IBOutlet private weak var contentContainer: UIView!
     @IBOutlet private weak var contentCenterConstraint: NSLayoutConstraint!
