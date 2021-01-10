@@ -119,7 +119,7 @@ extension MenuVC: UICollectionViewDelegate, UICollectionViewDataSource {
     @objc func timerTrigger(e:Timer) {
         guard let row = e.userInfo as? [String: Int] else { return }
         let currentPage = menuData[row["row", default:0]]
-        DataHolder.shared.currentPageType = currentPage.id
+        AppNavigationCoordinator.shared.currentPageType = currentPage.id
         self.revealViewController()?.revealToggle(animated: true)
         clearTimer()
     }
@@ -197,6 +197,7 @@ extension MenuVC: MenuFooterViewDelegate {
         FirebaseManager.shared.singOut { (status:Bool, errorMessage:String?) in
             guard !status else {
                 print("Başarılı bir şekilde logout oldu.")
+                self.revealViewController()?.revealToggle(animated: true)
                 return
             }
             if !status {
@@ -209,20 +210,19 @@ extension MenuVC: MenuFooterViewDelegate {
 extension MenuVC {
     // Seçili gelmesi gereken item seçili getirilir.
     private func selectedMenuItem() {
+        var selectedItem: IndexPath?
         for (index,element) in rows.enumerated() {
             switch element {
             case .menuItem(let data):
-                if data.id == DataHolder.shared.currentPageType {
-                    let indexPath = IndexPath(row: index, section: 0)
-                    collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
-                }else {
-                    let indexPath = IndexPath(row: 0, section: 0)
-                    collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
+                if data.id == AppNavigationCoordinator.shared.currentPageType {
+                    selectedItem = IndexPath(row: index, section: 0)
                 }
                 break
             default: break
             }
         }
+        selectedItem = selectedItem == nil ? IndexPath(row: 0, section: 0) : selectedItem
+        collectionView.selectItem(at: selectedItem, animated: true, scrollPosition: .left)
     }
 }
 

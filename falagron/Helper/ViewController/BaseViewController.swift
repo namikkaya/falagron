@@ -10,6 +10,8 @@ import UIKit
 
 class BaseViewController: UIViewController {
     var authStatus: FirebaseManager.FBAuthStatus = .singOut
+    
+    var panGestureReconizer: UIPanGestureRecognizer?
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -19,10 +21,12 @@ class BaseViewController: UIViewController {
         addListener()
         authStatus = FirebaseManager.shared.authStatus
         self.revealViewController()?.delegate = self
-        if let reconizer = self.revealViewController()?.panGestureRecognizer() {
-            self.view.addGestureRecognizer(reconizer)
+        if authStatus == .singIn {
+            if let recognizer = self.revealViewController()?.panGestureRecognizer() {
+                panGestureReconizer = recognizer
+                self.view.addGestureRecognizer(panGestureReconizer!)
+            }
         }
-        self.revealViewController()?.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -31,15 +35,25 @@ class BaseViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        removeListener()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.revealViewController()?.delegate = nil
+        removeListener()
     }
     
     func userAuthStatusChange(status:FirebaseManager.FBAuthStatus) {
+        if status == .singIn {
+            if let reconizer = self.revealViewController()?.panGestureRecognizer() {
+                panGestureReconizer = reconizer
+                self.view.addGestureRecognizer(panGestureReconizer!)
+            }
+        }else {
+            if panGestureReconizer != nil {
+                self.view.removeGestureRecognizer(panGestureReconizer!)
+            }
+        }
         self.authStatus = status
     }
     

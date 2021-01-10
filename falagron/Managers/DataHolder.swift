@@ -9,6 +9,7 @@
 import UIKit
 
 class DataHolder: NSObject {
+   
     static let shared: DataHolder = {
         let instance = DataHolder()
         return instance
@@ -16,14 +17,6 @@ class DataHolder: NSObject {
     
     override init() {
         super.init()
-    }
-    
-    var currentPageType:PageState? = .home {
-        didSet {
-            if currentPageType == nil { return }
-            NotificationCenter.default.post(name: NSNotification.Name.FALAGRON.ChangeCurrentPage, object: self, userInfo: nil)
-            TabbarVC.shared.setState = currentPageType
-        }
     }
     
 }

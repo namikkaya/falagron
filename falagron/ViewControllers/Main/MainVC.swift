@@ -22,8 +22,6 @@ class MainVC: BaseViewController {
         createMainPageData()
         setupCollectionView()
         loadingUI()
-        //setViewedFalIds(setIds: ["falId_1", "falId_2", "falId_3"])
-        TabbarVC.shared.toastMessage(message: "deneme")
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -38,6 +36,11 @@ class MainVC: BaseViewController {
         setNeedsStatusBarAppearanceUpdate()
         menuButton = addGetMenuButton()
         menuButton?.addTarget(self, action: #selector(menuButtonEvent(_:)), for: .touchUpInside)
+        self.collectionView.isUserInteractionEnabled = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -71,7 +74,14 @@ class MainVC: BaseViewController {
     }
     
     @objc private func menuButtonEvent(_ sender:UIButton) {
-        self.revealViewController()?.revealToggle(animated: true)
+        switch FirebaseManager.shared.authStatus {
+        case .singIn:
+            self.revealViewController()?.revealToggle(animated: true)
+            break
+        case .singOut:
+            selfNC?.gotoLogin()
+            break
+        }
     }
     
     
@@ -175,15 +185,15 @@ extension MainVC {
 extension MainVC {
     private func createMainPageData() {
         pageData.removeAll()
-        let bannerItem = MainPageModel(type: .banner(image: UIImage(named: "coffee") ?? UIImage()))
+        let bannerItem = MainPageModel(type: .banner(image: UIImage(named: "whitelogo") ?? UIImage()))
         pageData.append(bannerItem)
-        let daily = MainPageModel(type: .button(type: .daily, title: "Günlük Fal", icon: UIImage(named: "coffee") ?? UIImage()))
+        let daily = MainPageModel(type: .button(type: .daily, title: "Günlük Fal", icon: UIImage(named: "daily_icon") ?? UIImage()))
         pageData.append(daily)
-        let watcher = MainPageModel(type: .button(type: .watcher, title: "İzle Kazan", icon: UIImage(named: "coffee") ?? UIImage()))
+        let watcher = MainPageModel(type: .button(type: .watcher, title: "İzle Kazan", icon: UIImage(named: "clapperboard") ?? UIImage()))
         pageData.append(watcher)
-        let sharingFriend = MainPageModel(type: .button(type: .shared, title: "Tavsiye Et, Kazan", icon: UIImage(named: "coffee") ?? UIImage()))
+        let sharingFriend = MainPageModel(type: .button(type: .shared, title: "Tavsiye Et, Kazan", icon: UIImage(named: "recommended") ?? UIImage()))
         pageData.append(sharingFriend)
-        let buyyer = MainPageModel(type: .button(type: .buyyer, title: "Kredi Al", icon: UIImage(named: "coffee") ?? UIImage()))
+        let buyyer = MainPageModel(type: .button(type: .buyyer, title: "Kredi Al", icon: UIImage(named: "rent") ?? UIImage()))
         pageData.append(buyyer)
     }
 }

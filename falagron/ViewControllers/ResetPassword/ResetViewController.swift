@@ -24,6 +24,4 @@ class ResetViewController: AuthenticationBaseViewController {
     @objc private func closeButtonEvent(_ sender:UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-
-    
 }

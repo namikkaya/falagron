@@ -33,6 +33,9 @@ extension UITextField {
         datePicker.tag = 0
         datePicker.set18YearValidation()
         datePicker.datePickerMode = .date //2
+        if #available(iOS 13.4, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+        }
         self.inputView = datePicker //3
 
         // Create a toolbar and assign it to inputAccessoryView

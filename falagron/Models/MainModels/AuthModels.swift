@@ -203,5 +203,10 @@ struct RegisterCellModel {
     var title:String?
     var placeHolder:String?
     var type: RegisterTableViewCellType?
-    
+}
+
+struct FalHistoryDataModel {
+    var date:Date?
+    var falId:String?
+    var isPurchase:Bool?
 }

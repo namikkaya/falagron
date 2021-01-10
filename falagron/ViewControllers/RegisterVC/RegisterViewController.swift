@@ -102,7 +102,7 @@ class RegisterViewController: AuthenticationBaseViewController {
     var sexHolder:StatusItem?
     var workHolder:StatusItem?
     
-    @IBOutlet weak var registerButton: UIButton! {
+    @IBOutlet weak var registerButton: KYSpinnerButton! {
         didSet {
             registerButton.addDropShadow(cornerRadius: 8,
                                          shadowRadius: 0,
@@ -160,6 +160,7 @@ class RegisterViewController: AuthenticationBaseViewController {
     private func sendData() {
         let tupple = checkStringData()
         if tupple.status {
+            registerButton.setStatus = .processing
             var sendingUserData = registerDataParse(name: nameHolder ?? "", email: emailHolder ?? "", lastName: lastNameHolder ?? "", password: passwordHolder ?? "", birthDay: birthDayHolder ?? Date(), loveAllData: loveData, sexAllData: sexData, workAllData: workData)
             if let email = sendingUserData[emailKey] as? String, let password = sendingUserData[passwordKey] as? String {
                 sendingUserData[passwordKey] = ""
@@ -167,6 +168,7 @@ class RegisterViewController: AuthenticationBaseViewController {
                 self.showUniversalLoadingView(true, loadingText: "Lütfen bekleyin.")
                 FirebaseManager.shared.newUser(email: email, password: password, data: sendingUserData) { [weak self] (status:Bool, message:String?) in
                     guard let self = self else { return }
+                    self.registerButton.setStatus = .normal
                     if status {
                         self.infoMessage(message: "Tebrikler üyeliğiniz başladı.", buttonTitle: "Tamam") {
                             self.showUniversalLoadingView(false)
@@ -176,6 +178,8 @@ class RegisterViewController: AuthenticationBaseViewController {
                         self.infoMessage(message: message ?? "Bir hata oluştu.", buttonTitle: "Tamam")
                     }
                 }
+            }else {
+                registerButton.setStatus = .normal
             }
         }else {
             infoMessage(message: tupple.message, buttonTitle: "Anladım")
@@ -192,7 +196,7 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource {
     private func setupTableView() {
         let cells = [RegisterTextFieldCell.self, UITableViewCell.self]
         self.tableView.register(cellTypes: cells)
-        self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 80, right: 0)
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.estimatedRowHeight = 60
@@ -418,7 +422,14 @@ extension RegisterViewController {
             let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double {
             self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height + 66 + 4, right: 0)
             UIView.animate(withDuration: duration) {
-                self.bottomConstraint.constant = keyboardSize.height
+                if #available(iOS 11.0, *) {
+                    let window = UIApplication.shared.keyWindow
+                    let bottomPadding = window?.safeAreaInsets.bottom
+                    self.bottomConstraint.constant = keyboardSize.height - (bottomPadding ?? 0)
+                }else {
+                    self.bottomConstraint.constant = keyboardSize.height
+                }
+                
                 //self.tableViewBottomConstraint.constant = -(keyboardSize.height+66)
                 self.view.layoutIfNeeded()
             }
@@ -441,6 +452,9 @@ extension RegisterViewController {
     @objc func tapDone(sender: Any, datePicker1: UIDatePicker) {
         guard let textfield = birthDayTextField else { return }
         if let datePicker = textfield.inputView as? UIDatePicker {
+            if #available(iOS 13.4, *) {
+                datePicker.preferredDatePickerStyle = .automatic
+            }
             let dateformatter = DateFormatter()
             dateformatter.dateFormat = "dd.MM.yyyy"
             textfield.text = dateformatter.string(from: datePicker.date)

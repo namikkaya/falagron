@@ -103,7 +103,6 @@ extension FirebaseManager {
     func checkUser() {
         if Auth.auth().currentUser != nil {
             self.user = Auth.auth().currentUser
-            print("kullanıcı login")
             self.authStatus = .singIn
             guard self.userInfoData == nil else { return }
             if let uid = self.user?.uid{
@@ -111,7 +110,6 @@ extension FirebaseManager {
             }
         } else {
             self.user = nil
-            print("kullanıcı logOut")
             self.authStatus = .singOut
             self.user = nil
             self.userInfoData = nil

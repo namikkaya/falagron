@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--HistoryNC-->
+        <scene sceneID="hyc-JA-HXV">
+            <objects>
+                <navigationController storyboardIdentifier="HistoryNC" id="dys-wP-Sqg" customClass="HistoryNC" customModule="falagron" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="peE-a3-pdS">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="xwg-rx-WRz" kind="relationship" relationship="rootViewController" id="gqD-es-5Hz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n4r-6e-EGD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-567" y="135"/>
+        </scene>
+        <!--HistoryVC-->
+        <scene sceneID="W4U-z3-ya3">
+            <objects>
+                <viewController storyboardIdentifier="HistoryVC" id="xwg-rx-WRz" customClass="HistoryVC" customModule="falagron" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="APh-GS-sPA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QvI-rx-vHF">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2Du-O0-Ddv"/>
+                        <color key="backgroundColor" name="darkPurple"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="QvI-rx-vHF" secondAttribute="bottom" id="BmT-DY-dzr"/>
+                            <constraint firstItem="QvI-rx-vHF" firstAttribute="trailing" secondItem="2Du-O0-Ddv" secondAttribute="trailing" id="M8A-mB-m43"/>
+                            <constraint firstItem="QvI-rx-vHF" firstAttribute="top" secondItem="2Du-O0-Ddv" secondAttribute="top" id="drT-RN-wZ8"/>
+                            <constraint firstItem="QvI-rx-vHF" firstAttribute="leading" secondItem="2Du-O0-Ddv" secondAttribute="leading" id="kSH-lY-7VK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="BNz-QU-B2e"/>
+                    <connections>
+                        <outlet property="tableView" destination="QvI-rx-vHF" id="B4d-dg-Gvz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Umh-07-PVH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="327.536231884058" y="134.59821428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="darkPurple">
+            <color red="0.16899999976158142" green="0.10199999809265137" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

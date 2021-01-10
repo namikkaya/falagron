@@ -7,47 +7,17 @@
 //
 
 import UIKit
-import AwaitToast
-enum PageState:Int {
-    case home = 0, fallarim, purchase, notification, setting, profile
-}
 
 class TabbarVC: UITabBarController {
-    // kullanıcı henüz giriş yapmamış ise giriş yapana kadar bu id tutulur.
-    var notLoginHolderSelectedIndex:Int?
-    
-    static let shared: TabbarVC = {
-        let instance = TabbarVC()
-        return instance
-    }()
     
     var setState:PageState? {
         didSet {
             guard let setState = setState else { return }
             if !loginCheck(state: setState) {
-                DataHolder.shared.currentPageType = nil
+                AppNavigationCoordinator.shared.currentPageType = nil
                 return
             }
-            switch setState {
-            case .home:
-                self.selectedIndex = setState.rawValue
-                break
-            case .fallarim:
-                self.selectedIndex = setState.rawValue
-                break
-            case .purchase:
-                self.selectedIndex = setState.rawValue
-                break
-            case .notification:
-                self.selectedIndex = setState.rawValue
-                break
-            case .setting:
-                self.selectedIndex = setState.rawValue
-                break
-            case .profile:
-                self.selectedIndex = setState.rawValue
-                break
-            }
+            self.selectedIndex = setState.rawValue
         }
     }
     
@@ -61,12 +31,25 @@ class TabbarVC: UITabBarController {
         super.viewDidAppear(animated)
         deeplinkPerform()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.changeState) , name: NSNotification.Name.FALAGRON.ChangeCurrentPage, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.FALAGRON.ChangeCurrentPage, object: nil)
+    }
+    
+    @objc private func changeState(notification: Notification) {
+        setState = AppNavigationCoordinator.shared.currentPageType
+    }
 }
 
 extension TabbarVC {
     private func loginCheck(state: PageState)->Bool {
-        guard notLoginHolderSelectedIndex == nil && FirebaseManager.shared.authStatus == .singIn else {
-            notLoginHolderSelectedIndex = state.rawValue
+        guard AppNavigationCoordinator.shared.notLoginHolderSelectedIndex == nil && FirebaseManager.shared.authStatus == .singIn else {
+            AppNavigationCoordinator.shared.notLoginHolderSelectedIndex = state.rawValue
             self.selectedIndex = PageState.home.rawValue
             return false
         }
@@ -77,8 +60,9 @@ extension TabbarVC {
 
 extension TabbarVC {
     private func setupTabbar() {
-        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainNC") as? MainNC {
-            self.viewControllers = [vc]
+        if let mainNC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainNC") as? MainNC,
+           let historyNC = UIStoryboard(name: "History", bundle: nil).instantiateViewController(withIdentifier: "HistoryNC") as? HistoryNC {
+            self.viewControllers = [mainNC, historyNC]
         }
     }
     
@@ -99,10 +83,5 @@ extension TabbarVC {
         DispatchQueue.main.async {
             self.present(alert, animated: true)
         }
-    }
-    
-    func toastMessage(message:String = "Bir hata oluştu.") {
-        let toast: Toast = Toast.default(text: message)
-        toast.show()
     }
 }

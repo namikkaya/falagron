@@ -26,6 +26,12 @@ class MainNC: UINavigationController {
         self.navigationBarSetup()
     }
     
+    /*
+    func getCurrentVC() -> UIViewController? {
+        guard let viewController = UIViewController.topMostViewController() else { return nil }
+        return viewController
+    }*/
+    
     func purchaseNavigation(type: PurchaseType) {
         switch type {
         case .daily:
@@ -41,7 +47,7 @@ class MainNC: UINavigationController {
     }
     
     func gotoLogin() {
-        if let vc = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "AuthenticationNC") as? AuthenticationNC {
+        /*if let vc = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "AuthenticationNC") as? AuthenticationNC {
             vc.setRootViewControllerType = .login
             if #available(iOS 13.0, *) {
                 vc.modalPresentationStyle = .automatic
@@ -49,20 +55,8 @@ class MainNC: UINavigationController {
                 vc.modalPresentationStyle = .fullScreen
             }
             present(vc, animated: true, completion: nil)
-        }
-    }
-}
-
-extension MainNC {
-    private func navigationBarSetup() {
-        self.navigationBar.barTintColor = .clear
-        self.navigationBar.isTranslucent = true
-        self.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationBar.setValue(true, forKey: "hidesShadow")
-        self.navigationBar.layoutIfNeeded()
-        self.navigationItem.backBarButtonItem?.tintColor = .white
-        self.navigationBar.tintColor = .white
-        let attributes = [NSAttributedString.Key.font: UIFont(name: "Roboto", size: 16)]
-        self.navigationItem.backBarButtonItem?.setTitleTextAttributes(attributes as [NSAttributedString.Key : Any], for: .normal)
+        }*/
+        let sendType = AppNavigationCoordinator.NavigationType.Authentication(openingVC: .login(email: nil, password: nil))
+        AppNavigationCoordinator.shared.goToController(type: sendType, targetController: self.getCurrentVC!)
     }
 }

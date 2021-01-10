@@ -8,11 +8,10 @@
 
 import UIKit
 
-
 class LoginViewController: AuthenticationBaseViewController {
     @IBOutlet private weak var contentContainer: UIView!
     @IBOutlet private weak var contentCenterConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var loginButton: UIButton! {
+    @IBOutlet private weak var loginButton: KYSpinnerButton! {
         didSet{
             loginButton.addDropShadow(cornerRadius: 8,
                                       shadowRadius: 0,
@@ -72,7 +71,7 @@ class LoginViewController: AuthenticationBaseViewController {
     @objc private func closeButtonEvent(_ sender:UIButton) {
         self.dismiss(animated: true, completion: nil)
         // yönlendirme yapılmayacak. nil ataması yapılıyor.
-        TabbarVC.shared.notLoginHolderSelectedIndex = nil
+        AppNavigationCoordinator.shared.notLoginHolderSelectedIndex = nil
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -102,18 +101,23 @@ class LoginViewController: AuthenticationBaseViewController {
             self.infoMessage(message: "Şifre hatası! Lütfen kontrol edip tekrar deneyin.", buttonTitle: "Tamam") { }
             return
         }
-        
+        loginButton.setStatus = .processing
         FirebaseManager.shared.singIn(email: email, password: password) { [weak self] (status, message) in
+            self?.loginButton.setStatus = .normal
             guard status else {
                 print("Hata döndü...")
                 self?.infoMessage(message: message ?? "Bir hata oluştu", buttonTitle: "Tamam") { }
                 return
             }
+            
+            
             self?.dismiss(animated: true, completion: {
-                TabbarVC.shared.toastMessage(message: "Hoşgeldin, \(FirebaseManager.shared.user?.displayName)")
+                //dataholder a taşı.
+                //TabbarVC.shared.toastMessage(message: "Hoşgeldin, \(FirebaseManager.shared.user?.displayName)")
             })
         }
     }
+    
     
 }
 

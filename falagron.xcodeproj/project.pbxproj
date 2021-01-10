@@ -74,7 +74,6 @@
 		4DDA64F92513DAAD00EE2BE7 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA64F82513DAAD00EE2BE7 /* FirebaseManager.swift */; };
 		4DDA64FB2513DCDC00EE2BE7 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DDA64FA2513DCDC00EE2BE7 /* Authentication.storyboard */; };
 		4DDA64FD2513DD6700EE2BE7 /* AuthenticationNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA64FC2513DD6700EE2BE7 /* AuthenticationNC.swift */; };
-		4DDA65002513DE6F00EE2BE7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA64FF2513DE6F00EE2BE7 /* Coordinator.swift */; };
 		4DDA650225151BE900EE2BE7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DDA650125151BE900EE2BE7 /* GoogleService-Info.plist */; };
 		4DDA65042515381600EE2BE7 /* MainNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA65032515381600EE2BE7 /* MainNC.swift */; };
 		4DDA65072515385800EE2BE7 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA65062515385800EE2BE7 /* MainVC.swift */; };
@@ -82,7 +81,14 @@
 		4DDA650C2515FF7800EE2BE7 /* MenuNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA650B2515FF7800EE2BE7 /* MenuNC.swift */; };
 		4DDA650E2516094000EE2BE7 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA650D2516094000EE2BE7 /* NotificationExtensions.swift */; };
 		4DDA65102516127200EE2BE7 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA650F2516127200EE2BE7 /* CollectionExtensions.swift */; };
+		4DE3FE2D258F715E00C4BA9E /* HistoryNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3FE2C258F715E00C4BA9E /* HistoryNC.swift */; };
+		4DE3FE32258F725700C4BA9E /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DE3FE31258F725700C4BA9E /* History.storyboard */; };
+		4DE3FE38258F744F00C4BA9E /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3FE37258F744F00C4BA9E /* HistoryVC.swift */; };
 		4DE6E73F254596A4006AA05F /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6E73E254596A4006AA05F /* UITableViewExtensions.swift */; };
+		4DECF5F12598A8C600AE8403 /* HistoryInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DECF5EF2598A8C600AE8403 /* HistoryInfoCell.swift */; };
+		4DECF5F22598A8C600AE8403 /* HistoryInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DECF5F02598A8C600AE8403 /* HistoryInfoCell.xib */; };
+		4DF2F29225A9FB86000C4E38 /* AppNavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2F29125A9FB86000C4E38 /* AppNavigationCoordinator.swift */; };
+		4DF2F89B25A4D9D900A85B40 /* KYSpinnerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2F89A25A4D9D900A85B40 /* KYSpinnerButton.swift */; };
 		4DF40ACC251D051000D9B3E6 /* LoginWriteEmailPasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF40ACA251D051000D9B3E6 /* LoginWriteEmailPasswordCell.swift */; };
 		4DF40ACD251D051000D9B3E6 /* LoginWriteEmailPasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DF40ACB251D051000D9B3E6 /* LoginWriteEmailPasswordCell.xib */; };
 		4DFDF85425331955004D30A0 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFDF85325331955004D30A0 /* MenuVC.swift */; };
@@ -184,7 +190,6 @@
 		4DDA64F82513DAAD00EE2BE7 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		4DDA64FA2513DCDC00EE2BE7 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		4DDA64FC2513DD6700EE2BE7 /* AuthenticationNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationNC.swift; sourceTree = "<group>"; };
-		4DDA64FF2513DE6F00EE2BE7 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		4DDA650125151BE900EE2BE7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4DDA65032515381600EE2BE7 /* MainNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNC.swift; sourceTree = "<group>"; };
 		4DDA65062515385800EE2BE7 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -193,7 +198,14 @@
 		4DDA650B2515FF7800EE2BE7 /* MenuNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNC.swift; sourceTree = "<group>"; };
 		4DDA650D2516094000EE2BE7 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		4DDA650F2516127200EE2BE7 /* CollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
+		4DE3FE2C258F715E00C4BA9E /* HistoryNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryNC.swift; sourceTree = "<group>"; };
+		4DE3FE31258F725700C4BA9E /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
+		4DE3FE37258F744F00C4BA9E /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 		4DE6E73E254596A4006AA05F /* UITableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
+		4DECF5EF2598A8C600AE8403 /* HistoryInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInfoCell.swift; sourceTree = "<group>"; };
+		4DECF5F02598A8C600AE8403 /* HistoryInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryInfoCell.xib; sourceTree = "<group>"; };
+		4DF2F29125A9FB86000C4E38 /* AppNavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationCoordinator.swift; sourceTree = "<group>"; };
+		4DF2F89A25A4D9D900A85B40 /* KYSpinnerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYSpinnerButton.swift; sourceTree = "<group>"; };
 		4DF40ACA251D051000D9B3E6 /* LoginWriteEmailPasswordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWriteEmailPasswordCell.swift; sourceTree = "<group>"; };
 		4DF40ACB251D051000D9B3E6 /* LoginWriteEmailPasswordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginWriteEmailPasswordCell.xib; sourceTree = "<group>"; };
 		4DFDF85325331955004D30A0 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
@@ -394,16 +406,16 @@
 		4DDA64AD2511459C00EE2BE7 /* falagron */ = {
 			isa = PBXGroup;
 			children = (
+				4DF2F29025A9F748000C4E38 /* Coordinators */,
+				4DF2F89925A4D9D900A85B40 /* lib */,
 				4D4AD3A8253DE3480026CD65 /* assets */,
 				4D1F8FE12520ADCA0070ED74 /* Tabbar */,
 				4D5DEFCD2516A01C00E0C25E /* Models */,
-				4DDA64FE2513DE4900EE2BE7 /* Coordinators */,
 				4DDA64F72513DA8C00EE2BE7 /* Managers */,
 				4DDA64EA251146BE00EE2BE7 /* StoryBoards */,
 				4DDA64E22511463300EE2BE7 /* NavigationControllers */,
 				4DDA64DF251145FF00EE2BE7 /* ViewControllers */,
 				4DDA64E12511461400EE2BE7 /* Cells */,
-				4DDA64E02511460E00EE2BE7 /* Views */,
 				4DDA64DE251145C700EE2BE7 /* Helper */,
 				4DDA64AE2511459C00EE2BE7 /* AppDelegate.swift */,
 				4DDA64B02511459C00EE2BE7 /* SceneDelegate.swift */,
@@ -447,6 +459,7 @@
 		4DDA64DF251145FF00EE2BE7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4DE3FE36258F742E00C4BA9E /* History */,
 				4DFDF85125331903004D30A0 /* Menu */,
 				4D5DEFD125174DB200E0C25E /* Purchase */,
 				4D5DEFB52516895600E0C25E /* ResetPassword */,
@@ -459,16 +472,10 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		4DDA64E02511460E00EE2BE7 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		4DDA64E12511461400EE2BE7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				4DECF5EB2592807D00AE8403 /* HistoryCells */,
 				4DFDF85225331911004D30A0 /* MenuCells */,
 				4D5DEFD82517609600E0C25E /* AuthenticationCells */,
 				4DDA65112516143F00EE2BE7 /* MainCells */,
@@ -483,6 +490,7 @@
 				4DDA65032515381600EE2BE7 /* MainNC.swift */,
 				4DDA650B2515FF7800EE2BE7 /* MenuNC.swift */,
 				4D5DEFD62517516500E0C25E /* PurchaseNC.swift */,
+				4DE3FE2C258F715E00C4BA9E /* HistoryNC.swift */,
 			);
 			path = NavigationControllers;
 			sourceTree = "<group>";
@@ -544,6 +552,7 @@
 				4DDA64B42511459C00EE2BE7 /* Main.storyboard */,
 				4DDA64FA2513DCDC00EE2BE7 /* Authentication.storyboard */,
 				4D5DEFD4251750CE00E0C25E /* Purchase.storyboard */,
+				4DE3FE31258F725700C4BA9E /* History.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -576,14 +585,6 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		4DDA64FE2513DE4900EE2BE7 /* Coordinators */ = {
-			isa = PBXGroup;
-			children = (
-				4DDA64FF2513DE6F00EE2BE7 /* Coordinator.swift */,
-			);
-			path = Coordinators;
-			sourceTree = "<group>";
-		};
 		4DDA65052515382D00EE2BE7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -601,6 +602,39 @@
 				4D5DEFBF251695FB00E0C25E /* MainButtonCell.xib */,
 			);
 			path = MainCells;
+			sourceTree = "<group>";
+		};
+		4DE3FE36258F742E00C4BA9E /* History */ = {
+			isa = PBXGroup;
+			children = (
+				4DE3FE37258F744F00C4BA9E /* HistoryVC.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		4DECF5EB2592807D00AE8403 /* HistoryCells */ = {
+			isa = PBXGroup;
+			children = (
+				4DECF5EF2598A8C600AE8403 /* HistoryInfoCell.swift */,
+				4DECF5F02598A8C600AE8403 /* HistoryInfoCell.xib */,
+			);
+			path = HistoryCells;
+			sourceTree = "<group>";
+		};
+		4DF2F29025A9F748000C4E38 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				4DF2F29125A9FB86000C4E38 /* AppNavigationCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		4DF2F89925A4D9D900A85B40 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				4DF2F89A25A4D9D900A85B40 /* KYSpinnerButton.swift */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 		4DF40AC9251D04B200D9B3E6 /* LoginWriteEmailPassword */ = {
@@ -777,6 +811,7 @@
 				4D4AD3B8253DE3480026CD65 /* Roboto-Light.ttf in Resources */,
 				4D5DEFC1251695FB00E0C25E /* MainButtonCell.xib in Resources */,
 				4D4AD3BE253DE3480026CD65 /* Roboto-Italic.ttf in Resources */,
+				4DECF5F22598A8C600AE8403 /* HistoryInfoCell.xib in Resources */,
 				4DDA64FB2513DCDC00EE2BE7 /* Authentication.storyboard in Resources */,
 				4DDA64BB2511459F00EE2BE7 /* LaunchScreen.storyboard in Resources */,
 				4D4AD3A525338C3F0026CD65 /* MenuFooterView.xib in Resources */,
@@ -787,6 +822,7 @@
 				4D4AD3BF253DE3480026CD65 /* LICENSE.txt in Resources */,
 				4DCABE7A2544BF23006FA6E6 /* RegisterTextFieldCell.xib in Resources */,
 				4D4AD3B9253DE3480026CD65 /* Roboto-Regular.ttf in Resources */,
+				4DE3FE32258F725700C4BA9E /* History.storyboard in Resources */,
 				4D4AD3972533713C0026CD65 /* menuCell.xib in Resources */,
 				4D4AD3BB253DE3480026CD65 /* Roboto-ThinItalic.ttf in Resources */,
 				4D4AD3BA253DE3480026CD65 /* Roboto-MediumItalic.ttf in Resources */,
@@ -936,8 +972,8 @@
 				4DDA64E62511467300EE2BE7 /* BaseViewController.swift in Sources */,
 				4D4AD399253375360026CD65 /* MenuModels.swift in Sources */,
 				4D4AD3D225418A550026CD65 /* AuthenticationBaseViewController.swift in Sources */,
+				4DF2F29225A9FB86000C4E38 /* AppNavigationCoordinator.swift in Sources */,
 				4D5DEFDC2517610700E0C25E /* LoginLogoCell.swift in Sources */,
-				4DDA65002513DE6F00EE2BE7 /* Coordinator.swift in Sources */,
 				4D5DEFD3251750B200E0C25E /* PurchaseViewController.swift in Sources */,
 				4D5DEFC0251695FB00E0C25E /* MainButtonCell.swift in Sources */,
 				4DDA650C2515FF7800EE2BE7 /* MenuNC.swift in Sources */,
@@ -946,15 +982,18 @@
 				4DDA64F225114AA800EE2BE7 /* SplashScreenVC.swift in Sources */,
 				4D5DEFBC251694DE00E0C25E /* MainBannerCell.swift in Sources */,
 				4DCABE792544BF23006FA6E6 /* RegisterTextFieldCell.swift in Sources */,
+				4DECF5F12598A8C600AE8403 /* HistoryInfoCell.swift in Sources */,
 				4D4AD39E25337EE70026CD65 /* MenuHeaderView.swift in Sources */,
 				4D5DEFB72516896A00E0C25E /* ResetViewController.swift in Sources */,
 				4D5DEFB925168DEC00E0C25E /* NSObjectExtensions.swift in Sources */,
+				4DF2F89B25A4D9D900A85B40 /* KYSpinnerButton.swift in Sources */,
 				4D4AD3D0254172EA0026CD65 /* AuthModels.swift in Sources */,
 				4DDA65102516127200EE2BE7 /* CollectionExtensions.swift in Sources */,
 				4D5DEFD72517516500E0C25E /* PurchaseNC.swift in Sources */,
 				4DDA64AF2511459C00EE2BE7 /* AppDelegate.swift in Sources */,
 				4D5DEFB42516894A00E0C25E /* OTPViewController.swift in Sources */,
 				4D5DEFB02516823900E0C25E /* LoginViewController.swift in Sources */,
+				4DE3FE38258F744F00C4BA9E /* HistoryVC.swift in Sources */,
 				4D4AD3CA253F12060026CD65 /* HolderTextField.swift in Sources */,
 				4DFDF85425331955004D30A0 /* MenuVC.swift in Sources */,
 				4D5DEFB22516824600E0C25E /* RegisterViewController.swift in Sources */,
@@ -965,6 +1004,7 @@
 				4DCABE752544A793006FA6E6 /* UIColorExtensions.swift in Sources */,
 				4DDA650A2515F8B200EE2BE7 /* SWRevealViewController.m in Sources */,
 				4D4AD3CC2540326D0026CD65 /* UITextFieldExtensions.swift in Sources */,
+				4DE3FE2D258F715E00C4BA9E /* HistoryNC.swift in Sources */,
 				4D4AD3962533713C0026CD65 /* menuCell.swift in Sources */,
 				4DF40ACC251D051000D9B3E6 /* LoginWriteEmailPasswordCell.swift in Sources */,
 			);

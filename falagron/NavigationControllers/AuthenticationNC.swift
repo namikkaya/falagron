@@ -9,8 +9,10 @@
 import UIKit
 
 class AuthenticationNC: UINavigationController {
+    /// hangi controllerdan başlayacağını belirtir.
     var setRootViewControllerType:AuthVCType?
     
+    /// seçili controller
     var currentVC:UIViewController?
     
     override func viewDidLoad() {
@@ -25,11 +27,6 @@ class AuthenticationNC: UINavigationController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-    }
-    
-    func getCurrentVC() -> UIViewController? {
-        guard let viewController = UIViewController.topMostViewController() else { return nil }
-        return viewController
     }
     
     func goToController(gotoVC:AuthVCType) {
@@ -83,18 +80,19 @@ extension AuthenticationNC {
         case login, register, otp, reset
         
         var getController:UIViewController? {
+            let storyBoard = UIStoryboard(name: "Authentication", bundle: nil)
             switch self {
             case .login:
-                let loginVC =  UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as? LoginViewController
+                let loginVC = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as? LoginViewController
                 return loginVC
             case .register:
-                let RegisterVC =  UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "RegisterVC") as? RegisterViewController
+                let RegisterVC =  storyBoard.instantiateViewController(withIdentifier: "RegisterVC") as? RegisterViewController
                 return RegisterVC
             case .otp:
-                let OTPVC =  UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "OTPVC") as? OTPViewController
+                let OTPVC = storyBoard.instantiateViewController(withIdentifier: "OTPVC") as? OTPViewController
                 return OTPVC
             case .reset:
-                let ResetVC =  UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "ResetVC") as? ResetViewController
+                let ResetVC = storyBoard.instantiateViewController(withIdentifier: "ResetVC") as? ResetViewController
                 return ResetVC
             }
         }
@@ -111,19 +109,5 @@ extension AuthenticationNC {
                 return ResetViewController.className
             }
         }
-    }
-}
-
-extension AuthenticationNC {
-    private func navigationBarSetup() {
-        self.navigationBar.barTintColor = .clear
-        self.navigationBar.isTranslucent = true
-        self.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationBar.setValue(true, forKey: "hidesShadow")
-        self.navigationBar.layoutIfNeeded()
-        self.navigationItem.backBarButtonItem?.tintColor = .white
-        self.navigationBar.tintColor = .white
-        let attributes = [NSAttributedString.Key.font: UIFont(name: "Roboto", size: 16)]
-        self.navigationItem.backBarButtonItem?.setTitleTextAttributes(attributes as [NSAttributedString.Key : Any], for: .normal)
     }
 }
