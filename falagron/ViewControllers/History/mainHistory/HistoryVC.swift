@@ -14,7 +14,7 @@ class HistoryVC: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     var menuButton:UIButton?
     
-    var viewManager:HistoryViewManager!
+    var viewManager:HistoryControlManager!
     var serviceManager:HistoryServiceManager!
     
     var selectedFalId:String?
@@ -92,13 +92,13 @@ extension HistoryVC {
 // MARK: - Setups
 extension HistoryVC {
     private func setup() {
-        viewManager = HistoryViewManager(tableView: self.tableView, delegate: self)
+        viewManager = HistoryControlManager(tableView: self.tableView, delegate: self)
         serviceManager = HistoryServiceManager(delegate: self)
     }
 }
 
 // MARK: - Delegates
-extension HistoryVC: HistoryViewManagerDelegate {
+extension HistoryVC: HistoryControlManagerDelegate {
     func historyCommonTypeTrigger(type: HistoryNC.CommonHistoryType) {
         switch type {
         case .historyListToDetail(let data):

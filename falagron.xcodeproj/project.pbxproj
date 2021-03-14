@@ -68,7 +68,7 @@
 		4D9AC4CC25F3E8F000A83D57 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9AC4CB25F3E8F000A83D57 /* LoadingView.swift */; };
 		4D9AC4D125F3E90800A83D57 /* LoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9AC4D025F3E90800A83D57 /* LoadingViewModel.swift */; };
 		4D9AC4D625F3E9B600A83D57 /* Loading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9AC4D525F3E9B600A83D57 /* Loading.storyboard */; };
-		4D9FCB5125ED4B0D0031E9FF /* HistoryViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9FCB5025ED4B0D0031E9FF /* HistoryViewManager.swift */; };
+		4D9FCB5125ED4B0D0031E9FF /* HistoryControlManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9FCB5025ED4B0D0031E9FF /* HistoryControlManager.swift */; };
 		4D9FCB5925ED55180031E9FF /* HistoryDetailViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9FCB5825ED55180031E9FF /* HistoryDetailViewManager.swift */; };
 		4DCABE752544A793006FA6E6 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCABE742544A793006FA6E6 /* UIColorExtensions.swift */; };
 		4DCABE792544BF23006FA6E6 /* RegisterTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCABE772544BF23006FA6E6 /* RegisterTextFieldCell.swift */; };
@@ -195,7 +195,7 @@
 		4D9AC4CB25F3E8F000A83D57 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		4D9AC4D025F3E90800A83D57 /* LoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewModel.swift; sourceTree = "<group>"; };
 		4D9AC4D525F3E9B600A83D57 /* Loading.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Loading.storyboard; sourceTree = "<group>"; };
-		4D9FCB5025ED4B0D0031E9FF /* HistoryViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewManager.swift; sourceTree = "<group>"; };
+		4D9FCB5025ED4B0D0031E9FF /* HistoryControlManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryControlManager.swift; sourceTree = "<group>"; };
 		4D9FCB5825ED55180031E9FF /* HistoryDetailViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailViewManager.swift; sourceTree = "<group>"; };
 		4DCABE742544A793006FA6E6 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		4DCABE772544BF23006FA6E6 /* RegisterTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTextFieldCell.swift; sourceTree = "<group>"; };
@@ -691,7 +691,7 @@
 			children = (
 				4DE3FE37258F744F00C4BA9E /* HistoryVC.swift */,
 				4DEA809A25F9540B00E26202 /* HistoryServiceManager.swift */,
-				4D9FCB5025ED4B0D0031E9FF /* HistoryViewManager.swift */,
+				4D9FCB5025ED4B0D0031E9FF /* HistoryControlManager.swift */,
 				4D8A27C225FB482000A68F49 /* HistoryViewModel.swift */,
 			);
 			path = mainHistory;
@@ -1053,7 +1053,7 @@
 				4DEA809B25F9540B00E26202 /* HistoryServiceManager.swift in Sources */,
 				4D4AD3A0253384D20026CD65 /* MenuHeader.swift in Sources */,
 				4DDA64F625114D8800EE2BE7 /* UIViewControllerExtensions.swift in Sources */,
-				4D9FCB5125ED4B0D0031E9FF /* HistoryViewManager.swift in Sources */,
+				4D9FCB5125ED4B0D0031E9FF /* HistoryControlManager.swift in Sources */,
 				4DDA64F425114BAE00EE2BE7 /* UINavigationControllerExtensions.swift in Sources */,
 				4DE6E73F254596A4006AA05F /* UITableViewExtensions.swift in Sources */,
 				4D4AD3CE2540BFF60026CD65 /* StringExtensions.swift in Sources */,

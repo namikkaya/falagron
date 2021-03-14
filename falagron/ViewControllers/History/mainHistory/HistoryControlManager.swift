@@ -8,16 +8,16 @@
 
 import UIKit
 
-protocol HistoryViewManagerDelegate:class {
+protocol HistoryControlManagerDelegate:class {
     func historyCommonTypeTrigger(type: HistoryNC.CommonHistoryType)
 }
 
-extension HistoryViewManagerDelegate {
+extension HistoryControlManagerDelegate {
     func historyCommonTypeTrigger(type: HistoryNC.CommonHistoryType) {}
 }
 
-class HistoryViewManager: NSObject {
-    weak var delegate: HistoryViewManagerDelegate?
+class HistoryControlManager: NSObject {
+    weak var delegate: HistoryControlManagerDelegate?
     
 // MARK: - outlet object
     var tableView:UITableView?
@@ -26,7 +26,7 @@ class HistoryViewManager: NSObject {
     
     override init() { super.init() }
     
-    convenience init(tableView: UITableView, delegate:HistoryViewManagerDelegate?) {
+    convenience init(tableView: UITableView, delegate:HistoryControlManagerDelegate?) {
         self.init()
         self.tableView = tableView
         self.delegate = delegate
@@ -41,14 +41,14 @@ class HistoryViewManager: NSObject {
     }
 }
 
-extension HistoryViewManager {
+extension HistoryControlManager {
     private func setups() {
         setupViewModel()
         setupTableView()
     }
 }
 
-extension HistoryViewManager {
+extension HistoryControlManager {
     private func setupViewModel() {
         viewModel = HistoryViewModel()
         
@@ -81,7 +81,7 @@ extension HistoryViewManager {
 
 
 // MARK: - TableView
-extension HistoryViewManager: UITableViewDelegate, UITableViewDataSource {
+extension HistoryControlManager: UITableViewDelegate, UITableViewDataSource {
     private func setupTableView() {
         let cells = [HistoryInfoCell.self, loadingCell.self, UITableViewCell.self]
         self.tableView?.delegate = self
@@ -134,7 +134,7 @@ extension HistoryViewManager: UITableViewDelegate, UITableViewDataSource {
 }
 
 // MARK: - Tableview scroll to point
-extension HistoryViewManager {
+extension HistoryControlManager {
     private func scrollToItemIndex(index:Int, animated: Bool = true) {
         guard let falData = viewModel?.falData else { return }
         if index < falData.count {
@@ -144,7 +144,7 @@ extension HistoryViewManager {
     }
 }
 
-extension HistoryViewManager {
+extension HistoryControlManager {
     private func getFalIdRowIndex(falId:String?) -> Int? {
         guard let falData = viewModel?.falData, let falId = falId else { return nil }
         for (index, value) in falData.enumerated() {
