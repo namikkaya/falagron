@@ -13,6 +13,7 @@ let fallar:String = "fallar"
 let usersInfo:String = "usersInfo"
 let userViewedFal:String = "falViewedByUser"
 let userFalList:String = "falList"
+let falInfo:String = "falInfo"
 
 let falText:String = "falText"
 
@@ -56,6 +57,12 @@ let textSameGenderString:String = "@%sameGender%@" // hem cins
 let previewTextSameGenderMenString:String = "erkek"
 let previewTextSameGenderWomenString:String = "kadın"
 
+let purchaseString: String = "purchase"
+let purchaseStatusString: String = "purchaseStatus"
+
+let purchaseLoveString = "purchaseLove"
+let purchaseLoveStatusString = "purchaseStatus"
+
 
 let userNameKey:String               = "name"
 let emailKey:String                  = "email"
@@ -79,9 +86,9 @@ struct UserModel {
     var lastName:String?
     var birthDay:Timestamp?
     
-    var gender:GenderModel?
-    var work:WorkStatus?
-    var love:LoveStatus?
+    var cinsiyet:GenderModel?
+    var kariyer:WorkStatus?
+    var iliskiDurumu:LoveStatus?
     
     init(json: [String: Any]) {
         if let name = json[userNameKey] as? String {
@@ -96,30 +103,33 @@ struct UserModel {
         if let date = json[birthDayKey] as? Timestamp {
             self.birthDay = date
         }
+        if let gender = json[userGender] as? [String:Any]{
+            self.cinsiyet = GenderModel(json: gender)
+        }
         if let love = json[loveKey] as? [String:Any] {
-            self.love = LoveStatus(json: love)
+            self.iliskiDurumu = LoveStatus(json: love)
         }
         if let work = json[workKey] as? [String:Any] {
-            self.work = WorkStatus(json: work)
+            self.kariyer = WorkStatus(json: work)
         }
     }
 }
 
 struct GenderModel {
-    var men:Bool?
-    var woman:Bool?
-    var lgbt:Bool?
+    var Erkek:Bool?
+    var Kadin:Bool?
+    var LGBT:Bool?
     init(json: [String: Any]) {
         for (key, value) in json {
             switch key {
             case userGenderMale:
-                men = value as? Bool
+                Erkek = value as? Bool
                 break
             case userGenderFemale:
-                woman = value as? Bool
+                Kadin = value as? Bool
                 break
             case userGenderLGBT:
-                lgbt = value as? Bool
+                LGBT = value as? Bool
                 break
             default: break
             }
@@ -205,8 +215,10 @@ struct RegisterCellModel {
     var type: RegisterTableViewCellType?
 }
 
-struct FalHistoryDataModel {
+struct NotificationModel {
     var date:Date?
-    var falId:String?
-    var isPurchase:Bool?
+    var type: String?
+    var message: String?
+    var title: String?
+    var navigationBody: String?
 }

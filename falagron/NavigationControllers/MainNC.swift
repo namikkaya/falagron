@@ -37,7 +37,7 @@ class MainNC: UINavigationController {
         case .daily:
             break
         case .buyyer:
-            gotoLogin()
+            
             break
         case .shared:
             break

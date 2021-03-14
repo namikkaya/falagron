@@ -11,6 +11,7 @@ target 'falagron' do
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
 
+
   target 'falagronTests' do
     inherit! :search_paths
     # Pods for testing

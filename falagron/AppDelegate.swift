@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        UNUserNotificationCenter.current().delegate = self
         return true
     }
 
@@ -34,5 +35,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+@available(iOS 10, *)
+extension AppDelegate : UNUserNotificationCenterDelegate {
+    
+    /// Uygulamanın içindeyken tetiklendiğinde çalışır.
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        var userInfo = notification.request.content.userInfo
+        print("userNotificationCenter willPresent : \(userInfo) ")
+        // si
+        if userInfo["type"] == nil {
+            userInfo["type"] = "silent"
+        }
+        AppNavigationCoordinator.shared.deeplinkEvent = userInfo
+        completionHandler([.sound,.alert])
+    }
+    
+    
+    
+    /// Notification geldiğinde bildirime tıklandığında tetiklenir.
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        var userInfo = response.notification.request.content.userInfo
+        // Print full message.
+        print("userNotificationCenter didReceive : \(userInfo) ")
+        if userInfo["type"] == nil {
+            userInfo["type"] = "push"
+        }
+        AppNavigationCoordinator.shared.deeplinkEvent = userInfo
+        completionHandler()
+    }
 }
 

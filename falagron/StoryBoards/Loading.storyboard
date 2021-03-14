@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Loading View-->
+        <scene sceneID="ZTd-cm-cWb">
+            <objects>
+                <viewController storyboardIdentifier="LoadingView" id="bC3-k8-7jV" customClass="LoadingView" customModule="falagron" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cmH-2R-6NG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RcC-Fx-eRv">
+                                <rect key="frame" x="147" y="388" width="120" height="120"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="9fP-7e-G0D">
+                                        <rect key="frame" x="41.5" y="41.5" width="37" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="8GO-Sq-Heb"/>
+                                            <constraint firstAttribute="width" constant="37" id="lov-95-vOf"/>
+                                        </constraints>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="9fP-7e-G0D" firstAttribute="centerY" secondItem="RcC-Fx-eRv" secondAttribute="centerY" id="ADU-mz-qgb"/>
+                                    <constraint firstItem="9fP-7e-G0D" firstAttribute="centerX" secondItem="RcC-Fx-eRv" secondAttribute="centerX" id="CFu-nd-IvM"/>
+                                    <constraint firstAttribute="height" constant="120" id="N1B-py-qAP"/>
+                                    <constraint firstAttribute="width" constant="120" id="yJv-Hi-1Vw"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fGg-da-tx7"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RcC-Fx-eRv" firstAttribute="centerY" secondItem="cmH-2R-6NG" secondAttribute="centerY" id="eWf-qd-x10"/>
+                            <constraint firstItem="RcC-Fx-eRv" firstAttribute="centerX" secondItem="cmH-2R-6NG" secondAttribute="centerX" id="qvK-Zv-axU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="RcC-Fx-eRv" id="gmC-B3-QF6"/>
+                        <outlet property="indicator" destination="9fP-7e-G0D" id="5LH-c2-CpD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9OU-7U-TSM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-64" y="117"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

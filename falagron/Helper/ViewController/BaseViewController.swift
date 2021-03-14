@@ -12,8 +12,11 @@ class BaseViewController: UIViewController {
     var authStatus: FirebaseManager.FBAuthStatus = .singOut
     
     var panGestureReconizer: UIPanGestureRecognizer?
+    
+    var loading:LoadingManager?
     override func viewDidLoad() {
         super.viewDidLoad()
+        loading = LoadingManager(target: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {

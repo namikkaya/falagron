@@ -7,11 +7,16 @@
 //
 
 import Foundation
+import Firebase
 
 struct MainPageModel {
-    var type:MainVC.RowType?
-    init(type:MainVC.RowType?) {
+    var type:RowType?
+    init(type:RowType?) {
         self.type = type
+    }
+    
+    enum RowType {
+        case loading, banner(image:UIImage), button(type:PurchaseType, title:String, icon:UIImage)
     }
 }
 
@@ -109,5 +114,124 @@ enum UserInfoDataType {
         case .work:
             return "İş Durumu"
         }
+    }
+}
+
+struct FalMergedModel: Codable{
+    var userId:String?
+    var falData: [String:DocumentReference] = [:]
+    var purchase:Bool = false
+    init(userId: String? = nil) {
+        if let userId = userId {
+            self.userId = userId
+        }
+    }
+}
+
+
+struct FalDataModel: Codable {
+    var id:String
+    var falText:String?
+    var iliskiDurumu:IliskiDurumu?
+    var kariyer:Kariyer?
+    var paragrafTipi:ParagrafTipi?
+    var yargi:Yargi?
+    var purchase:Purchase?
+    var purchaseLove:PurchaseLove?
+    var documentReference:DocumentReference?
+}
+
+struct IliskiDurumu: Codable {
+    var iliskiDurumu_Evli:Bool?
+    var iliskiDurumu_IliskisiVar:Bool?
+    var iliskiDurumu_IliskisiYok:Bool?
+    var iliskiDurumu_Nisanli:Bool?
+    var iliskiDurumu_YeniAyrilmis:Bool?
+    var iliskiDurumu_YeniBosanmis:Bool?
+}
+
+struct Kariyer: Codable {
+    var kariyer_Calisiyor:Bool?
+    var kariyer_Calismiyor:Bool?
+    var kariyer_EvHanimi:Bool?
+    var kariyer_Ogrenci:Bool?
+}
+
+struct ParagrafTipi: Codable {
+    var paragrafTipi_Giris:Bool?
+    var paragrafTipi_Gelisme:Bool?
+    var paragrafTipi_Sonuc:Bool?
+}
+
+struct Yargi: Codable {
+    var yargi_Olumlu:Bool?
+    var yargi_Olumsuz:Bool?
+}
+
+struct Purchase: Codable {
+    var purchaseStatus:Bool?
+}
+
+struct PurchaseLove: Codable {
+    var purchaseStatus:Bool?
+    var dictionary: [String: Any?] {
+        return [purchaseLoveString: purchaseStatus]
+    }
+    var nsDictionary: NSDictionary {
+        return dictionary as NSDictionary
+    }
+}
+
+extension QueryDocumentSnapshot {
+   func prepareForDecoding() -> [String: Any] {
+       var data = self.data()
+       data["documentId"] = self.documentID
+
+       return data
+   }
+}
+
+struct FalHistoryDataModel: Codable {
+    var created:Timestamp?
+    var userId:String?
+    var falId:String?
+    var isPurchase:Bool?
+    var userViewedStatus:Bool?
+    var falData:[String:DocumentReference]?
+    
+    init(json: [String: Any]) {
+        if let userViewedStatus = json["userViewedStatus"] as? Bool {
+            self.userViewedStatus = userViewedStatus
+        }
+        if let userId = json["userId"] as? String {
+            self.userId = userId
+        }
+        if let falData = json["falData"] as? [String:DocumentReference] {
+            self.falData = falData
+        }
+        if let isPurchase = json["isPurchase"] as? Bool {
+            self.isPurchase = isPurchase
+        }
+        if let timeStamp = json["created"] as? Timestamp {
+            self.created = timeStamp
+        }
+    }
+}
+
+extension JSONDecoder {
+   func decode<T>(_ type: T.Type, fromJSONObject object: Any) throws -> T where T: Decodable {
+       return try decode(T.self, from: try JSONSerialization.data(withJSONObject: object, options: []))
+   }
+}
+
+struct JSON {
+    static let encoder = JSONEncoder()
+}
+extension Encodable {
+    subscript(key: String) -> Any? {
+        return dictionary[key]
+    }
+    var dictionary: [String: Any] {
+        return (try? JSONSerialization.jsonObject(with: JSON.encoder.encode(self))) as? [String: Any] ?? [:]
     }
 }

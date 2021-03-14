@@ -14,13 +14,21 @@ class HistoryVC: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     var menuButton:UIButton?
     
-    // Variables
-    private var historyList:[SectionType] = []
+    var viewManager:HistoryViewManager!
+    var serviceManager:HistoryServiceManager!
+    
+    var selectedFalId:String?
+    
+    var isPushDetail:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
-        createData()
+        setup()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkComeFromController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,13 +37,11 @@ class HistoryVC: BaseViewController {
         menuButton = addGetMenuButton()
         menuButton?.addTarget(self, action: #selector(menuButtonEvent(_:)), for: .touchUpInside)
         self.setNavigationBarTitle(titleText: "Fallarım")
-        print("HistoryVC: viewWillAppear")
         self.tableView.isUserInteractionEnabled = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("HistoryVC: viewWillDisappear")
     }
     
     @objc private func menuButtonEvent(_ sender:UIButton) {
@@ -53,9 +59,22 @@ class HistoryVC: BaseViewController {
             break
         }
     }
-    
 }
 
+// MARK: - Service kontrolleri
+extension HistoryVC {
+    /// Detaydan geriye geldiğinde service çıkmaması için
+    private func checkComeFromController() {
+        if !isPushDetail {
+            viewManager.loadingUI()
+            serviceManager.getHistoryData() // Geçmiş fallar çekilir.
+        }else {
+            isPushDetail = false
+        }
+    }
+}
+
+// MARK: - NavigationController Button
 extension HistoryVC {
     private func addGetMenuButton() -> UIButton  {
         let leftMenuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 18, height: 18))
@@ -70,56 +89,39 @@ extension HistoryVC {
     }
 }
 
+// MARK: - Setups
 extension HistoryVC {
-    enum SectionType {
-        case historySection(rowTypeList: [RowType])
-    }
-    
-    enum RowType {
-        case historyCell(data: FalHistoryDataModel)
+    private func setup() {
+        viewManager = HistoryViewManager(tableView: self.tableView, delegate: self)
+        serviceManager = HistoryServiceManager(delegate: self)
     }
 }
 
-extension HistoryVC {
-    private func createData() {
-        var rowType: [RowType] = []
-        for i in 0..<15 {
-            let model = FalHistoryDataModel(date: Date(), falId: "123456", isPurchase: ((i%1) != 0) ? true : false)
-            rowType.append(.historyCell(data: model))
-        }
-        historyList.append(.historySection(rowTypeList: rowType))
-        tableView.reloadData()
-    }
-}
-
-extension HistoryVC: UITableViewDelegate, UITableViewDataSource{
-    private func setupTableView() {
-        let cells = [HistoryInfoCell.self, UITableViewCell.self]
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.register(cellTypes: cells)
-        self.tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 80, right: 0)
-        self.tableView.reloadData()
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard historyList.count > 0 else { return 0 }
-        switch historyList[section] {
-        case .historySection(let rowTypeList):
-            return rowTypeList.count
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let sectionType = historyList[indexPath.section]
-        switch sectionType {
-        case .historySection(let rowTypeList):
-            switch rowTypeList[indexPath.row] {
-            case .historyCell(let data):
-                let cell = tableView.dequeueReusableCell(with: HistoryInfoCell.self, for: indexPath)
-                
-                return cell
+// MARK: - Delegates
+extension HistoryVC: HistoryViewManagerDelegate {
+    func historyCommonTypeTrigger(type: HistoryNC.CommonHistoryType) {
+        switch type {
+        case .historyListToDetail(let data):
+            if let historyDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "HistoryDetailVC") as? HistoryDetailVC {
+                historyDetailVC.setfalData = data
+                isPushDetail = true
+                self.navigationController?.pushViewController(historyDetailVC, animated: true)
             }
+            break
+        }
+    }
+}
+
+extension HistoryVC: HistoryServiceManagerDelegate {
+    func historyServiceEvent(type: HistoryServiceManager.HistoryServiceType) {
+        switch type {
+        case .getHistory(let data):
+            viewManager?.setData(falData: data, selectedFalId: self.selectedFalId)
+            self.selectedFalId = nil
+            break
+        case .historyError(let error):
+            infoMessage(message: (error.userInfo["message"] ?? "Bir hata oluştu!") as! String, buttonTitle: "Tamam") { }
+            break
         }
     }
 }

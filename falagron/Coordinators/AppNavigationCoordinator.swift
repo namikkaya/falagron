@@ -8,14 +8,43 @@
 
 import UIKit
 
-enum PageState:Int {
+enum PageState:Int, CaseIterable {
     case home = 0, fallarim, purchase, notification, setting, profile
+    
+    var getCheckName:String {
+        switch self {
+        case .home:
+            return "home"
+        case .fallarim:
+            return "fallarim"
+        case .purchase:
+            return "purchase"
+        case .notification:
+            return "notification"
+        case .setting:
+            return "setting"
+        case .profile:
+            return "profile"
+        }
+    }
+    
+    static func getStringToState(name: String?) -> PageState? {
+        guard let name = name else { return nil }
+        for item in PageState.allCases {
+            if item.getCheckName == name {
+                return item
+            }
+        }
+        return nil
+    }
 }
 
 class AppNavigationCoordinator: NSObject {
     // Menu için;
     // kullanıcı henüz giriş yapmamış ise giriş yapana kadar bu id tutulur.
     var notLoginHolderSelectedIndex:Int?
+    
+    var deeplinkParser:DeepLinkParser?
     
     override init() {
         super.init()
@@ -31,6 +60,14 @@ class AppNavigationCoordinator: NSObject {
         didSet {
             if currentPageType == nil { return }
             NotificationCenter.default.post(name: NSNotification.Name.FALAGRON.ChangeCurrentPage, object: self, userInfo: nil)
+        }
+    }
+    
+    var deeplinkEvent: [AnyHashable : Any]? {
+        didSet{
+            guard let deeplinkEvent = deeplinkEvent as? [String:String] else { return }
+            deeplinkParser = DeepLinkParser(data: deeplinkEvent)
+            NotificationCenter.default.post(name: NSNotification.Name.FALAGRON.DeeplinkEvent, object: self, userInfo: ["data":deeplinkParser as Any])
         }
     }
     

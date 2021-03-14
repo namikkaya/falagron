@@ -19,6 +19,13 @@ class HistoryInfoCell: UITableViewCell {
         }
     }
     
+    @IBOutlet private weak var idLabel: UILabel!
+    @IBOutlet private weak var createDateLabel: UILabel!
+    
+    @IBOutlet private weak var seenContainer: UIView!
+    @IBOutlet private weak var rightIconContainer: UIView!
+    @IBOutlet private weak var seenImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
@@ -28,8 +35,24 @@ class HistoryInfoCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setup(falData:String) {
-        
+    func setup(falData:FalHistoryDataModel) {
+        if let date = falData.created {
+            createDateLabel.text = getDateToString(date: date.dateValue())
+        }
+        idLabel.text = falData.falId
+        if let seen = falData.userViewedStatus, !seen {
+            seenImageView.image = UIImage(named: "notification")
+        }else {
+            seenImageView.image = UIImage(named: "visibility")
+        }
     }
     
+}
+
+extension HistoryInfoCell {
+    func getDateToString(date:Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMM YY HH:mm"
+        return formatter.string(from: date)
+    }
 }

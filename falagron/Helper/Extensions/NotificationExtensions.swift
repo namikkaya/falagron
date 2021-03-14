@@ -16,5 +16,7 @@ extension Notification.Name {
         public static let MenuTakeOff = Notification.Name(rawValue: "menu_take_off")
         
         public static let ChangeCurrentPage = Notification.Name(rawValue: "change_current_page")
+        
+        public static let DeeplinkEvent = Notification.Name(rawValue: "deeplinkEvent")
     }
 }

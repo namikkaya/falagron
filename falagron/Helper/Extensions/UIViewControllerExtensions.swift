@@ -84,7 +84,7 @@ extension UIViewController{
 }
 
 extension UIViewController {
-    internal func setNavigationBarTitle(titleText:String){
+    internal func setNavigationBarTitle(titleText:String, fontSize: CGFloat = 16){
         //self.navigationItem.hidesBackButton = true
         let attributes = [NSAttributedString.Key.font: UIFont(name: "Roboto-Bold", size: 16)]
         self.navigationItem.backBarButtonItem?.setTitleTextAttributes(attributes as [NSAttributedString.Key : Any], for: .normal)
@@ -97,7 +97,7 @@ extension UIViewController {
         let attrs = [
             NSAttributedString.Key.shadow: textShadow,
             NSAttributedString.Key.foregroundColor: UIColor.white, // UIColor.white
-            NSAttributedString.Key.font: UIFont(name: "Roboto-Bold", size: 16)/*UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.bold)*/
+            NSAttributedString.Key.font: UIFont(name: "Roboto-Bold", size: fontSize)/*UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.bold)*/
             //UIFont.systemFont(ofSize: 17)//UIFont(name: "Roboto-Bold", size: 17)!
         ]
         

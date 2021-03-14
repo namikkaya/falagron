@@ -8,6 +8,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--HistoryNC-->
         <scene sceneID="hyc-JA-HXV">
@@ -55,6 +60,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Umh-07-PVH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="327.536231884058" y="134.59821428571428"/>
+        </scene>
+        <!--History DetailVC-->
+        <scene sceneID="Kd5-38-jyN">
+            <objects>
+                <viewController storyboardIdentifier="HistoryDetailVC" id="6pc-HF-ceY" customClass="HistoryDetailVC" customModule="falagron" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sku-ct-Csv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cU3-a1-vhk">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="q7W-yn-dDg"/>
+                        <color key="backgroundColor" name="darkPurple"/>
+                        <constraints>
+                            <constraint firstItem="cU3-a1-vhk" firstAttribute="bottom" secondItem="q7W-yn-dDg" secondAttribute="bottom" id="4ct-T2-Md3"/>
+                            <constraint firstItem="cU3-a1-vhk" firstAttribute="trailing" secondItem="q7W-yn-dDg" secondAttribute="trailing" id="FuV-db-2RC"/>
+                            <constraint firstItem="cU3-a1-vhk" firstAttribute="leading" secondItem="q7W-yn-dDg" secondAttribute="leading" id="bDR-hg-ioq"/>
+                            <constraint firstItem="cU3-a1-vhk" firstAttribute="top" secondItem="q7W-yn-dDg" secondAttribute="top" id="jt1-Zs-Evl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="cU3-a1-vhk" id="AVy-fR-UFy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Www-FC-v06" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1228.985507246377" y="134.59821428571428"/>
         </scene>
     </scenes>
     <resources>

@@ -29,12 +29,16 @@ class TabbarVC: UITabBarController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        deeplinkPerform()
+        if let deeplink = AppNavigationCoordinator.shared.deeplinkEvent {
+            deeplinkPerform(event: Notification(name: NSNotification.Name.FALAGRON.DeeplinkEvent, object: nil, userInfo: deeplink))
+            print("XYZ: TabbarVC viewDidApear tabbarvc deeplink")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(self.changeState) , name: NSNotification.Name.FALAGRON.ChangeCurrentPage, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.deeplinkPerform), name: NSNotification.Name.FALAGRON.DeeplinkEvent, object: AppNavigationCoordinator.shared.deeplinkEvent)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -69,8 +73,13 @@ extension TabbarVC {
 }
 
 extension TabbarVC {
-    private func deeplinkPerform() {
-        
+    @objc private func deeplinkPerform(event: Notification) {
+        if let data = event.userInfo as? [String : DeepLinkParser] {
+            guard  data["data"]?.type != DeepLinkParser.DeepLinkType.silent else {
+                return
+            }
+            setState = data["data"]?.selectedTab
+        }
     }
 }
 
