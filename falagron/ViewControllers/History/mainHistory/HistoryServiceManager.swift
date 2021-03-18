@@ -8,23 +8,9 @@
 
 import UIKit
 
-protocol HistoryServiceManagerDelegate:class {
-    func historyServiceEvent(type: HistoryServiceManager.HistoryServiceType)
-}
-
-extension HistoryServiceManagerDelegate {
-    func historyServiceEvent(type: HistoryServiceManager.HistoryServiceType) {}
-}
-
 class HistoryServiceManager: NSObject {
-    weak var delegate: HistoryServiceManagerDelegate?
 
     override init() { super.init() }
-    
-    convenience init(delegate: HistoryServiceManagerDelegate) {
-        self.init()
-        self.delegate = delegate
-    }
 }
 
 extension HistoryServiceManager {
@@ -36,13 +22,13 @@ extension HistoryServiceManager {
 
 extension HistoryServiceManager {
     /// Kullanıcı için geçmiş data bilgileri gelir.
-    func getHistoryData() {
-        FirebaseManager.shared.getHistory { [weak self] (status: Bool, data: [FalHistoryDataModel], errorMessage: String?) in
+    func getHistoryData(completion: @escaping  (_ status:Bool, _ data:[FalHistoryDataModel]?, _ errorMessage:NSError?) -> () = {_, _, _ in}) {
+        FirebaseManager.shared.getHistory { (status: Bool, data: [FalHistoryDataModel], errorMessage: String?) in
             if status {
-                self?.delegate?.historyServiceEvent(type: .getHistory(data: data))
+                completion(true, data, nil)
             }else {
-                let errorType = NSError(domain: "com.kaya.falagron", code: 1001, userInfo: ["message": "Geçmiş fallar çekilirken bir hata oluştu. Lütfen tekrar deneyin."])
-                self?.delegate?.historyServiceEvent(type: .historyError(error: errorType))
+                let errorType = NSError(domain: "com.kaya.falagron", code: 1001, userInfo: ["message": errorMessage ?? "Geçmiş fallar çekilirken bir hata oluştu. Lütfen tekrar deneyin."])
+                completion(false, nil, errorType)
             }
         }
     }

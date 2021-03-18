@@ -57,6 +57,8 @@
 		4D5DEFD72517516500E0C25E /* PurchaseNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFD62517516500E0C25E /* PurchaseNC.swift */; };
 		4D5DEFDC2517610700E0C25E /* LoginLogoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5DEFDA2517610700E0C25E /* LoginLogoCell.swift */; };
 		4D5DEFDD2517610700E0C25E /* LoginLogoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D5DEFDB2517610700E0C25E /* LoginLogoCell.xib */; };
+		4D5FE0BA25FFEEDF0048BA56 /* HistoryDetailControlManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5FE0B925FFEEDF0048BA56 /* HistoryDetailControlManager.swift */; };
+		4D5FE0C225FFF14C0048BA56 /* HistoryDetailServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5FE0C125FFF14C0048BA56 /* HistoryDetailServiceManager.swift */; };
 		4D8A27C325FB482000A68F49 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A27C225FB482000A68F49 /* HistoryViewModel.swift */; };
 		4D99CE8425AB7E4A003952E7 /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D99CE8325AB7E4A003952E7 /* Notification.storyboard */; };
 		4D99CE8925AB7E94003952E7 /* NotificationNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D99CE8825AB7E94003952E7 /* NotificationNC.swift */; };
@@ -69,7 +71,7 @@
 		4D9AC4D125F3E90800A83D57 /* LoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9AC4D025F3E90800A83D57 /* LoadingViewModel.swift */; };
 		4D9AC4D625F3E9B600A83D57 /* Loading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9AC4D525F3E9B600A83D57 /* Loading.storyboard */; };
 		4D9FCB5125ED4B0D0031E9FF /* HistoryControlManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9FCB5025ED4B0D0031E9FF /* HistoryControlManager.swift */; };
-		4D9FCB5925ED55180031E9FF /* HistoryDetailViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9FCB5825ED55180031E9FF /* HistoryDetailViewManager.swift */; };
+		4D9FCB5925ED55180031E9FF /* HistoryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9FCB5825ED55180031E9FF /* HistoryDetailViewModel.swift */; };
 		4DCABE752544A793006FA6E6 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCABE742544A793006FA6E6 /* UIColorExtensions.swift */; };
 		4DCABE792544BF23006FA6E6 /* RegisterTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCABE772544BF23006FA6E6 /* RegisterTextFieldCell.swift */; };
 		4DCABE7A2544BF23006FA6E6 /* RegisterTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DCABE782544BF23006FA6E6 /* RegisterTextFieldCell.xib */; };
@@ -184,6 +186,8 @@
 		4D5DEFD62517516500E0C25E /* PurchaseNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseNC.swift; sourceTree = "<group>"; };
 		4D5DEFDA2517610700E0C25E /* LoginLogoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginLogoCell.swift; sourceTree = "<group>"; };
 		4D5DEFDB2517610700E0C25E /* LoginLogoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginLogoCell.xib; sourceTree = "<group>"; };
+		4D5FE0B925FFEEDF0048BA56 /* HistoryDetailControlManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailControlManager.swift; sourceTree = "<group>"; };
+		4D5FE0C125FFF14C0048BA56 /* HistoryDetailServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailServiceManager.swift; sourceTree = "<group>"; };
 		4D8A27C225FB482000A68F49 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		4D99CE8325AB7E4A003952E7 /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
 		4D99CE8825AB7E94003952E7 /* NotificationNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNC.swift; sourceTree = "<group>"; };
@@ -196,7 +200,7 @@
 		4D9AC4D025F3E90800A83D57 /* LoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewModel.swift; sourceTree = "<group>"; };
 		4D9AC4D525F3E9B600A83D57 /* Loading.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Loading.storyboard; sourceTree = "<group>"; };
 		4D9FCB5025ED4B0D0031E9FF /* HistoryControlManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryControlManager.swift; sourceTree = "<group>"; };
-		4D9FCB5825ED55180031E9FF /* HistoryDetailViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailViewManager.swift; sourceTree = "<group>"; };
+		4D9FCB5825ED55180031E9FF /* HistoryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailViewModel.swift; sourceTree = "<group>"; };
 		4DCABE742544A793006FA6E6 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		4DCABE772544BF23006FA6E6 /* RegisterTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTextFieldCell.swift; sourceTree = "<group>"; };
 		4DCABE782544BF23006FA6E6 /* RegisterTextFieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterTextFieldCell.xib; sourceTree = "<group>"; };
@@ -405,6 +409,17 @@
 				4D5DEFDB2517610700E0C25E /* LoginLogoCell.xib */,
 			);
 			path = LoginCells;
+			sourceTree = "<group>";
+		};
+		4D5FE0B825FFEE880048BA56 /* DetailHistory */ = {
+			isa = PBXGroup;
+			children = (
+				4D99CEB525B474C9003952E7 /* HistoryDetailVC.swift */,
+				4D5FE0B925FFEEDF0048BA56 /* HistoryDetailControlManager.swift */,
+				4D9FCB5825ED55180031E9FF /* HistoryDetailViewModel.swift */,
+				4D5FE0C125FFF14C0048BA56 /* HistoryDetailServiceManager.swift */,
+			);
+			path = DetailHistory;
 			sourceTree = "<group>";
 		};
 		4D99CE8D25AB7ECC003952E7 /* Notification */ = {
@@ -679,9 +694,8 @@
 		4DE3FE36258F742E00C4BA9E /* History */ = {
 			isa = PBXGroup;
 			children = (
+				4D5FE0B825FFEE880048BA56 /* DetailHistory */,
 				4DEA809925F9537100E26202 /* mainHistory */,
-				4D99CEB525B474C9003952E7 /* HistoryDetailVC.swift */,
-				4D9FCB5825ED55180031E9FF /* HistoryDetailViewManager.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -690,9 +704,9 @@
 			isa = PBXGroup;
 			children = (
 				4DE3FE37258F744F00C4BA9E /* HistoryVC.swift */,
-				4DEA809A25F9540B00E26202 /* HistoryServiceManager.swift */,
 				4D9FCB5025ED4B0D0031E9FF /* HistoryControlManager.swift */,
 				4D8A27C225FB482000A68F49 /* HistoryViewModel.swift */,
+				4DEA809A25F9540B00E26202 /* HistoryServiceManager.swift */,
 			);
 			path = mainHistory;
 			sourceTree = "<group>";
@@ -1076,6 +1090,7 @@
 				4D1F8FE32520ADDE0070ED74 /* TabbarVC.swift in Sources */,
 				4DDA64F225114AA800EE2BE7 /* SplashScreenVC.swift in Sources */,
 				4D5DEFBC251694DE00E0C25E /* MainBannerCell.swift in Sources */,
+				4D5FE0BA25FFEEDF0048BA56 /* HistoryDetailControlManager.swift in Sources */,
 				4DCE888225F3DD9300913C5C /* loadingCell.swift in Sources */,
 				4D9AC4CC25F3E8F000A83D57 /* LoadingView.swift in Sources */,
 				4DCABE792544BF23006FA6E6 /* RegisterTextFieldCell.swift in Sources */,
@@ -1090,7 +1105,7 @@
 				4DDA65102516127200EE2BE7 /* CollectionExtensions.swift in Sources */,
 				4D5DEFD72517516500E0C25E /* PurchaseNC.swift in Sources */,
 				4D99CEB125B37861003952E7 /* DeepLinkParser.swift in Sources */,
-				4D9FCB5925ED55180031E9FF /* HistoryDetailViewManager.swift in Sources */,
+				4D9FCB5925ED55180031E9FF /* HistoryDetailViewModel.swift in Sources */,
 				4DDA64AF2511459C00EE2BE7 /* AppDelegate.swift in Sources */,
 				4D5DEFB42516894A00E0C25E /* OTPViewController.swift in Sources */,
 				4D99CEBB25BC4C03003952E7 /* FalDataProducer.swift in Sources */,
@@ -1099,6 +1114,7 @@
 				4DEA804A25F525A400E26202 /* LoadingTranstion.swift in Sources */,
 				4DE3FE38258F744F00C4BA9E /* HistoryVC.swift in Sources */,
 				4D4AD3CA253F12060026CD65 /* HolderTextField.swift in Sources */,
+				4D5FE0C225FFF14C0048BA56 /* HistoryDetailServiceManager.swift in Sources */,
 				4DFDF85425331955004D30A0 /* MenuVC.swift in Sources */,
 				4D5DEFB22516824600E0C25E /* RegisterViewController.swift in Sources */,
 				4DDA64FD2513DD6700EE2BE7 /* AuthenticationNC.swift in Sources */,

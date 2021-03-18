@@ -8,8 +8,17 @@
 
 import UIKit
 
+protocol HistoryViewModelDelegate:class {
+    func historyErrorMessage(errorMessage: String?)
+}
+
+extension HistoryViewModelDelegate {
+    func historyErrorMessage(errorMessage: String?) {}
+}
 
 class HistoryViewModel: NSObject {
+    weak var delegate: HistoryViewModelDelegate?
+    var serviceManager:HistoryServiceManager!
     
     // MARK: - Variables
     var falData:[FalHistoryDataModel] = []
@@ -33,11 +42,40 @@ class HistoryViewModel: NSObject {
     
     var reloadTableViewClosure: ((_ falData:[SectionType])->())?
     var loadingTableViewClosure: ((_ loadingData:[SectionType])-> ())?
+    
+    override init() {
+        super.init()
+        serviceManager = HistoryServiceManager()
+    }
+    
+    deinit {
+        falData.removeAll()
+        selectedFalId = nil
+        historyData.removeAll()
+        reloadTableViewClosure = nil
+        loadingTableViewClosure = nil
+    }
+    
+    func callFuncToGetEmpData() {
+        serviceManager.getHistoryData { [weak self] (status: Bool, data: [FalHistoryDataModel]?, error: NSError?) in
+            if status {
+                guard let data = data else { return }
+                self?.setData(falData: data, selectedFalId: self?.selectedFalId)
+            }else {
+                // hata mesajı
+                guard let error = error, let message = error.userInfo["message"] as? String else {
+                    self?.delegate?.historyErrorMessage(errorMessage: "Bir hata oluştu!")
+                    return
+                }
+                self?.delegate?.historyErrorMessage(errorMessage: message)
+            }
+        }
+    }
 }
 
 extension HistoryViewModel {
     // data set
-    func setData(falData:[FalHistoryDataModel], selectedFalId: String? = nil) {
+    private func setData(falData:[FalHistoryDataModel], selectedFalId: String? = nil) {
         self.falData.removeAll()
         self.falData = falData
         self.updateUI()

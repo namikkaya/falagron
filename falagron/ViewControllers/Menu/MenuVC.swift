@@ -178,10 +178,10 @@ extension MenuVC {
         let falShow:MenuModel = .init(id: PageState.home, title: "Falına baktır", icon: UIImage(named: "coffeeIcon") ?? UIImage())
         let fallarim:MenuModel = .init(id: PageState.fallarim, title: "Fallarım", icon: UIImage(named: "history") ?? UIImage())
         let store:MenuModel = .init(id: PageState.purchase, title: "Kredilerim", icon: UIImage(named: "coffee-pot") ?? UIImage())
-        let notification:MenuModel = .init(id: PageState.notification, title: "Bildirimler", icon: UIImage(named: "bell") ?? UIImage())
+        /*let notification:MenuModel = .init(id: PageState.notification, title: "Bildirimler", icon: UIImage(named: "bell") ?? UIImage())*/
         let profile:MenuModel = .init(id: PageState.profile, title: "Profilim", icon: UIImage(named: "coffee-beans") ?? UIImage())
-        let setting:MenuModel = .init(id: PageState.setting, title: "Ayarlar", icon: UIImage(named: "grinder") ?? UIImage())
-        menuData = [falShow, fallarim, store, notification, profile, setting]
+        /*let setting:MenuModel = .init(id: PageState.setting, title: "Ayarlar", icon: UIImage(named: "grinder") ?? UIImage())*/
+        menuData = [falShow, fallarim, store, /*notification,*/ profile, /*setting*/]
     }
     func updateUI() {
         rows.removeAll()

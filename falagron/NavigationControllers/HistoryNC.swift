@@ -11,6 +11,7 @@ import UIKit
 extension HistoryNC {
     enum CommonHistoryType {
         case historyListToDetail(data: FalHistoryDataModel)
+        case errorMessage(message: String?)
     }
 }
 
@@ -40,9 +41,9 @@ class HistoryNC: UINavigationController {
 extension HistoryNC {
     private func checkNotification() {
         self.popToRootViewController(animated: false)
-        print("XYZ: HistoryNC: \(AppNavigationCoordinator.shared.deeplinkParser?.falId)")
+        //print("XYZ: HistoryNC: \(AppNavigationCoordinator.shared.deeplinkParser?.falId)")
         if let detailFalId = AppNavigationCoordinator.shared.deeplinkParser?.falId {
-            print("XYZ: HistoryNC falID: \(AppNavigationCoordinator.shared.deeplinkParser?.falId)")
+            //print("XYZ: HistoryNC falID: \(AppNavigationCoordinator.shared.deeplinkParser?.falId)")
             if let historyDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "HistoryDetailVC") as? HistoryDetailVC {
                 historyDetailVC.falId = detailFalId
                 self.pushViewController(historyDetailVC, animated: true)

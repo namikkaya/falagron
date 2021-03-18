@@ -55,15 +55,15 @@ extension FirebaseManager {
 // MARK: -  Auth
 extension FirebaseManager {
     private func addFirebaseListener() {
-        handle = Auth.auth().addStateDidChangeListener { (auth:Auth, user:User?) in
+        handle = Auth.auth().addStateDidChangeListener { [weak self] (auth:Auth, user:User?) in
             let singStatus:FBAuthStatus = user != nil ? .singIn : .singOut
             let userInfo: [String : FBAuthStatus] = ["status":singStatus]
             if let user = user {
-                self.user = user
-                self.authStatus = .singIn
+                self?.user = user
+                self?.authStatus = .singIn
             }else {
-                self.user = nil
-                self.authStatus = .singOut
+                self?.user = nil
+                self?.authStatus = .singOut
             }
             NotificationCenter.default.post(name: NSNotification.Name.FALAGRON.AuthChangeStatus, object: self, userInfo: userInfo)
         }
@@ -74,14 +74,14 @@ extension FirebaseManager {
     }
     
     func newUser(email:String, password:String, data:[String:Any], completion: @escaping  (_ status:Bool, _ message:String?) -> () = {_, _ in} ) {
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
             guard error == nil else {
                 completion(false, error?.localizedDescription)
                 return
             }
             if let authResult = authResult {
-                self.authStatus = .singIn
-                self.userWriteData(userId: authResult.user.uid, data: data, completion: completion)
+                self?.authStatus = .singIn
+                self?.userWriteData(userId: authResult.user.uid, data: data, completion: completion)
             }
         }
     }

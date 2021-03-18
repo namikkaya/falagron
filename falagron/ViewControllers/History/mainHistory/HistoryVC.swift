@@ -15,7 +15,6 @@ class HistoryVC: BaseViewController {
     var menuButton:UIButton?
     
     var viewManager:HistoryControlManager!
-    var serviceManager:HistoryServiceManager!
     
     var selectedFalId:String?
     
@@ -67,7 +66,7 @@ extension HistoryVC {
     private func checkComeFromController() {
         if !isPushDetail {
             viewManager.loadingUI()
-            serviceManager.getHistoryData() // Geçmiş fallar çekilir.
+            viewManager.callService()
         }else {
             isPushDetail = false
         }
@@ -93,7 +92,6 @@ extension HistoryVC {
 extension HistoryVC {
     private func setup() {
         viewManager = HistoryControlManager(tableView: self.tableView, delegate: self)
-        serviceManager = HistoryServiceManager(delegate: self)
     }
 }
 
@@ -108,20 +106,10 @@ extension HistoryVC: HistoryControlManagerDelegate {
                 self.navigationController?.pushViewController(historyDetailVC, animated: true)
             }
             break
-        }
-    }
-}
-
-extension HistoryVC: HistoryServiceManagerDelegate {
-    func historyServiceEvent(type: HistoryServiceManager.HistoryServiceType) {
-        switch type {
-        case .getHistory(let data):
-            viewManager?.setData(falData: data, selectedFalId: self.selectedFalId)
-            self.selectedFalId = nil
-            break
-        case .historyError(let error):
-            infoMessage(message: (error.userInfo["message"] ?? "Bir hata oluştu!") as! String, buttonTitle: "Tamam") { }
-            break
+        case .errorMessage(let message):
+            infoMessage(message: message ?? "Bir hata oluştu!", buttonTitle: "Tamam") {
+                
+            }
         }
     }
 }

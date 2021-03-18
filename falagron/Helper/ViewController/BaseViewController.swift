@@ -9,7 +9,7 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-    var authStatus: FirebaseManager.FBAuthStatus = .singOut
+    var authStatus: FirebaseManager.FBAuthStatus? = .singOut
     
     var panGestureReconizer: UIPanGestureRecognizer?
     
@@ -44,6 +44,11 @@ class BaseViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.revealViewController()?.delegate = nil
         removeListener()
+        panGestureReconizer = nil
+    }
+    
+    deinit {
+        print("XYZ: base view de init")
     }
     
     func userAuthStatusChange(status:FirebaseManager.FBAuthStatus) {
@@ -75,8 +80,8 @@ class BaseViewController: UIViewController {
         alert.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: { (acion) in
             completion()
         }))
-        DispatchQueue.main.async {
-            self.present(alert, animated: true)
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alert, animated: true)
         }
     }
 }

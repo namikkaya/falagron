@@ -20,9 +20,8 @@ class HistoryControlManager: NSObject {
     weak var delegate: HistoryControlManagerDelegate?
     
 // MARK: - outlet object
-    var tableView:UITableView?
-    
-    var viewModel:HistoryViewModel?
+    private var tableView:UITableView?
+    private var viewModel:HistoryViewModel?
     
     override init() { super.init() }
     
@@ -67,11 +66,9 @@ extension HistoryControlManager {
         }
     }
     
-    // Set data
-    func setData(falData:[FalHistoryDataModel], selectedFalId: String? = nil) {
-        viewModel?.setData(falData: falData, selectedFalId: selectedFalId)
+    func callService() {
+        viewModel?.callFuncToGetEmpData()
     }
-    
     // loading display
     func loadingUI() {
         viewModel?.setLoading()
@@ -153,5 +150,12 @@ extension HistoryControlManager {
             }
         }
         return nil
+    }
+}
+
+extension HistoryControlManager: HistoryViewModelDelegate {
+    func historyErrorMessage(errorMessage: String?) {
+        guard let message = errorMessage else { return }
+        //infoMessage(message: message, buttonTitle: "Tamam") { }
     }
 }
