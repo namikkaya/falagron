@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: - Delegates
-protocol KYSpinnerButtonDelegate:class {
+protocol KYSpinnerButtonDelegate:AnyObject {
     func KYSpinnerButtonEvent(type: KYSpinnerButton.KYSpinnerButtonStatusType)
 }
 extension KYSpinnerButtonDelegate {

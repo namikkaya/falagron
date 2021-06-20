@@ -14,6 +14,7 @@ let usersInfo:String = "usersInfo"
 let userViewedFal:String = "falViewedByUser"
 let userFalList:String = "falList"
 let falInfo:String = "falInfo"
+let timeCheckInfo:String = "timeCheckInfo"
 
 let falText:String = "falText"
 
@@ -71,7 +72,7 @@ let lastNameKey:String               = "lastName"
 let birthDayKey:String               = "birthDay"
 let loveKey:String                   = "iliskiDurumu"
 let sexKey:String                    = "sex"
-let workKey:String                   = "work"
+let workKey:String                   = "kariyer"
 
 enum RegisterTableViewCellType {
     case text
@@ -90,7 +91,9 @@ struct UserModel {
     var kariyer:WorkStatus?
     var iliskiDurumu:LoveStatus?
     
-    init(json: [String: Any]) {
+    var documentId:String?
+    
+    init(json: [String: Any], documentId:String? = nil) {
         if let name = json[userNameKey] as? String {
             self.userName = name
         }
@@ -111,6 +114,9 @@ struct UserModel {
         }
         if let work = json[workKey] as? [String:Any] {
             self.kariyer = WorkStatus(json: work)
+        }
+        if let documentId = documentId {
+            self.documentId = documentId
         }
     }
 }

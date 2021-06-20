@@ -9,7 +9,6 @@
 import UIKit
 
 class DataHolder: NSObject {
-   
     static let shared: DataHolder = {
         let instance = DataHolder()
         return instance

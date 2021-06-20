@@ -121,6 +121,14 @@ class RegisterViewController: AuthenticationBaseViewController {
         }
     }
     
+    deinit {
+        deStroy()
+    }
+    
+    private func deStroy(){
+        print("XYZ: \(self.className) destroy")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -165,13 +173,11 @@ class RegisterViewController: AuthenticationBaseViewController {
             if let email = sendingUserData[emailKey] as? String, let password = sendingUserData[passwordKey] as? String {
                 sendingUserData[passwordKey] = ""
                 self.tableView.isUserInteractionEnabled = false
-                self.showUniversalLoadingView(true, loadingText: "Lütfen bekleyin.")
                 FirebaseManager.shared.newUser(email: email, password: password, data: sendingUserData) { [weak self] (status:Bool, message:String?) in
                     guard let self = self else { return }
                     self.registerButton.setStatus = .normal
                     if status {
                         self.infoMessage(message: "Tebrikler üyeliğiniz başladı.", buttonTitle: "Tamam") {
-                            self.showUniversalLoadingView(false)
                             self.dismiss(animated: true, completion: nil)
                         }
                     }else {

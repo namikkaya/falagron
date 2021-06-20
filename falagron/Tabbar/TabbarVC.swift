@@ -65,8 +65,10 @@ extension TabbarVC {
 extension TabbarVC {
     private func setupTabbar() {
         if let mainNC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainNC") as? MainNC,
-           let historyNC = UIStoryboard(name: "History", bundle: nil).instantiateViewController(withIdentifier: "HistoryNC") as? HistoryNC {
-            self.viewControllers = [mainNC, historyNC]
+           let historyNC = UIStoryboard(name: "History", bundle: nil).instantiateViewController(withIdentifier: "HistoryNC") as? HistoryNC,
+           let profileNC = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "ProfileNC") as? ProfileNC,
+           let purchaseNC = UIStoryboard(name: "Purchase", bundle: nil).instantiateViewController(withIdentifier: "PurchaseNC") as? PurchaseNC {
+            self.viewControllers = [mainNC, historyNC, purchaseNC, profileNC]
         }
     }
     

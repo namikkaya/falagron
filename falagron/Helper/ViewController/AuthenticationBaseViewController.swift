@@ -8,16 +8,26 @@
 
 import UIKit
 
-class AuthenticationBaseViewController: BaseViewController {
+class AuthenticationBaseViewController: BaseFirebaseController {
     internal var selfNC: AuthenticationNC?
+    
+    private var tap:UITapGestureRecognizer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let selfNC = self.navigationController as? AuthenticationNC {
             self.selfNC = selfNC
         }
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
-        self.view.addGestureRecognizer(tap)
+        tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        self.view.addGestureRecognizer(tap!)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if tap != nil {
+            self.view.removeGestureRecognizer(tap!)
+        }
+        self.selfNC = nil
     }
 
 }

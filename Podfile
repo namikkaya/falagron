@@ -10,6 +10,8 @@ target 'falagron' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
+  pod 'SwiftyStoreKit'
+  pod 'Alamofire', '~> 5.4'
 
 
   target 'falagronTests' do

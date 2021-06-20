@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MenuFooterViewDelegate:class {
+protocol MenuFooterViewDelegate:AnyObject {
     func logoutButtonEvent()
 }
 

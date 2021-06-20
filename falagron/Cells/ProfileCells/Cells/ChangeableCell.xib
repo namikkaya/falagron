@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="330" id="KGk-i7-Jjw" customClass="ChangeableCell" customModule="falagron" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="330"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="330"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CLx-tH-o3t">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="322"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0q7-an-eVn">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İsim" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CSg-VW-GOf">
+                                        <rect key="frame" x="20" y="0.0" width="280" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="pu8-rm-rlr"/>
+                                        </constraints>
+                                        <color key="textColor" name="darkPurple"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" textContentType="honorifix-prefix"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                <color key="value" name="defaultPurpleHolder"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="CSg-VW-GOf" secondAttribute="trailing" constant="20" id="1OL-Ri-W9F"/>
+                                    <constraint firstItem="CSg-VW-GOf" firstAttribute="leading" secondItem="0q7-an-eVn" secondAttribute="leading" constant="20" id="LXn-zC-oQe"/>
+                                    <constraint firstAttribute="height" constant="47" id="f2f-F4-OgA"/>
+                                    <constraint firstItem="CSg-VW-GOf" firstAttribute="top" secondItem="0q7-an-eVn" secondAttribute="top" id="qWX-dS-g8T"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OdJ-Jp-5gd">
+                                <rect key="frame" x="0.0" y="55" width="320" height="47"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Soyisim" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xaZ-Q0-r4M">
+                                        <rect key="frame" x="20" y="0.0" width="280" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="jRJ-j4-bav"/>
+                                        </constraints>
+                                        <color key="textColor" name="darkPurple"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" textContentType="family-name"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                <color key="value" name="defaultPurpleHolder"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="xaZ-Q0-r4M" firstAttribute="leading" secondItem="OdJ-Jp-5gd" secondAttribute="leading" constant="20" id="DOp-gV-q3k"/>
+                                    <constraint firstItem="xaZ-Q0-r4M" firstAttribute="top" secondItem="OdJ-Jp-5gd" secondAttribute="top" id="L5j-c1-X7I"/>
+                                    <constraint firstAttribute="trailing" secondItem="xaZ-Q0-r4M" secondAttribute="trailing" constant="20" id="tBV-E2-tCI"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NIQ-Sr-N6w">
+                                <rect key="frame" x="0.0" y="110" width="320" height="47"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Doğum Günü" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sYT-mT-s6u">
+                                        <rect key="frame" x="20" y="0.0" width="280" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="x4K-R4-4Gs"/>
+                                        </constraints>
+                                        <color key="textColor" name="darkPurple"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" textContentType="email"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                <color key="value" name="defaultPurpleHolder"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="sYT-mT-s6u" firstAttribute="leading" secondItem="NIQ-Sr-N6w" secondAttribute="leading" constant="20" id="RzM-H5-qMS"/>
+                                    <constraint firstAttribute="trailing" secondItem="sYT-mT-s6u" secondAttribute="trailing" constant="20" id="dk2-Fj-yan"/>
+                                    <constraint firstItem="sYT-mT-s6u" firstAttribute="top" secondItem="NIQ-Sr-N6w" secondAttribute="top" id="khm-1j-TYb"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hfj-sQ-Vyl">
+                                <rect key="frame" x="0.0" y="165" width="320" height="47"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İlişki Durumu" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="a9L-A8-uq9">
+                                        <rect key="frame" x="20" y="0.0" width="280" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="xUC-kI-l7u"/>
+                                        </constraints>
+                                        <color key="textColor" name="darkPurple"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                <color key="value" name="defaultPurpleHolder"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="a9L-A8-uq9" secondAttribute="trailing" constant="20" id="AcG-Tz-NJJ"/>
+                                    <constraint firstItem="a9L-A8-uq9" firstAttribute="top" secondItem="Hfj-sQ-Vyl" secondAttribute="top" id="Zjp-vs-V9x"/>
+                                    <constraint firstItem="a9L-A8-uq9" firstAttribute="leading" secondItem="Hfj-sQ-Vyl" secondAttribute="leading" constant="20" id="h5v-Ls-And"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Kf-Mc-5yg">
+                                <rect key="frame" x="0.0" y="220" width="320" height="47"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cinsiyet" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YnP-fe-p3O">
+                                        <rect key="frame" x="20" y="0.0" width="280" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="pn7-Ad-APC"/>
+                                        </constraints>
+                                        <color key="textColor" name="darkPurple"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                <color key="value" name="defaultPurpleHolder"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="YnP-fe-p3O" secondAttribute="trailing" constant="20" id="Sj1-u7-Mfg"/>
+                                    <constraint firstItem="YnP-fe-p3O" firstAttribute="top" secondItem="4Kf-Mc-5yg" secondAttribute="top" id="hVa-8H-Sim"/>
+                                    <constraint firstItem="YnP-fe-p3O" firstAttribute="leading" secondItem="4Kf-Mc-5yg" secondAttribute="leading" constant="20" id="uv6-to-Ggj"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mAG-G9-Nvj">
+                                <rect key="frame" x="0.0" y="275" width="320" height="47"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İş Durumu" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="O1v-oq-K1d">
+                                        <rect key="frame" x="20" y="0.0" width="280" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="gUb-Oj-cFc"/>
+                                        </constraints>
+                                        <color key="textColor" name="darkPurple"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                <color key="value" name="defaultPurpleHolder"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="O1v-oq-K1d" secondAttribute="trailing" constant="20" id="D0g-uh-1eF"/>
+                                    <constraint firstItem="O1v-oq-K1d" firstAttribute="leading" secondItem="mAG-G9-Nvj" secondAttribute="leading" constant="20" id="mQH-ei-SF3"/>
+                                    <constraint firstItem="O1v-oq-K1d" firstAttribute="top" secondItem="mAG-G9-Nvj" secondAttribute="top" id="okq-aC-PoX"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="CLx-tH-o3t" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="AKY-96-uQI"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="CLx-tH-o3t" secondAttribute="bottom" id="AhE-Zp-ZNJ"/>
+                    <constraint firstAttribute="trailing" secondItem="CLx-tH-o3t" secondAttribute="trailing" id="EQ8-J5-0UX"/>
+                    <constraint firstItem="CLx-tH-o3t" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="N5v-Q6-SKf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="birthDayField" destination="sYT-mT-s6u" id="Q0b-aa-ThH"/>
+                <outlet property="genderField" destination="YnP-fe-p3O" id="Cjw-pN-1EH"/>
+                <outlet property="iliskiDurumuField" destination="a9L-A8-uq9" id="Xay-Cf-wLO"/>
+                <outlet property="nameField" destination="CSg-VW-GOf" id="teh-Xg-nZU"/>
+                <outlet property="surNameField" destination="xaZ-Q0-r4M" id="qTx-8E-jnL"/>
+                <outlet property="workField" destination="O1v-oq-K1d" id="TLz-L2-loB"/>
+            </connections>
+            <point key="canvasLocation" x="-428.98550724637687" y="14.0625"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="darkPurple">
+            <color red="0.16899999976158142" green="0.10199999809265137" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="defaultPurpleHolder">
+            <color red="0.87800002098083496" green="0.86299997568130493" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol LoginWriteEmailPasswordCellDelegate: class {
+protocol LoginWriteEmailPasswordCellDelegate: AnyObject {
     func loginInfoData(email:String, password:String, rePassword:String)
 }
 

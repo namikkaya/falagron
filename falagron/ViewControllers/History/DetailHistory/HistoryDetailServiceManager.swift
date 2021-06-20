@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-protocol HistoryDetailServiceManagerDelegate:class {
+protocol HistoryDetailServiceManagerDelegate:AnyObject{
     func callServiceResponse(stringData: String?)
 }
 

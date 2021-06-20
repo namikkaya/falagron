@@ -40,17 +40,16 @@ class LoginViewController: AuthenticationBaseViewController {
         self.setNavigationBarTitle(titleText: "Giriş")
     }
     
-    // user login and logout
     override func userAuthStatusChange(status: FirebaseManager.FBAuthStatus) {
         super.userAuthStatusChange(status: status)
-        switch status {
-        case .singIn:
-            print("\(self.className) - Login")
-            break
-        case .singOut:
-            print("\(self.className) - LogOut")
-            break
-        }
+    }
+    
+    func destory() {
+        print("XYZ deinit destroy ")
+    }
+    
+    deinit {
+        print("XYZ deinit deStroy")
     }
     
     override func viewWillAppear(_ animated: Bool) {

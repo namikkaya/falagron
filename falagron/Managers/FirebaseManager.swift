@@ -14,6 +14,11 @@ import FirebaseCore
 import FirebaseFirestoreSwift
 
 class FirebaseManager: NSObject{
+    
+    enum CheckTimeType {
+        case localTimeControl, notificationTimeControl, dailyTimeControl
+    }
+    
     static let shared = FirebaseManager()
     
     private var handle: AuthStateDidChangeListenerHandle?
@@ -30,6 +35,16 @@ class FirebaseManager: NSObject{
     
     var userViewedFalList:[String] = []
     
+    var tryCheckCount:Int = 0
+    
+    var timer: Timer?
+    
+    var localTimerDate:Date?
+    var firebaseDailyDate:Date?
+    var firebaseDailyStatus:Bool?
+    var serverTime:Date?
+    
+    var group:DispatchGroup?
     
     override init() {
         super.init()
@@ -42,6 +57,13 @@ class FirebaseManager: NSObject{
         
         addFirebaseListener()
         checkUser()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: NSNotification.Name.FALAGRON.BecomeActive, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.FALAGRON.BecomeActive, object: nil)
+        clearTimer()
     }
 }
 
@@ -61,9 +83,14 @@ extension FirebaseManager {
             if let user = user {
                 self?.user = user
                 self?.authStatus = .singIn
+                self?.clearTimer()
+                guard let self = self else { return }
+                self.timerForCheckDaily()
+                self.timer = Timer.scheduledTimer(timeInterval: 60 * 10, target: self, selector: #selector(self.timerForCheckDaily), userInfo: nil, repeats: true)
             }else {
                 self?.user = nil
                 self?.authStatus = .singOut
+                self?.clearTimer()
             }
             NotificationCenter.default.post(name: NSNotification.Name.FALAGRON.AuthChangeStatus, object: self, userInfo: userInfo)
         }
@@ -119,10 +146,25 @@ extension FirebaseManager {
             self.authStatus = .singIn
             guard self.userInfoData == nil else { return }
             if let uid = self.user?.uid {
-                getUserData(userId: uid)
+                getUserData(userId: uid) { [weak self] user, error in
+                    if error == nil {
+                        self?.dailyTimeControl { status, model, errorMessage in
+                            if status {
+                                print("XYZ: checkUser: dailyTimeControl-> dailyTime: \(model?.created)")
+                            }else {
+                                print("XYZ: checkUser: dailyTimeControl-> Hata: \(errorMessage)")
+                            }
+                        }
+                    }else {
+                        // Hata mesajı göster...
+                        // Kullanıcı bilgileri çekilemedi.
+                        self?.authStatus = .singOut
+                        self?.user = nil
+                        self?.userInfoData = nil
+                    }
+                }
             }
         } else {
-            self.user = nil
             self.authStatus = .singOut
             self.user = nil
             self.userInfoData = nil
@@ -152,11 +194,23 @@ extension FirebaseManager {
             }
             
             if let jsonData = snap.documents.first?.data() {
-                self.userInfoData = UserModel(json: jsonData)
+                self.userInfoData = UserModel(json: jsonData, documentId: snap.documents.first?.documentID)
                 self.getUserViewedFal()
                 completion(self.userInfoData, nil)
             }
         }
+    }
+    
+    func updateUserData(userDocumentId: String, data: [String : Any], completion: @escaping  (_ status:Bool, _ error:Error?) -> () = {_, _ in}) {
+        let refQuery = db.collection(fbUserInformation).document(userDocumentId)
+        refQuery.updateData(data) { error in
+            if let error = error {
+                completion(false, error)
+            }else {
+                completion(true, nil)
+            }
+        }
+        
     }
 }
 
@@ -422,6 +476,7 @@ extension FirebaseManager {
             }else {
                 //completion(true, "Kullanıcı başarılı ile oluşturuldu.")
                 self.setViewedFal(falIdList: falIdList)
+                self.updateUserDailyServerTime(userId: self.user?.uid ?? "", status: false)
             }
         }
     }
@@ -486,4 +541,245 @@ extension FirebaseManager {
         }
     }
     
+}
+
+extension FirebaseManager {
+    func resetPassword(email:String?, completion: @escaping (_ status:Bool, _ errorMessage: String?) -> () = {_, _ in}) {
+        guard let email = email else {
+            completion(false, "E-posta adresinde bir hata var. Lütfen tekrar kontrol ediniz.")
+            return
+        }
+        Auth.auth().sendPasswordReset(withEmail: email) { (error:Error?) in
+            if let error = error {
+                completion(false, error.localizedDescription)
+            }else {
+                completion(true,nil)
+            }
+        }
+    }
+}
+
+extension FirebaseManager {
+    func  getUserFirebaseDailyTime(userId:String, completion: @escaping (_ status:Bool, _ timeModel:TimeModel?, _ errorMessage: String?) -> () = {_, _,_  in}) {
+        db.collection(timeCheckInfo).whereField("userId", isEqualTo: userId).getDocuments { [weak self] snapShot, error in
+            guard let snapShot = snapShot else {
+                //completion(false, nil, "Bir hata oluştu")
+                completion(false, nil, error.debugDescription)
+                return
+            }
+            if snapShot.documents.count > 0 {
+                snapShot.documents.forEach { item in
+                    let timeModel = TimeModel(json: item.data())
+                    print("XYZ: getUserFirebaseDailyTime -> timeModel alındı \(timeModel.created)")
+                    completion(true, timeModel, nil)
+                }
+            }else {
+                // daha önce hiç yazılmadı ise ilk yazıldığı an statu true gider. Günlük falı kullanabilir.
+                self?.setUserDailyServerTime(userId: userId, status: true) { authStatus, errorMessage in
+                    if authStatus {
+                        // daily güncelle.
+                        self?.tryCheckCount = 0
+                        self?.getUserFirebaseDailyTime(userId: userId, completion: completion)
+                        return
+                    }else {
+                        if (self?.tryCheckCount ?? 3) >= 3 {
+                            completion(false, nil, "Bir hata oluştu. Bu işlemi gerçekleştiremiyoruz lütfen daha sonra tekrar deneyiniz.")
+                            self?.tryCheckCount = 0
+                            return
+                        }
+                        self?.getUserFirebaseDailyTime(userId: userId, completion: completion)
+                        self?.tryCheckCount += 1
+                    }
+                }
+                
+            }
+        }
+    }
+    
+    
+    func setUserDailyServerTime(userId:String, status: Bool = false, completion: @escaping (_ status:Bool, _ errorMessage: String?) -> () = {_, _  in}) {
+        var newData:[String: Any?] = [:]
+        newData["userId"] = userId
+        newData["status"] = status
+        newData["created"] = FieldValue.serverTimestamp()
+        
+        db.collection(timeCheckInfo).document(userId).setData(newData as [String : Any]) { error in
+            if error == nil {
+                completion(true, nil)
+            }else {
+                completion(false, error?.localizedDescription)
+            }
+        }
+    }
+    
+    func updateUserDailyServerTime(userId:String, status: Bool, completion: @escaping (_ status:Bool, _ errorMessage: String?) -> () = {_, _  in}) {
+        var newData:[String: Any] = [:]
+        newData["status"] = status
+        newData["created"] = FieldValue.serverTimestamp()
+        
+        db.collection(timeCheckInfo).document(userId).updateData(newData) { error in
+            if error == nil {
+                completion(true, nil)
+            }else {
+                completion(false, error?.localizedDescription)
+            }
+        }
+    }
+}
+
+import Alamofire
+extension FirebaseManager {
+    private func dailyTimeControl(completion: @escaping (_ status:Bool, _ timeModel:TimeModel?, _ errorMessage: String?) -> () = {_ , _ , _ in}) {
+        if self.authStatus == .singIn {
+            if group != nil {
+                group = nil
+            }
+            
+            group = DispatchGroup()
+            
+            group?.enter()
+            fetchApiServerTime { [weak self] status, serverDate, message in
+                if status {
+                    self?.serverTime = serverDate
+                    print("XYZ: dailyTimeControl fetchApiServerTime -> get: \(serverDate)")
+                }else {
+                    self?.serverTime = nil
+                }
+                self?.group?.leave()
+            }
+            
+            group?.enter()
+            getUserFirebaseDailyTime(userId: self.user?.uid ?? "") { [weak self] status, timeModel, errMessage in
+                if status {
+                    self?.firebaseDailyDate = timeModel?.created?.dateValue()
+                    print("XYZ: dailyTimeControl getUserFirebaseDailyTime -> get: \(self?.firebaseDailyDate)")
+                    self?.firebaseDailyStatus = timeModel?.status
+                }else {
+                    self?.firebaseDailyDate = nil
+                    self?.firebaseDailyStatus = nil
+                }
+                self?.group?.leave()
+            }
+            serviceNotify()
+        }
+    }
+    
+    private func serviceNotify() {
+        group?.notify(queue: DispatchQueue.global()) { [weak self] in
+            
+            print("XYZ: serviceNotify serverTime: \(self?.serverTime)")
+            print("XYZ: serviceNotify fbDailyDate: \(self?.firebaseDailyDate)")
+            print("XYZ: serviceNotify fbDailyStatus: \(self?.firebaseDailyStatus)")
+            
+            if let serverTime = self?.serverTime, let fbDailyDate = self?.firebaseDailyDate, let fbDailyStatus = self?.firebaseDailyStatus {
+                print("XYZ: serviceNotify Data lar alındı")
+                
+                if !fbDailyStatus {
+                    // günlük fal kullanılmış daha önce. Zaman kontrolü yapılması gerekiyor.
+                    let diffTime = serverTime - fbDailyDate
+                    print("XYZ: serviceNotify: günlük fal için gün farkı: \(diffTime)")
+                    if self?.checkDiffTime(type: diffTime, checkType: .dailyTimeControl) ?? false {
+                        // 24 saatlik zaman dolmuş firabase alanının güncellenmesi gerekiyor.
+                        print("XYZ: serviceNotify daha önce yazılmış data var ve işler olumlu status TRUE olmalı")
+                        self?.updateUserDailyServerTime(userId: self?.user?.uid ?? "", status: true, completion: { status, errorMessage in
+                            if status {
+                                print("XYZ: serviceNotify daily değiştirildi---------->")
+                            }else {
+                                print("XYZ: serviceNotify daily değiştirilemedi HATA: \(errorMessage)")
+                            }
+                        })
+                    }else {
+                        // henüz zaman dolmadığı için açılamaz.
+                        
+                    }
+                }
+                
+            }else {
+                print("XYZ: serviceNotify HATA: -----")
+            }
+            
+            self?.group = nil
+        }
+    }
+    
+}
+
+
+extension FirebaseManager {
+    
+    @objc func didBecomeActive() {
+        // Zaman kontrolü için
+        timerForCheckDaily()
+    }
+    
+    @objc func timerForCheckDaily(){
+        print("XYZ: timerForCheckDaily: start()")
+        if let date = localTimerDate {
+            if checkDiffTime(type: Date() - date, checkType: .localTimeControl) {
+                dailyTimeControl { status, model, errorMessage in
+                    if status {
+                        print("XYZ: timerForCheckDaily: dailyTimeControl-> dailyTime: \(model?.created)")
+                    }else {
+                        print("XYZ: timerForCheckDaily: dailyTimeControl-> Hata: \(errorMessage)")
+                    }
+                }
+                localTimerDate = Date()
+            }
+        }else {
+            localTimerDate = Date()
+            print("XYZ: timerForCheckDaily: ilk kez yazıldı: \(Date())")
+        }
+        
+    }
+    
+    private func clearTimer() {
+        if self.timer != nil {
+            self.timer?.invalidate()
+            self.timer = nil
+        }
+    }
+    
+    private func checkDiffTime(type: (month: Int?, day: Int?, hour: Int?, minute: Int?, second: Int?), checkType: CheckTimeType = .localTimeControl) -> Bool {
+        switch checkType {
+        case .localTimeControl:
+            if type.month ?? 0 >= 0 &&
+                type.day ?? 0 >= 0 &&
+                type.hour ?? 0 >= 0 &&
+                type.minute ?? 0 >= 0 &&
+                type.second ?? 0 >= 59 {
+                return true
+            }else {
+                return false
+            }
+        case .dailyTimeControl:
+            if type.month ?? 0 >= 0 &&
+                type.day ?? 0 >= 0 &&
+                type.hour ?? 0 >= 24{
+                return true
+            }else {
+                return false
+            }
+        default: return false
+        }
+    }
+}
+
+
+extension FirebaseManager {
+    private func fetchApiServerTime(completion: @escaping (_ status:Bool, _ date: Date?, _ errorMessage: String?) -> () = {_, _, _  in}) {
+        let request = AF.request("http://worldtimeapi.org/api/timezone/Europe/Istanbul")
+        request.responseJSON { [weak self] (data) in
+            if let data = data.value as? NSDictionary {
+                if let datetime = data.value(forKey: "datetime") as? String {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS+HH:ss"
+                    let date = dateFormatter.date(from:datetime)
+                    completion(true, date, nil)
+                }else {
+                    completion(false, nil, "Bir hata oluştu!")
+                }
+            }
+        }
+    }
 }

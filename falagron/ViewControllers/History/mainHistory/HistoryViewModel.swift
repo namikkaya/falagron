@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol HistoryViewModelDelegate:class {
+protocol HistoryViewModelDelegate:AnyObject {
     func historyErrorMessage(errorMessage: String?)
 }
 

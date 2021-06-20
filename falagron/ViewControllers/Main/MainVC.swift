@@ -50,6 +50,7 @@ class MainVC: BaseViewController {
         super.viewDidAppear(animated)
         viewModel.updateUI()
         
+        //FirebaseManager.shared.checkTime()
         
         
         //setViewedFalIds(setIds: ["3"])
@@ -94,7 +95,6 @@ class MainVC: BaseViewController {
             }
         }
         */
-        
         
     }
     
@@ -191,7 +191,6 @@ extension MainVC: MainViewManagerDelegate {
         case .didPurchaseEventTrigger(let purchaseType):
             purchaseEvent(type: purchaseType)
             break
-        default: break
         }
     }
 }

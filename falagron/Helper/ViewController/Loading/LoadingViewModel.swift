@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol LoadingViewModelDelegate:class {
+protocol LoadingViewModelDelegate:AnyObject {
     func stopFinishComplete()
     func startFinishComplete()
 }

@@ -30,12 +30,12 @@ struct ArrayModel {
     }
 }
 
-fileprivate var loveStatus:[ArrayModel] = [ ArrayModel(key: iliskiDurumu_IliskisiVar, value: "İlişkisi Var"),
-                                                 ArrayModel(key: iliskiDurumu_IliskisiYok, value: "İlişkisi Yok"),
-                                                 ArrayModel(key: iliskiDurumu_YeniAyrilmis, value: "Yeni Ayrılmış"),
-                                                 ArrayModel(key: iliskiDurumu_Evli, value: "Evli"),
-                                                 ArrayModel(key: iliskiDurumu_Nisanli, value: "Nişanlı"),
-                                                 ArrayModel(key: iliskiDurumu_YeniBosanmis, value: "Yeni Boşanmış") ]
+fileprivate var loveStatus:[ArrayModel] = [ArrayModel(key: iliskiDurumu_IliskisiVar, value: "İlişkisi Var"),
+                                           ArrayModel(key: iliskiDurumu_IliskisiYok, value: "İlişkisi Yok"),
+                                           ArrayModel(key: iliskiDurumu_YeniAyrilmis, value: "Yeni Ayrılmış"),
+                                           ArrayModel(key: iliskiDurumu_Evli, value: "Evli"),
+                                           ArrayModel(key: iliskiDurumu_Nisanli, value: "Nişanlı"),
+                                           ArrayModel(key: iliskiDurumu_YeniBosanmis, value: "Yeni Boşanmış") ]
 
 fileprivate var sexStatus:[ArrayModel] = [ArrayModel(key: userGenderFemale, value: "Kadın"),
                                           ArrayModel(key: userGenderMale, value: "Erkek"),
@@ -181,6 +181,25 @@ struct PurchaseLove: Codable {
         return dictionary as NSDictionary
     }
 }
+
+struct TimeModel: Codable {
+    var created:Timestamp?
+    var status:Bool?
+    var userId:String?
+    init(json: [String: Any]) {
+        if let created = json["created"] as? Timestamp {
+            self.created = created
+        }
+        if let userId = json["userId"] as? String {
+            self.userId = userId
+        }
+       
+        if let status = json["status"] as? Bool {
+            self.status = status
+        }
+    }
+}
+
 
 extension QueryDocumentSnapshot {
    func prepareForDecoding() -> [String: Any] {

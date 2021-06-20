@@ -47,10 +47,6 @@ class BaseViewController: UIViewController {
         panGestureReconizer = nil
     }
     
-    deinit {
-        print("XYZ: base view de init")
-    }
-    
     func userAuthStatusChange(status:FirebaseManager.FBAuthStatus) {
         if status == .singIn {
             if let reconizer = self.revealViewController()?.panGestureRecognizer() {

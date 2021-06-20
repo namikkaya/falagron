@@ -55,16 +55,3 @@ extension NotificationsVC {
         return leftMenuButton
     }
 }
-
-extension NotificationsVC {
-    private func createData() {
-        var rowType: [RowType] = []
-        for i in 0..<15 {
-            //let model = FalHistoryDataModel(date: Date(), falId: "123456", isPurchase: ((i%1) != 0) ? true : false)
-            let model = NotificationModel(date: Date(), type: "FAL", message: "Falınız geldi hanım", title: "Falagron", navigationBody: "history/1234")
-            rowType.append(.historyCell(data: model))
-        }
-        //historyList.append(.historySection(rowTypeList: rowType))
-        //tableView.reloadData()
-    }
-}

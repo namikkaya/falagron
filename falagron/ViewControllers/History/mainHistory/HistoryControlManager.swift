@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol HistoryControlManagerDelegate:class {
+protocol HistoryControlManagerDelegate:AnyObject {
     func historyCommonTypeTrigger(type: HistoryNC.CommonHistoryType)
 }
 

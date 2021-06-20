@@ -7,7 +7,7 @@
 //
 
 import UIKit
-protocol MainViewManagerDelegate: class {
+protocol MainViewManagerDelegate: AnyObject {
     func didEventTypeTrigger(type: MainViewManager.EventType)
 }
 
